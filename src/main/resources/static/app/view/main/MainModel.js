@@ -1,6 +1,6 @@
 Ext.define('DF.view.main.MainModel', {
 	extend: 'Ext.app.ViewModel',
-	requires: ['DF.view.main.AddressBaseStore', 'DF.model.AddressWithMapping'],
+	requires: [ 'DF.view.main.AddressBaseStore', 'DF.model.AddressWithMapping' ],
 
 	stores: {
 		addressesJSON: {
@@ -13,9 +13,9 @@ Ext.define('DF.view.main.MainModel', {
 				}
 			}
 		},
-		addressesJSONARRAY: {			
+		addressesJSONARRAY: {
 			xclass: 'DF.view.main.AddressBaseStore',
-			model: 'DF.model.AddressWithMapping',			
+			model: 'DF.model.AddressWithMapping',
 			proxy: {
 				type: 'ajax',
 				url: 'addressesArray.json',
@@ -59,7 +59,7 @@ Ext.define('DF.view.main.MainModel', {
 					xclass: 'DF.data.reader.CborArray'
 				}
 			}
-		},		
+		},
 		addressesMSGPACK: {
 			xclass: 'DF.view.main.AddressBaseStore',
 			proxy: {
@@ -70,7 +70,7 @@ Ext.define('DF.view.main.MainModel', {
 					xclass: 'DF.data.reader.Msgpack'
 				}
 			}
-		},		
+		},
 		addressesMSGPACKARRAY: {
 			xclass: 'DF.view.main.AddressBaseStore',
 			model: 'DF.model.AddressWithMapping',
@@ -92,24 +92,47 @@ Ext.define('DF.view.main.MainModel', {
 					xclass: 'DF.data.reader.Csv'
 				}
 			}
-		},	
+		},
 		results: {
-			 fields: ['format', 'uncompressed', 'compressed', {
-				 name: 'compressionSave',
-			     calculate: function (data) {
-			         return 100 - (data.compressed * 100 / data.uncompressed);
-			     }
-			 } ],
-	            data: [
-	                { format: 'XML', uncompressed: 297696, compressed: 77689 },
-	                { format: 'JSON', uncompressed: 232557, compressed: 73923 },
-	                { format: 'JSON Array', uncompressed: 146475, compressed: 65966 },
-	                { format: 'CBOR', uncompressed: 185537, compressed: 75035 },
-	                { format: 'CBOR Array', uncompressed: 121478, compressed: 66013 },
-	                { format: 'MessagePack', uncompressed: 184052, compressed: 75666 },
-	                { format: 'MessagePack Array', uncompressed: 119994, compressed: 66411 },
-	                { format: 'CSV', uncompressed: 132873, compressed: 64246 }
-	            ]
+			fields: [ 'format', 'uncompressed', 'compressed', {
+				name: 'compressionSave',
+				calculate: function(data) {
+					return 100 - (data.compressed * 100 / data.uncompressed);
+				}
+			} ],
+			data: [ {
+				format: 'XML',
+				uncompressed: 297199,
+				compressed: 77144
+			}, {
+				format: 'JSON',
+				uncompressed: 232058,
+				compressed: 73376
+			}, {
+				format: 'JSON Array',
+				uncompressed: 145971,
+				compressed: 65414
+			}, {
+				format: 'CBOR',
+				uncompressed: 185038,
+				compressed: 74489
+			}, {
+				format: 'CBOR Array',
+				uncompressed: 120974,
+				compressed: 65462
+			}, {
+				format: 'MessagePack',
+				uncompressed: 183545,
+				compressed: 75111
+			}, {
+				format: 'MessagePack Array',
+				uncompressed: 119482,
+				compressed: 65851
+			}, {
+				format: 'CSV',
+				uncompressed: 132383,
+				compressed: 63709
+			} ]
 		}
 	}
 });
