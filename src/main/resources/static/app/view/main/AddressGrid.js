@@ -6,34 +6,34 @@ Ext.define('DF.view.main.AddressGrid', {
 		dataIndex: 'id'
 	}, {
 		text: 'Last Name',
-		dataIndex: 'lastName'		
+		dataIndex: 'lastName'
 	}, {
 		text: 'First Name',
-		dataIndex: 'firstName'		
+		dataIndex: 'firstName'
 	}, {
 		text: 'Street',
-		dataIndex: 'street'		
+		dataIndex: 'street'
 	}, {
 		text: 'Zip Code',
-		dataIndex: 'zip'		
+		dataIndex: 'zip'
 	}, {
 		text: 'City',
-		dataIndex: 'city'		
+		dataIndex: 'city'
 	}, {
 		text: 'Country',
-		dataIndex: 'country'		
+		dataIndex: 'country'
 	}, {
 		text: 'Latitude',
-		dataIndex: 'lat'		
+		dataIndex: 'lat'
 	}, {
 		text: 'Longitude',
-		dataIndex: 'lng'		
+		dataIndex: 'lng'
 	}, {
 		text: 'Email',
-		dataIndex: 'email'		
+		dataIndex: 'email'
 	}, {
 		text: 'Date of Birth',
-		dataIndex: 'dob'		
+		dataIndex: 'dob'
 	} ]
 
 });

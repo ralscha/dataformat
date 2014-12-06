@@ -1,7 +1,6 @@
 Ext.define('DF.view.main.Main', {
 	extend: 'Ext.tab.Panel',
-	requires: [ 'DF.view.main.MainController', 'DF.view.main.MainModel',
-			'DF.view.main.AddressGrid', 'DF.view.main.ResultPanel' ],
+	requires: [ 'DF.view.main.MainController', 'DF.view.main.MainModel', 'DF.view.main.AddressGrid', 'DF.view.main.ResultPanel' ],
 
 	controller: {
 		xclass: 'DF.view.main.MainController'
@@ -50,6 +49,6 @@ Ext.define('DF.view.main.Main', {
 	}, {
 		title: 'Result',
 		xclass: 'DF.view.main.ResultPanel'
-	}]
+	} ]
 
 });

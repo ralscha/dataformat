@@ -2,22 +2,22 @@ Ext.define('DF.view.main.ResultPanel', {
 	extend: 'Ext.panel.Panel',
 	layout: 'hbox',
 
-	items: [{
+	items: [ {
 		flex: 1,
 		xtype: 'cartesian',
-        width: '100%',
-        height: '100%',
+		width: '100%',
+		height: '100%',
 		bind: {
 			store: '{results}'
 		},
-	
+
 		insetPadding: {
 			top: 40,
 			left: 40,
 			right: 40,
 			bottom: 40
 		},
-	
+
 		axes: [ {
 			type: 'numeric',
 			position: 'left',
@@ -49,12 +49,8 @@ Ext.define('DF.view.main.ResultPanel', {
 			},
 			tooltip: {
 				renderer: function(storeItem, item) {
-					var c = item.series.getTitle()[Ext.Array.indexOf(item.series
-							.getYField(), item.field)];
-					this.setHtml(c
-							+ ': '
-							+ Ext.util.Format.number(storeItem.get(item.field),
-									'0,000') + ' bytes');
+					var c = item.series.getTitle()[Ext.Array.indexOf(item.series.getYField(), item.field)];
+					this.setHtml(c + ': ' + Ext.util.Format.number(storeItem.get(item.field), '0,000') + ' bytes');
 				}
 			}
 		} ]
@@ -88,19 +84,19 @@ Ext.define('DF.view.main.ResultPanel', {
 			renderer: Ext.util.Format.numberRenderer('0.00 %'),
 			hideable: false,
 			draggable: false
-		}],
-		
-		 listeners: {
-             selectionchange: function(model, records) {
-                 var record = records[0];
-                 var chart = this.up('panel').down('cartesian');
-                 var serie = chart.series[0];
-                 var store = serie.getStore();
-                 
-                 chart.setHighlightItem(serie.getItemByIndex(store.indexOf(record)));
-             }
-         }
-		
+		} ],
+
+		listeners: {
+			selectionchange: function(model, records) {
+				var record = records[0];
+				var chart = this.up('panel').down('cartesian');
+				var serie = chart.series[0];
+				var store = serie.getStore();
+
+				chart.setHighlightItem(serie.getItemByIndex(store.indexOf(record)));
+			}
+		}
+
 	} ]
 
 });

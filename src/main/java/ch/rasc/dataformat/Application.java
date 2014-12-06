@@ -25,6 +25,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @SpringBootApplication
 public class Application extends WebMvcConfigurerAdapter {
 
+	// -Dspring.profiles.active=compression
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
 	}
