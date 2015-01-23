@@ -43,11 +43,11 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 		Throwable cause = causeRef.get();
 		if (cause != null) {
 			String msg = "Failed to evaluate deserialization for type " + javaType;
-			if (logger.isDebugEnabled()) {
-				logger.warn(msg, cause);
+			if (this.logger.isDebugEnabled()) {
+				this.logger.warn(msg, cause);
 			}
 			else {
-				logger.warn(msg + ": " + cause);
+				this.logger.warn(msg + ": " + cause);
 			}
 		}
 		return false;
@@ -63,11 +63,11 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 		Throwable cause = causeRef.get();
 		if (cause != null) {
 			String msg = "Failed to evaluate serialization for type [" + clazz + "]";
-			if (logger.isDebugEnabled()) {
-				logger.warn(msg, cause);
+			if (this.logger.isDebugEnabled()) {
+				this.logger.warn(msg, cause);
 			}
 			else {
-				logger.warn(msg + ": " + cause);
+				this.logger.warn(msg + ": " + cause);
 			}
 		}
 		return false;
@@ -97,7 +97,7 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 
 	private Object readJavaType(JavaType javaType, HttpInputMessage inputMessage) {
 		try {
-			CsvSchema schema = csvMapper.schemaFor(javaType);
+			CsvSchema schema = this.csvMapper.schemaFor(javaType);
 			return this.csvMapper.reader(javaType).with(schema)
 					.readValue(inputMessage.getBody());
 		}
@@ -116,14 +116,15 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 			if (object instanceof Collection) {
 				Collection<?> collection = (Collection<?>) object;
 				if (!collection.isEmpty()) {
-					schema = csvMapper.schemaFor(collection.iterator().next().getClass());
+					schema = this.csvMapper.schemaFor(collection.iterator().next()
+							.getClass());
 				}
 				else {
-					schema = csvMapper.schemaFor(object.getClass());
+					schema = this.csvMapper.schemaFor(object.getClass());
 				}
 			}
 			else {
-				schema = csvMapper.schemaFor(object.getClass());
+				schema = this.csvMapper.schemaFor(object.getClass());
 			}
 			// schema = schema.withoutQuoteChar();
 

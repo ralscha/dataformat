@@ -25,49 +25,49 @@ public class AddressController {
 	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Address> getAddressesJson() {
-		return testData;
+		return this.testData;
 	}
 
 	@RequestMapping(value = "/addressesArray", method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Object[]> getAddressesJsonArray() {
-		return testData.stream().map(Address::toArray).collect(Collectors.toList());
+		return this.testData.stream().map(Address::toArray).collect(Collectors.toList());
 	}
 
 	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
 			produces = "application/cbor")
 	public List<Address> getAddressesCbor() {
-		return testData;
+		return this.testData;
 	}
 
 	@RequestMapping(value = "/addressesArray", method = RequestMethod.GET,
 			produces = "application/cbor")
 	public List<Object[]> getAddressesCborArray() {
-		return testData.stream().map(Address::toArray).collect(Collectors.toList());
+		return this.testData.stream().map(Address::toArray).collect(Collectors.toList());
 	}
 
 	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
 			produces = "application/x-msgpack")
 	public List<Map<String, Object>> getAddressesMsgpack() {
-		return testData.stream().map(Address::toMap).collect(Collectors.toList());
+		return this.testData.stream().map(Address::toMap).collect(Collectors.toList());
 	}
 
 	@RequestMapping(value = "/addressesArray", method = RequestMethod.GET,
 			produces = "application/x-msgpack")
 	public List<Address> getAddressesMsgpackArray() {
-		return testData;
+		return this.testData;
 	}
 
 	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
 			produces = MediaType.APPLICATION_XML_VALUE)
 	public Addresses getAddressesXml() {
-		return new Addresses(testData);
+		return new Addresses(this.testData);
 	}
 
 	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
 			produces = "text/csv")
 	public List<Address> getAddressesCsv() {
-		return testData;
+		return this.testData;
 	}
 
 }

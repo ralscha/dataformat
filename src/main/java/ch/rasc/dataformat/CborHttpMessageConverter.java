@@ -42,11 +42,11 @@ public class CborHttpMessageConverter extends AbstractHttpMessageConverter<Objec
 		Throwable cause = causeRef.get();
 		if (cause != null) {
 			String msg = "Failed to evaluate deserialization for type " + javaType;
-			if (logger.isDebugEnabled()) {
-				logger.warn(msg, cause);
+			if (this.logger.isDebugEnabled()) {
+				this.logger.warn(msg, cause);
 			}
 			else {
-				logger.warn(msg + ": " + cause);
+				this.logger.warn(msg + ": " + cause);
 			}
 		}
 		return false;
@@ -62,11 +62,11 @@ public class CborHttpMessageConverter extends AbstractHttpMessageConverter<Objec
 		Throwable cause = causeRef.get();
 		if (cause != null) {
 			String msg = "Failed to evaluate serialization for type [" + clazz + "]";
-			if (logger.isDebugEnabled()) {
-				logger.warn(msg, cause);
+			if (this.logger.isDebugEnabled()) {
+				this.logger.warn(msg, cause);
 			}
 			else {
-				logger.warn(msg + ": " + cause);
+				this.logger.warn(msg + ": " + cause);
 			}
 		}
 		return false;

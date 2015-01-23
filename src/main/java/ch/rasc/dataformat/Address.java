@@ -57,23 +57,24 @@ public class Address {
 	private LocalDate dob;
 
 	public Object[] toArray() {
-		return new Object[] { id, lastName, firstName, street, zip, city, country, lat,
-				lng, email, dob.toString() };
+		return new Object[] { this.id, this.lastName, this.firstName, this.street,
+				this.zip, this.city, this.country, this.lat, this.lng, this.email,
+				this.dob.toString() };
 	}
 
 	public Map<String, Object> toMap() {
 		Map<String, Object> map = new HashMap<>();
-		map.put("id", id);
-		map.put("lastName", lastName);
-		map.put("firstName", firstName);
-		map.put("street", street);
-		map.put("zip", zip);
-		map.put("city", city);
-		map.put("country", country);
-		map.put("lat", lat);
-		map.put("lng", lng);
-		map.put("email", email);
-		map.put("dob", dob.toString());
+		map.put("id", this.id);
+		map.put("lastName", this.lastName);
+		map.put("firstName", this.firstName);
+		map.put("street", this.street);
+		map.put("zip", this.zip);
+		map.put("city", this.city);
+		map.put("country", this.country);
+		map.put("lat", this.lat);
+		map.put("lng", this.lng);
+		map.put("email", this.email);
+		map.put("dob", this.dob.toString());
 		return map;
 	}
 
@@ -82,64 +83,64 @@ public class Address {
 
 	public Address(String line) {
 		String[] tokens = line.split(";");
-		id = Integer.parseInt(tokens[0]);
-		lastName = tokens[1];
-		firstName = tokens[2];
-		street = tokens[3];
-		zip = tokens[4];
-		city = tokens[5];
-		country = tokens[6];
+		this.id = Integer.parseInt(tokens[0]);
+		this.lastName = tokens[1];
+		this.firstName = tokens[2];
+		this.street = tokens[3];
+		this.zip = tokens[4];
+		this.city = tokens[5];
+		this.country = tokens[6];
 
 		String[] latlng = tokens[7].split(",");
-		lat = Float.parseFloat(latlng[0].trim());
-		lng = Float.parseFloat(latlng[1].trim());
+		this.lat = Float.parseFloat(latlng[0].trim());
+		this.lng = Float.parseFloat(latlng[1].trim());
 
-		email = tokens[8];
-		dob = LocalDate.parse(tokens[9], dobFormatter);
+		this.email = tokens[8];
+		this.dob = LocalDate.parse(tokens[9], dobFormatter);
 	}
 
 	public int getId() {
-		return id;
+		return this.id;
 	}
 
 	public String getLastName() {
-		return lastName;
+		return this.lastName;
 	}
 
 	public String getFirstName() {
-		return firstName;
+		return this.firstName;
 	}
 
 	public String getStreet() {
-		return street;
+		return this.street;
 	}
 
 	public String getZip() {
-		return zip;
+		return this.zip;
 	}
 
 	public String getCity() {
-		return city;
+		return this.city;
 	}
 
 	public String getCountry() {
-		return country;
+		return this.country;
 	}
 
 	public float getLat() {
-		return lat;
+		return this.lat;
 	}
 
 	public float getLng() {
-		return lng;
+		return this.lng;
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public LocalDate getDob() {
-		return dob;
+		return this.dob;
 	}
 
 }

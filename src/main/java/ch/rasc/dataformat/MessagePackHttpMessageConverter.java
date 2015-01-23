@@ -31,7 +31,7 @@ public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverte
 	@Override
 	public boolean canRead(Type type, Class<?> contextClass, MediaType mediaType) {
 		try {
-			return canRead(mediaType) && messagePack.lookup(type) != null;
+			return canRead(mediaType) && this.messagePack.lookup(type) != null;
 		}
 		catch (MessageTypeException ex) {
 			throw new HttpMessageNotReadableException("Could not read MessagePack: "
@@ -42,7 +42,7 @@ public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverte
 	@Override
 	public boolean canWrite(Class<?> clazz, MediaType mediaType) {
 		try {
-			return canWrite(mediaType) && messagePack.lookup(clazz) != null;
+			return canWrite(mediaType) && this.messagePack.lookup(clazz) != null;
 		}
 		catch (MessageTypeException ex) {
 			throw new HttpMessageNotWritableException("Could not write MessagePack: "
@@ -59,19 +59,19 @@ public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverte
 	@Override
 	protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage)
 			throws IOException, HttpMessageNotReadableException {
-		return messagePack.read(inputMessage.getBody(), clazz);
+		return this.messagePack.read(inputMessage.getBody(), clazz);
 	}
 
 	@Override
 	public Object read(Type type, Class<?> contextClass, HttpInputMessage inputMessage)
 			throws IOException, HttpMessageNotReadableException {
-		return messagePack.read(inputMessage.getBody(), type.getClass() /* ??? */);
+		return this.messagePack.read(inputMessage.getBody(), type.getClass() /* ??? */);
 	}
 
 	@Override
 	protected void writeInternal(Object object, HttpOutputMessage outputMessage)
 			throws IOException {
-		messagePack.write(outputMessage.getBody(), object);
+		this.messagePack.write(outputMessage.getBody(), object);
 	}
 
 }

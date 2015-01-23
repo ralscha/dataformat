@@ -16,7 +16,7 @@ public class Addresses {
 	}
 
 	public List<Address> getAddress() {
-		return address;
+		return this.address;
 	}
 
 	public void setAddress(List<Address> address) {
