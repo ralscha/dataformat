@@ -5,8 +5,8 @@
 
 	<prerequisites>
 		<maven>3.0.3</maven>
-	</prerequisites>	
-	
+	</prerequisites>
+
 	<groupId>ch.rasc</groupId>
 	<artifactId>dataformat</artifactId>
 	<version>1.0.0</version>
@@ -39,24 +39,17 @@
 			<scope>test</scope>
 		</dependency>
 
-		<!-- 	
-        <dependency>
-		    <groupId>com.fasterxml.jackson.datatype</groupId>
-		    <artifactId>jackson-datatype-jsr310</artifactId>
-		</dependency> 
-		-->
-
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-cbor</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-		
-        <dependency>
+
+		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-csv</artifactId>
 			<version>${jackson.version}</version>
-        </dependency>		
+		</dependency>
 
 		<dependency>
 			<groupId>org.msgpack</groupId>
@@ -72,7 +65,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>com.googlecode.jslint4java</groupId>
 				<artifactId>jslint4java-maven-plugin</artifactId>
@@ -108,7 +101,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin>			
+			</plugin>
 		</plugins>
 	</build>
 
@@ -116,6 +109,6 @@
 
 	</repositories>
 
-		
-	
+
+
 </project>
