@@ -98,7 +98,7 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 	private Object readJavaType(JavaType javaType, HttpInputMessage inputMessage) {
 		try {
 			CsvSchema schema = this.csvMapper.schemaFor(javaType);
-			return this.csvMapper.reader(javaType).with(schema)
+			return this.csvMapper.readerFor(javaType).with(schema)
 					.readValue(inputMessage.getBody());
 		}
 		catch (IOException ex) {
