@@ -95,43 +95,53 @@ Ext.define('DF.view.main.MainModel', {
 		},
 		results: {
 			fields: [ 'format', 'uncompressed', 'compressed', {
-				name: 'compressionSave',
+				name: 'spaceSavings',
 				calculate: function(data) {
 					return 100 - (data.compressed * 100 / data.uncompressed);
+				}
+			}, {
+				name: 'uncompressedComparison',
+				calculate: function(data) {
+					return data.uncompressed / 1114.48;
+				}
+			}, {
+				name: 'compressedComparison',
+				calculate: function(data) {
+					return data.compressed / 625.19;
 				}
 			} ],
 			data: [ {
 				format: 'XML',
-				uncompressed: 297199,
-				compressed: 77144
+				uncompressed: 291940,
+				compressed: 75970
 			}, {
 				format: 'JSON',
-				uncompressed: 232058,
-				compressed: 73376
+				uncompressed: 224798,
+				compressed: 72128
 			}, {
 				format: 'JSON Array',
-				uncompressed: 145971,
-				compressed: 65414
+				uncompressed: 138711,
+				compressed: 64007
 			}, {
 				format: 'CBOR',
-				uncompressed: 185038,
-				compressed: 74489
+				uncompressed: 176999,
+				compressed: 73416
 			}, {
 				format: 'CBOR Array',
-				uncompressed: 120974,
-				compressed: 65462
+				uncompressed: 112935,
+				compressed: 64408
 			}, {
 				format: 'MessagePack',
-				uncompressed: 183545,
-				compressed: 75111
+				uncompressed: 175511,
+				compressed: 74224
 			}, {
 				format: 'MessagePack Array',
-				uncompressed: 119482,
-				compressed: 65851
+				uncompressed: 111448,
+				compressed: 64746
 			}, {
 				format: 'CSV',
-				uncompressed: 132383,
-				compressed: 63709
+				uncompressed: 127124,
+				compressed: 62519
 			} ]
 		}
 	}

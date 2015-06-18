@@ -4,16 +4,16 @@ import java.time.LocalDate;
 
 import javax.xml.bind.annotation.adapters.XmlAdapter;
 
-public class LocalDateAdapter extends XmlAdapter<String, LocalDate> {
+public class LocalDateAdapter extends XmlAdapter<Integer, LocalDate> {
 
 	@Override
-	public LocalDate unmarshal(String v) throws Exception {
-		return LocalDate.parse(v);
+	public LocalDate unmarshal(Integer v) throws Exception {
+		return LocalDate.ofEpochDay(v);
 	}
 
 	@Override
-	public String marshal(LocalDate v) throws Exception {
-		return v.toString();
+	public Integer marshal(LocalDate v) throws Exception {
+		return (int)v.toEpochDay();
 	}
 
 }

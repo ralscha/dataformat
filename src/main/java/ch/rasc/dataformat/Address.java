@@ -59,7 +59,7 @@ public class Address {
 	public Object[] toArray() {
 		return new Object[] { this.id, this.lastName, this.firstName, this.street,
 				this.zip, this.city, this.country, this.lat, this.lng, this.email,
-				this.dob.toString() };
+				(int) this.dob.toEpochDay() };
 	}
 
 	public Map<String, Object> toMap() {
@@ -74,7 +74,7 @@ public class Address {
 		map.put("lat", this.lat);
 		map.put("lng", this.lng);
 		map.put("email", this.email);
-		map.put("dob", this.dob.toString());
+		map.put("dob", (int) this.dob.toEpochDay());
 		return map;
 	}
 

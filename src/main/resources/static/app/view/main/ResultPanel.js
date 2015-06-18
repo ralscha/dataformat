@@ -72,6 +72,12 @@ Ext.define('DF.view.main.ResultPanel', {
 			hideable: false,
 			draggable: false
 		}, {
+			text: 'Uncompressed Comparison',
+			dataIndex: 'uncompressedComparison',
+			renderer: Ext.util.Format.numberRenderer('0.00 %'),
+			hideable: false,
+			draggable: false			
+		}, {
 			text: 'Compressed',
 			dataIndex: 'compressed',
 			width: 130,
@@ -79,8 +85,15 @@ Ext.define('DF.view.main.ResultPanel', {
 			hideable: false,
 			draggable: false
 		}, {
-			text: 'Save',
-			dataIndex: 'compressionSave',
+			text: 'Compressed Comparison',
+			dataIndex: 'compressedComparison',
+			renderer: Ext.util.Format.numberRenderer('0.00 %'),
+			hideable: false,
+			draggable: false			
+		}, {
+			text: 'Space Savings',
+			width: 130,
+			dataIndex: 'spaceSavings',
 			renderer: Ext.util.Format.numberRenderer('0.00 %'),
 			hideable: false,
 			draggable: false

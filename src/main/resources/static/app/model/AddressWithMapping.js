@@ -34,7 +34,8 @@ Ext.define("DF.model.AddressWithMapping", {
 	}, {
 		name: "dob",
 		type: 'date',
-		dateFormat: 'Y-m-d',
-		mapping: 10
+		mapping: function(data) {
+		    return new Date(data[10] * 86400000);
+		}
 	} ]
 });

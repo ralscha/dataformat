@@ -33,7 +33,10 @@ Ext.define('DF.view.main.AddressGrid', {
 		dataIndex: 'email'
 	}, {
 		text: 'Date of Birth',
-		dataIndex: 'dob'
+		dataIndex: 'dob',
+		width: 100,
+		xtype: 'datecolumn',
+		format: 'Y-m-d'
 	} ]
 
 });

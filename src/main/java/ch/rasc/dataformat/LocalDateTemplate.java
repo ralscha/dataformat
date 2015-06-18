@@ -21,7 +21,8 @@ public class LocalDateTemplate extends AbstractTemplate<LocalDate> {
 			pk.writeNil();
 			return;
 		}
-		pk.write(target.toString());
+
+		pk.write((int) target.toEpochDay());
 	}
 
 	@Override
@@ -29,8 +30,8 @@ public class LocalDateTemplate extends AbstractTemplate<LocalDate> {
 		if (!required && u.trySkipNil()) {
 			return null;
 		}
-		String temp = u.readString();
-		return LocalDate.parse(temp);
+		int epochDays = u.readInt();
+		return LocalDate.ofEpochDay(epochDays);
 	}
 
 	static public LocalDateTemplate getInstance() {

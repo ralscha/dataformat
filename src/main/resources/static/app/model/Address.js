@@ -23,7 +23,8 @@ Ext.define("DF.model.Address", {
 		name: "email"
 	}, {
 		name: "dob",
-		type: 'date',
-		dateFormat: 'Y-m-d'
+		convert: function(v) {
+			return new Date(v * 86400000);
+		}
 	} ]
 });
