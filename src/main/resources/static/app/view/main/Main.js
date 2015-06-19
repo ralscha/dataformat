@@ -47,6 +47,10 @@ Ext.define('DF.view.main.Main', {
 		xclass: 'DF.view.main.AddressGrid',
 		bind: '{addressesCSV}'
 	}, {
+		title: 'Protocol Buffers',
+		xclass: 'DF.view.main.AddressGrid',
+		bind: '{addressesPROTO}'
+	}, {
 		title: 'Result',
 		xclass: 'DF.view.main.ResultPanel'
 	} ]

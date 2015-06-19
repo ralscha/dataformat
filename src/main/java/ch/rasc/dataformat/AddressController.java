@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import ch.rasc.dataformat.proto.AddressProtos;
+
 @RestController
 public class AddressController {
 
@@ -70,4 +72,10 @@ public class AddressController {
 		return this.testData;
 	}
 
+	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
+			produces = "application/x-protobuf")
+	public AddressProtos.Addresses getAddressesProto() {
+		List<AddressProtos.Address> addresses = this.testData.stream().map(Address::toProto).collect(Collectors.toList());	
+		return AddressProtos.Addresses.newBuilder().addAllAddress(addresses).build();		
+	}
 }

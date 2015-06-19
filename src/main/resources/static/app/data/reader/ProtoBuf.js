@@ -1,7 +1,13 @@
-Ext.define('DF.data.reader.MsgpackArray', {
-	extend: 'Ext.data.reader.Array',
-	alias: 'reader.msgpackarray',
+Ext.define('DF.data.reader.ProtoBuf', {
+	extend: 'Ext.data.reader.Json',
+	alias: 'reader.protobuf',
 
+	constructor: function () {
+        this.callParent(arguments);         
+        var builder = dcodeIO.ProtoBuf.loadProtoFile("address.proto");
+		this.root = builder.build();
+    },
+	
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -26,10 +32,10 @@ Ext.define('DF.data.reader.MsgpackArray', {
 
 	getResponseData: function(response) {
 		try {
-			return msgpack.unpack(response.responseBytes);
+			return this.root.Addresses.decode(response.responseBytes).address;
 		}
 		catch (ex) {
-			Ext.Logger.warn('Unable to parse the Msgpack returned by the server');
+			Ext.Logger.warn('Unable to parse the ProtoBuffer returned by the server');
 			return this.createReadError(ex.message);
 		}
 	}

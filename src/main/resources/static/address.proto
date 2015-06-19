@@ -1,0 +1,20 @@
+option java_package = "ch.rasc.dataformat.proto";
+option java_outer_classname = "AddressProtos";
+
+message Address {
+  required int32 id = 1; 
+  required string lastName = 2;
+  required string firstName = 3;
+  required string street = 4;
+  required string zip = 5;
+  required string city = 6;
+  required string country = 7;
+  required float lat = 8;
+  required float lng = 9;
+  required string email = 10;  
+  required sint32 dob = 11;
+}
+
+message Addresses {
+  repeated Address address = 1;
+}

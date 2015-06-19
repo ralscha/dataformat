@@ -15,6 +15,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -51,6 +52,11 @@ public class Application extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
+	public ProtobufHttpMessageConverter protobufHttpMessageConverter() {
+		return new ProtobufHttpMessageConverter();
+	}
+
+	@Bean
 	public MessagePack messagePack() {
 		MessagePack msgpack = new MessagePack();
 		msgpack.register(LocalDate.class, LocalDateTemplate.instance);
@@ -65,7 +71,8 @@ public class Application extends WebMvcConfigurerAdapter {
 				.mediaType("xml", MediaType.APPLICATION_XML)
 				.mediaType("cbor", MediaType.valueOf("application/cbor"))
 				.mediaType("msgpack", MediaType.valueOf("application/x-msgpack"))
-				.mediaType("csv", MediaType.valueOf("text/csv"));
+				.mediaType("csv", MediaType.valueOf("text/csv"))
+				.mediaType("protobuf", MediaType.valueOf("application/x-protobuf"));
 	}
 
 }

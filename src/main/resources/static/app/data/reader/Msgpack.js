@@ -29,7 +29,7 @@ Ext.define('DF.data.reader.Msgpack', {
 			return msgpack.unpack(response.responseBytes);
 		}
 		catch (ex) {
-			Ext.Logger.warn('Unable to parse the CBOR returned by the server');
+			Ext.Logger.warn('Unable to parse the Msgpack returned by the server');
 			return this.createReadError(ex.message);
 		}
 	}

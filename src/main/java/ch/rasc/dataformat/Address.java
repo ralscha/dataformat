@@ -10,6 +10,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.msgpack.annotation.Message;
 
+import ch.rasc.dataformat.proto.AddressProtos;
+
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
@@ -76,6 +78,14 @@ public class Address {
 		map.put("email", this.email);
 		map.put("dob", (int) this.dob.toEpochDay());
 		return map;
+	}
+
+	public AddressProtos.Address toProto() {
+		return AddressProtos.Address.newBuilder().setId(this.id)
+				.setLastName(this.lastName).setFirstName(this.firstName)
+				.setStreet(this.street).setZip(this.zip).setCity(this.city)
+				.setCountry(this.country).setLat(this.lat).setLng(this.lng)
+				.setEmail(this.email).setDob((int) this.dob.toEpochDay()).build();
 	}
 
 	public Address() {

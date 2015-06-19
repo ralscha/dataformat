@@ -1,6 +1,7 @@
 Ext.define('DF.view.main.MainModel', {
 	extend: 'Ext.app.ViewModel',
-	requires: [ 'DF.view.main.AddressBaseStore', 'DF.model.AddressWithMapping' ],
+	requires: [ 'DF.view.main.AddressBaseStore', 'DF.model.AddressWithMapping', 
+	            'DF.data.reader.Cbor', 'DF.data.reader.Msgpack', 'DF.data.reader.CborArray', 'DF.data.reader.MsgpackArray', 'DF.data.reader.ProtoBuf' ],
 
 	stores: {
 		addressesJSON: {
@@ -83,6 +84,17 @@ Ext.define('DF.view.main.MainModel', {
 				}
 			}
 		},
+		addressesPROTO: {
+			xclass: 'DF.view.main.AddressBaseStore',
+			proxy: {
+				type: 'ajax',
+				binary: true,
+				url: 'addresses.protobuf',
+				reader: {
+					xclass: 'DF.data.reader.ProtoBuf'
+				}
+			}
+		},
 		addressesCSV: {
 			xclass: 'DF.view.main.AddressBaseStore',
 			proxy: {
@@ -142,6 +154,10 @@ Ext.define('DF.view.main.MainModel', {
 				format: 'CSV',
 				uncompressed: 127124,
 				compressed: 62519
+			}, {				
+				format: 'Protocol Buffers',
+				uncompressed: 119531,
+				compressed: 68833				
 			} ]
 		}
 	}
