@@ -2,7 +2,7 @@ option java_package = "ch.rasc.dataformat.proto";
 option java_outer_classname = "AddressProtos";
 
 message Address {
-  required int32 id = 1; 
+  required uint32 id = 1; 
   required string lastName = 2;
   required string firstName = 3;
   required string street = 4;

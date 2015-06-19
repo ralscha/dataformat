@@ -17,12 +17,12 @@ public final class AddressProtos {
 			com.google.protobuf.MessageOrBuilder {
 
 		/**
-		 * <code>required int32 id = 1;</code>
+		 * <code>required uint32 id = 1;</code>
 		 */
 		boolean hasId();
 
 		/**
-		 * <code>required int32 id = 1;</code>
+		 * <code>required uint32 id = 1;</code>
 		 */
 		int getId();
 
@@ -221,7 +221,7 @@ public final class AddressProtos {
 					}
 					case 8: {
 						this.bitField0_ |= 0x00000001;
-						this.id_ = input.readInt32();
+						this.id_ = input.readUInt32();
 						break;
 					}
 					case 18: {
@@ -328,7 +328,7 @@ public final class AddressProtos {
 		private int id_;
 
 		/**
-		 * <code>required int32 id = 1;</code>
+		 * <code>required uint32 id = 1;</code>
 		 */
 		@Override
 		public boolean hasId() {
@@ -336,7 +336,7 @@ public final class AddressProtos {
 		}
 
 		/**
-		 * <code>required int32 id = 1;</code>
+		 * <code>required uint32 id = 1;</code>
 		 */
 		@Override
 		public int getId() {
@@ -808,7 +808,7 @@ public final class AddressProtos {
 				throws java.io.IOException {
 			getSerializedSize();
 			if ((this.bitField0_ & 0x00000001) == 0x00000001) {
-				output.writeInt32(1, this.id_);
+				output.writeUInt32(1, this.id_);
 			}
 			if ((this.bitField0_ & 0x00000002) == 0x00000002) {
 				output.writeBytes(2, getLastNameBytes());
@@ -854,7 +854,7 @@ public final class AddressProtos {
 
 			size = 0;
 			if ((this.bitField0_ & 0x00000001) == 0x00000001) {
-				size += com.google.protobuf.CodedOutputStream.computeInt32Size(1,
+				size += com.google.protobuf.CodedOutputStream.computeUInt32Size(1,
 						this.id_);
 			}
 			if ((this.bitField0_ & 0x00000002) == 0x00000002) {
@@ -1283,7 +1283,7 @@ public final class AddressProtos {
 			private int id_;
 
 			/**
-			 * <code>required int32 id = 1;</code>
+			 * <code>required uint32 id = 1;</code>
 			 */
 			@Override
 			public boolean hasId() {
@@ -1291,7 +1291,7 @@ public final class AddressProtos {
 			}
 
 			/**
-			 * <code>required int32 id = 1;</code>
+			 * <code>required uint32 id = 1;</code>
 			 */
 			@Override
 			public int getId() {
@@ -1299,7 +1299,7 @@ public final class AddressProtos {
 			}
 
 			/**
-			 * <code>required int32 id = 1;</code>
+			 * <code>required uint32 id = 1;</code>
 			 */
 			public Builder setId(int value) {
 				this.bitField0_ |= 0x00000001;
@@ -1309,7 +1309,7 @@ public final class AddressProtos {
 			}
 
 			/**
-			 * <code>required int32 id = 1;</code>
+			 * <code>required uint32 id = 1;</code>
 			 */
 			public Builder clearId() {
 				this.bitField0_ = this.bitField0_ & ~0x00000001;
@@ -2830,7 +2830,7 @@ public final class AddressProtos {
 
 	private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
 	static {
-		java.lang.String[] descriptorData = { "\n\raddress.proto\"\254\001\n\007Address\022\n\n\002id\030\001 \002(\005\022"
+		java.lang.String[] descriptorData = { "\n\raddress.proto\"\254\001\n\007Address\022\n\n\002id\030\001 \002(\r\022"
 				+ "\020\n\010lastName\030\002 \002(\t\022\021\n\tfirstName\030\003 \002(\t\022\016\n\006"
 				+ "street\030\004 \002(\t\022\013\n\003zip\030\005 \002(\t\022\014\n\004city\030\006 \002(\t\022"
 				+ "\017\n\007country\030\007 \002(\t\022\013\n\003lat\030\010 \002(\002\022\013\n\003lng\030\t \002"
