@@ -13,7 +13,7 @@ public class LocalDateAdapter extends XmlAdapter<Integer, LocalDate> {
 
 	@Override
 	public Integer marshal(LocalDate v) throws Exception {
-		return (int)v.toEpochDay();
+		return (int) v.toEpochDay();
 	}
 
 }

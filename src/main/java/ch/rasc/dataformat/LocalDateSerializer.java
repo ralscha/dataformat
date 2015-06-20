@@ -2,9 +2,6 @@ package ch.rasc.dataformat;
 
 import java.io.IOException;
 import java.time.LocalDate;
-import java.time.OffsetTime;
-import java.time.ZoneId;
-import java.time.ZoneOffset;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;

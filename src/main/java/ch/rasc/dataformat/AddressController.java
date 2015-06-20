@@ -75,7 +75,8 @@ public class AddressController {
 	@RequestMapping(value = "/addresses", method = RequestMethod.GET,
 			produces = "application/x-protobuf")
 	public AddressProtos.Addresses getAddressesProto() {
-		List<AddressProtos.Address> addresses = this.testData.stream().map(Address::toProto).collect(Collectors.toList());	
-		return AddressProtos.Addresses.newBuilder().addAllAddress(addresses).build();		
+		List<AddressProtos.Address> addresses = this.testData.stream()
+				.map(Address::toProto).collect(Collectors.toList());
+		return AddressProtos.Addresses.newBuilder().addAllAddress(addresses).build();
 	}
 }
