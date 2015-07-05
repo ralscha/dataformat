@@ -10,10 +10,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import org.msgpack.annotation.Message;
 
-import ch.rasc.dataformat.proto.AddressProtos;
-
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import ch.rasc.dataformat.proto.AddressProtos;
 
 @XmlRootElement
 @Message
