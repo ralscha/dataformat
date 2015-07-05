@@ -13,7 +13,7 @@ public final class AddressProtos {
 	}
 
 	public interface AddressOrBuilder extends
-	// @@protoc_insertion_point(interface_extends:Address)
+			// @@protoc_insertion_point(interface_extends:Address)
 			com.google.protobuf.MessageOrBuilder {
 
 		/**
@@ -199,7 +199,7 @@ public final class AddressProtos {
 
 		private Address(com.google.protobuf.CodedInputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			initFields();
 			int mutable_bitField0_ = 0;
 			com.google.protobuf.UnknownFieldSet.Builder unknownFields = com.google.protobuf.UnknownFieldSet
@@ -313,7 +313,7 @@ public final class AddressProtos {
 			@Override
 			public Address parsePartialFrom(com.google.protobuf.CodedInputStream input,
 					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-					throws com.google.protobuf.InvalidProtocolBufferException {
+							throws com.google.protobuf.InvalidProtocolBufferException {
 				return new Address(input, extensionRegistry);
 			}
 		};
@@ -911,25 +911,25 @@ public final class AddressProtos {
 
 		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
 				com.google.protobuf.ByteString data)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data);
 		}
 
 		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
 				com.google.protobuf.ByteString data,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data, extensionRegistry);
 		}
 
-		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(byte[] data)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data);
 		}
 
 		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
 				byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data, extensionRegistry);
 		}
 
@@ -941,7 +941,7 @@ public final class AddressProtos {
 		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
 				java.io.InputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws java.io.IOException {
+						throws java.io.IOException {
 			return PARSER.parseFrom(input, extensionRegistry);
 		}
 
@@ -953,7 +953,7 @@ public final class AddressProtos {
 		public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(
 				java.io.InputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws java.io.IOException {
+						throws java.io.IOException {
 			return PARSER.parseDelimitedFrom(input, extensionRegistry);
 		}
 
@@ -965,7 +965,7 @@ public final class AddressProtos {
 		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
 				com.google.protobuf.CodedInputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws java.io.IOException {
+						throws java.io.IOException {
 			return PARSER.parseFrom(input, extensionRegistry);
 		}
 
@@ -998,9 +998,9 @@ public final class AddressProtos {
 		/**
 		 * Protobuf type {@code Address}
 		 */
-		public static final class Builder extends
-				com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-		// @@protoc_insertion_point(builder_implements:Address)
+		public static final class Builder
+				extends com.google.protobuf.GeneratedMessage.Builder<Builder>implements
+				// @@protoc_insertion_point(builder_implements:Address)
 				ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder {
 			public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
 				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
@@ -1144,7 +1144,8 @@ public final class AddressProtos {
 			@Override
 			public Builder mergeFrom(com.google.protobuf.Message other) {
 				if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Address) {
-					return mergeFrom((ch.rasc.dataformat.proto.AddressProtos.Address) other);
+					return mergeFrom(
+							(ch.rasc.dataformat.proto.AddressProtos.Address) other);
 				}
 				else {
 					super.mergeFrom(other);
@@ -1152,7 +1153,8 @@ public final class AddressProtos {
 				}
 			}
 
-			public Builder mergeFrom(ch.rasc.dataformat.proto.AddressProtos.Address other) {
+			public Builder mergeFrom(
+					ch.rasc.dataformat.proto.AddressProtos.Address other) {
 				if (other == ch.rasc.dataformat.proto.AddressProtos.Address
 						.getDefaultInstance()) {
 					return this;
@@ -1260,7 +1262,7 @@ public final class AddressProtos {
 			@Override
 			public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
 					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-					throws java.io.IOException {
+							throws java.io.IOException {
 				ch.rasc.dataformat.proto.AddressProtos.Address parsedMessage = null;
 				try {
 					parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
@@ -2018,7 +2020,7 @@ public final class AddressProtos {
 	}
 
 	public interface AddressesOrBuilder extends
-	// @@protoc_insertion_point(interface_extends:Addresses)
+			// @@protoc_insertion_point(interface_extends:Addresses)
 			com.google.protobuf.MessageOrBuilder {
 
 		/**
@@ -2085,7 +2087,7 @@ public final class AddressProtos {
 
 		private Addresses(com.google.protobuf.CodedInputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			initFields();
 			int mutable_bitField0_ = 0;
 			com.google.protobuf.UnknownFieldSet.Builder unknownFields = com.google.protobuf.UnknownFieldSet
@@ -2150,7 +2152,7 @@ public final class AddressProtos {
 			@Override
 			public Addresses parsePartialFrom(com.google.protobuf.CodedInputStream input,
 					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-					throws com.google.protobuf.InvalidProtocolBufferException {
+							throws com.google.protobuf.InvalidProtocolBufferException {
 				return new Addresses(input, extensionRegistry);
 			}
 		};
@@ -2268,14 +2270,14 @@ public final class AddressProtos {
 
 		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
 				com.google.protobuf.ByteString data)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data);
 		}
 
 		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
 				com.google.protobuf.ByteString data,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data, extensionRegistry);
 		}
 
@@ -2286,7 +2288,7 @@ public final class AddressProtos {
 
 		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
 				byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws com.google.protobuf.InvalidProtocolBufferException {
+						throws com.google.protobuf.InvalidProtocolBufferException {
 			return PARSER.parseFrom(data, extensionRegistry);
 		}
 
@@ -2298,7 +2300,7 @@ public final class AddressProtos {
 		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
 				java.io.InputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws java.io.IOException {
+						throws java.io.IOException {
 			return PARSER.parseFrom(input, extensionRegistry);
 		}
 
@@ -2310,7 +2312,7 @@ public final class AddressProtos {
 		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(
 				java.io.InputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws java.io.IOException {
+						throws java.io.IOException {
 			return PARSER.parseDelimitedFrom(input, extensionRegistry);
 		}
 
@@ -2322,7 +2324,7 @@ public final class AddressProtos {
 		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
 				com.google.protobuf.CodedInputStream input,
 				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-				throws java.io.IOException {
+						throws java.io.IOException {
 			return PARSER.parseFrom(input, extensionRegistry);
 		}
 
@@ -2355,9 +2357,9 @@ public final class AddressProtos {
 		/**
 		 * Protobuf type {@code Addresses}
 		 */
-		public static final class Builder extends
-				com.google.protobuf.GeneratedMessage.Builder<Builder> implements
-		// @@protoc_insertion_point(builder_implements:Addresses)
+		public static final class Builder
+				extends com.google.protobuf.GeneratedMessage.Builder<Builder>implements
+				// @@protoc_insertion_point(builder_implements:Addresses)
 				ch.rasc.dataformat.proto.AddressProtos.AddressesOrBuilder {
 			public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
 				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
@@ -2453,7 +2455,8 @@ public final class AddressProtos {
 			@Override
 			public Builder mergeFrom(com.google.protobuf.Message other) {
 				if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Addresses) {
-					return mergeFrom((ch.rasc.dataformat.proto.AddressProtos.Addresses) other);
+					return mergeFrom(
+							(ch.rasc.dataformat.proto.AddressProtos.Addresses) other);
 				}
 				else {
 					super.mergeFrom(other);
@@ -2487,8 +2490,8 @@ public final class AddressProtos {
 							this.addressBuilder_ = null;
 							this.address_ = other.address_;
 							this.bitField0_ = this.bitField0_ & ~0x00000001;
-							this.addressBuilder_ = com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders ? getAddressFieldBuilder()
-									: null;
+							this.addressBuilder_ = com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders
+									? getAddressFieldBuilder() : null;
 						}
 						else {
 							this.addressBuilder_.addAllMessages(other.address_);
@@ -2513,7 +2516,7 @@ public final class AddressProtos {
 			@Override
 			public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
 					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-					throws java.io.IOException {
+							throws java.io.IOException {
 				ch.rasc.dataformat.proto.AddressProtos.Addresses parsedMessage = null;
 				try {
 					parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
@@ -2623,7 +2626,8 @@ public final class AddressProtos {
 			/**
 			 * <code>repeated .Address address = 1;</code>
 			 */
-			public Builder addAddress(ch.rasc.dataformat.proto.AddressProtos.Address value) {
+			public Builder addAddress(
+					ch.rasc.dataformat.proto.AddressProtos.Address value) {
 				if (this.addressBuilder_ == null) {
 					if (value == null) {
 						throw new NullPointerException();
@@ -2775,8 +2779,8 @@ public final class AddressProtos {
 			 * <code>repeated .Address address = 1;</code>
 			 */
 			public ch.rasc.dataformat.proto.AddressProtos.Address.Builder addAddressBuilder() {
-				return getAddressFieldBuilder().addBuilder(
-						ch.rasc.dataformat.proto.AddressProtos.Address
+				return getAddressFieldBuilder()
+						.addBuilder(ch.rasc.dataformat.proto.AddressProtos.Address
 								.getDefaultInstance());
 			}
 
@@ -2785,8 +2789,7 @@ public final class AddressProtos {
 			 */
 			public ch.rasc.dataformat.proto.AddressProtos.Address.Builder addAddressBuilder(
 					int index) {
-				return getAddressFieldBuilder().addBuilder(
-						index,
+				return getAddressFieldBuilder().addBuilder(index,
 						ch.rasc.dataformat.proto.AddressProtos.Address
 								.getDefaultInstance());
 			}
@@ -2829,14 +2832,16 @@ public final class AddressProtos {
 	}
 
 	private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+
 	static {
-		java.lang.String[] descriptorData = { "\n\raddress.proto\"\254\001\n\007Address\022\n\n\002id\030\001 \002(\r\022"
-				+ "\020\n\010lastName\030\002 \002(\t\022\021\n\tfirstName\030\003 \002(\t\022\016\n\006"
-				+ "street\030\004 \002(\t\022\013\n\003zip\030\005 \002(\t\022\014\n\004city\030\006 \002(\t\022"
-				+ "\017\n\007country\030\007 \002(\t\022\013\n\003lat\030\010 \002(\002\022\013\n\003lng\030\t \002"
-				+ "(\002\022\r\n\005email\030\n \002(\t\022\013\n\003dob\030\013 \002(\021\"&\n\tAddres"
-				+ "ses\022\031\n\007address\030\001 \003(\0132\010.AddressB)\n\030ch.ras"
-				+ "c.dataformat.protoB\rAddressProtos" };
+		java.lang.String[] descriptorData = {
+				"\n\raddress.proto\"\254\001\n\007Address\022\n\n\002id\030\001 \002(\r\022"
+						+ "\020\n\010lastName\030\002 \002(\t\022\021\n\tfirstName\030\003 \002(\t\022\016\n\006"
+						+ "street\030\004 \002(\t\022\013\n\003zip\030\005 \002(\t\022\014\n\004city\030\006 \002(\t\022"
+						+ "\017\n\007country\030\007 \002(\t\022\013\n\003lat\030\010 \002(\002\022\013\n\003lng\030\t \002"
+						+ "(\002\022\r\n\005email\030\n \002(\t\022\013\n\003dob\030\013 \002(\021\"&\n\tAddres"
+						+ "ses\022\031\n\007address\030\001 \003(\0132\010.AddressB)\n\030ch.ras"
+						+ "c.dataformat.protoB\rAddressProtos" };
 		com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner = root -> {
 			descriptor = root;
 			return null;
@@ -2846,9 +2851,9 @@ public final class AddressProtos {
 				assigner);
 		internal_static_Address_descriptor = getDescriptor().getMessageTypes().get(0);
 		internal_static_Address_fieldAccessorTable = new com.google.protobuf.GeneratedMessage.FieldAccessorTable(
-				internal_static_Address_descriptor, new java.lang.String[] { "Id",
-						"LastName", "FirstName", "Street", "Zip", "City", "Country",
-						"Lat", "Lng", "Email", "Dob", });
+				internal_static_Address_descriptor,
+				new java.lang.String[] { "Id", "LastName", "FirstName", "Street", "Zip",
+						"City", "Country", "Lat", "Lng", "Email", "Dob", });
 		internal_static_Addresses_descriptor = getDescriptor().getMessageTypes().get(1);
 		internal_static_Addresses_fieldAccessorTable = new com.google.protobuf.GeneratedMessage.FieldAccessorTable(
 				internal_static_Addresses_descriptor,

@@ -99,8 +99,8 @@ public class CborHttpMessageConverter extends AbstractHttpMessageConverter<Objec
 			return this.objectMapper.readValue(inputMessage.getBody(), javaType);
 		}
 		catch (IOException ex) {
-			throw new HttpMessageNotReadableException("Could not read CBOR: "
-					+ ex.getMessage(), ex);
+			throw new HttpMessageNotReadableException(
+					"Could not read CBOR: " + ex.getMessage(), ex);
 		}
 	}
 
@@ -112,8 +112,8 @@ public class CborHttpMessageConverter extends AbstractHttpMessageConverter<Objec
 			this.objectMapper.writeValue(outputMessage.getBody(), object);
 		}
 		catch (JsonProcessingException ex) {
-			throw new HttpMessageNotWritableException("Could not write CBOR: "
-					+ ex.getMessage(), ex);
+			throw new HttpMessageNotWritableException(
+					"Could not write CBOR: " + ex.getMessage(), ex);
 		}
 	}
 

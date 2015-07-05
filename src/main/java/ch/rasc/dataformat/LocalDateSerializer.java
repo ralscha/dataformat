@@ -11,8 +11,8 @@ import com.fasterxml.jackson.databind.SerializerProvider;
 public class LocalDateSerializer extends JsonSerializer<LocalDate> {
 
 	@Override
-	public void serialize(LocalDate value, JsonGenerator jgen, SerializerProvider provider)
-			throws IOException, JsonProcessingException {
+	public void serialize(LocalDate value, JsonGenerator jgen,
+			SerializerProvider provider) throws IOException, JsonProcessingException {
 		jgen.writeNumber((int) value.toEpochDay());
 	}
 

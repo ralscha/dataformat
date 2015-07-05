@@ -34,8 +34,8 @@ public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverte
 			return canRead(mediaType) && this.messagePack.lookup(type) != null;
 		}
 		catch (MessageTypeException ex) {
-			throw new HttpMessageNotReadableException("Could not read MessagePack: "
-					+ ex.getMessage(), ex);
+			throw new HttpMessageNotReadableException(
+					"Could not read MessagePack: " + ex.getMessage(), ex);
 		}
 	}
 
@@ -45,8 +45,8 @@ public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverte
 			return canWrite(mediaType) && this.messagePack.lookup(clazz) != null;
 		}
 		catch (MessageTypeException ex) {
-			throw new HttpMessageNotWritableException("Could not write MessagePack: "
-					+ ex.getMessage(), ex);
+			throw new HttpMessageNotWritableException(
+					"Could not write MessagePack: " + ex.getMessage(), ex);
 		}
 	}
 

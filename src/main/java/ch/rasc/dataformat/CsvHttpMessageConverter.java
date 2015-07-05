@@ -102,8 +102,8 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 					.readValue(inputMessage.getBody());
 		}
 		catch (IOException ex) {
-			throw new HttpMessageNotReadableException("Could not read CBOR: "
-					+ ex.getMessage(), ex);
+			throw new HttpMessageNotReadableException(
+					"Could not read CBOR: " + ex.getMessage(), ex);
 		}
 	}
 
@@ -116,8 +116,8 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 			if (object instanceof Collection) {
 				Collection<?> collection = (Collection<?>) object;
 				if (!collection.isEmpty()) {
-					schema = this.csvMapper.schemaFor(collection.iterator().next()
-							.getClass());
+					schema = this.csvMapper
+							.schemaFor(collection.iterator().next().getClass());
 				}
 				else {
 					schema = this.csvMapper.schemaFor(object.getClass());
@@ -131,8 +131,8 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 			this.csvMapper.writer(schema).writeValue(outputMessage.getBody(), object);
 		}
 		catch (JsonProcessingException ex) {
-			throw new HttpMessageNotWritableException("Could not write CBOR: "
-					+ ex.getMessage(), ex);
+			throw new HttpMessageNotWritableException(
+					"Could not write CBOR: " + ex.getMessage(), ex);
 		}
 	}
 
