@@ -32,7 +32,11 @@ Ext.define('DF.data.reader.ProtoBuf', {
 
 	getResponseData: function(response) {
 		try {
-			return this.root.Addresses.decode(response.responseBytes).address;
+			var start = performance.now();
+			var result = this.root.Addresses.decode(response.responseBytes).address;
+			console.log('protobuf', (performance.now()-start) + ' ms');
+			return result;
+			
 		}
 		catch (ex) {
 			Ext.Logger.warn('Unable to parse the ProtoBuffer returned by the server');

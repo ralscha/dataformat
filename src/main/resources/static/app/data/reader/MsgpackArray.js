@@ -26,7 +26,10 @@ Ext.define('DF.data.reader.MsgpackArray', {
 
 	getResponseData: function(response) {
 		try {
-			return msgpack.unpack(response.responseBytes);
+			var start = performance.now();
+			var result = msgpack.unpack(response.responseBytes);
+			console.log('msgpack array', (performance.now()-start) + ' ms');
+			return result;
 		}
 		catch (ex) {
 			Ext.Logger.warn('Unable to parse the Msgpack returned by the server');

@@ -4,7 +4,9 @@ Ext.define('DF.data.reader.Csv', {
 
 	getResponseData: function(response) {
 		try {
+			var start = performance.now();
 			var results = Papa.parse(response.responseText);
+			console.log('csv', (performance.now()-start) + ' ms');
 			return results.data;
 		}
 		catch (ex) {

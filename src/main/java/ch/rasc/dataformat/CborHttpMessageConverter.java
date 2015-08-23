@@ -7,18 +7,19 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.AbstractHttpMessageConverter;
-import org.springframework.http.converter.GenericHttpMessageConverter;
+import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
+import org.springframework.util.TypeUtils;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.dataformat.cbor.CBORFactory;
 
-public class CborHttpMessageConverter extends AbstractHttpMessageConverter<Object>
-		implements GenericHttpMessageConverter<Object> {
+public class CborHttpMessageConverter
+		extends AbstractGenericHttpMessageConverter<Object> {
 
 	private final ObjectMapper objectMapper = new ObjectMapper(new CBORFactory());
 
@@ -105,11 +106,21 @@ public class CborHttpMessageConverter extends AbstractHttpMessageConverter<Objec
 	}
 
 	@Override
-	protected void writeInternal(Object object, HttpOutputMessage outputMessage)
+	protected void writeInternal(Object o, Type type, HttpOutputMessage outputMessage)
 			throws IOException, HttpMessageNotWritableException {
 
 		try {
-			this.objectMapper.writeValue(outputMessage.getBody(), object);
+			ObjectWriter objectWriter = this.objectMapper.writer();
+
+			JavaType javaType = null;
+			if (type != null && o != null && TypeUtils.isAssignable(type, o.getClass())) {
+				javaType = getJavaType(type, null);
+			}
+
+			if (javaType != null) {
+				objectWriter = objectWriter.forType(javaType);
+			}
+			objectWriter.writeValue(outputMessage.getBody(), o);
 		}
 		catch (JsonProcessingException ex) {
 			throw new HttpMessageNotWritableException(

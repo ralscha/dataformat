@@ -8,13 +8,12 @@ import org.msgpack.MessageTypeException;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.AbstractHttpMessageConverter;
-import org.springframework.http.converter.GenericHttpMessageConverter;
+import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
-public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverter<Object>
-		implements GenericHttpMessageConverter<Object> {
+public class MessagePackHttpMessageConverter
+		extends AbstractGenericHttpMessageConverter<Object> {
 
 	private final MessagePack messagePack;
 
@@ -69,8 +68,8 @@ public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverte
 	}
 
 	@Override
-	protected void writeInternal(Object object, HttpOutputMessage outputMessage)
-			throws IOException {
+	protected void writeInternal(Object object, Type type,
+			HttpOutputMessage outputMessage) throws IOException {
 		this.messagePack.write(outputMessage.getBody(), object);
 	}
 

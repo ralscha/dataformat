@@ -8,8 +8,7 @@ import java.util.concurrent.atomic.AtomicReference;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.AbstractHttpMessageConverter;
-import org.springframework.http.converter.GenericHttpMessageConverter;
+import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
@@ -18,8 +17,7 @@ import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
-public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object>
-		implements GenericHttpMessageConverter<Object> {
+public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter<Object> {
 
 	private final CsvMapper csvMapper = new CsvMapper();
 
@@ -108,23 +106,36 @@ public class CsvHttpMessageConverter extends AbstractHttpMessageConverter<Object
 	}
 
 	@Override
-	protected void writeInternal(Object object, HttpOutputMessage outputMessage)
-			throws IOException, HttpMessageNotWritableException {
+	protected void writeInternal(Object object, Type type,
+			HttpOutputMessage outputMessage)
+					throws IOException, HttpMessageNotWritableException {
 
 		try {
 			CsvSchema schema;
-			if (object instanceof Collection) {
-				Collection<?> collection = (Collection<?>) object;
-				if (!collection.isEmpty()) {
-					schema = this.csvMapper
-							.schemaFor(collection.iterator().next().getClass());
+
+			if (type != null) {
+				JavaType javaType = getJavaType(type, null);
+				if (javaType.isCollectionLikeType()) {
+					schema = this.csvMapper.schemaFor(javaType.getContentType());
+				}
+				else {
+					schema = this.csvMapper.schemaFor(javaType);
+				}
+			}
+			else {
+				if (object instanceof Collection) {
+					Collection<?> collection = (Collection<?>) object;
+					if (!collection.isEmpty()) {
+						schema = this.csvMapper
+								.schemaFor(collection.iterator().next().getClass());
+					}
+					else {
+						schema = this.csvMapper.schemaFor(object.getClass());
+					}
 				}
 				else {
 					schema = this.csvMapper.schemaFor(object.getClass());
 				}
-			}
-			else {
-				schema = this.csvMapper.schemaFor(object.getClass());
 			}
 			// schema = schema.withoutQuoteChar();
 
