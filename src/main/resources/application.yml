@@ -1,0 +1,19 @@
+server:
+  compression:
+    enabled: true
+    mime-types:
+      - text/html
+      - text/xml
+      - text/plain
+      - application/json
+      - application/xml
+      - application/cbor
+      - application/x-msgpack
+      - text/csv
+      - application/x-protobuf
+  
+logging:
+  level:
+    org.springframework: WARN
+    org.apache: WARN
+    ch: WARN      

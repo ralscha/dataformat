@@ -23,7 +23,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>ch.rasc.dataformat.Application</start-class>
+		<start-class>ch.rasc.dataformat.DfApplication</start-class>
 		<java.version>1.8</java.version>
 		<jackson.version>2.6.2</jackson.version>
 	</properties>
@@ -66,6 +66,7 @@
 	</dependencies>
 
 	<build>
+	     <finalName>dataformat</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -73,41 +74,88 @@
 			</plugin>
 
 			<plugin>
-				<groupId>com.googlecode.jslint4java</groupId>
-				<artifactId>jslint4java-maven-plugin</artifactId>
-				<version>2.0.5</version>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>lint</id>
-						<phase>process-resources</phase>
+						<id>sencha-app-clean-development</id>
 						<goals>
-							<goal>lint</goal>
+							<goal>exec</goal>
 						</goals>
+						<phase>clean</phase>
 						<configuration>
-							<failOnError>false</failOnError>
-							<sourceFolders>
-								<sourceFolder>${project.basedir}/src/main/resources</sourceFolder>
-							</sourceFolders>
-
-							<excludes>
-								<exclude>/static/cbor.js</exclude>
-								<exclude>/static/msgpack.js</exclude>
-								<exclude>/static/papaparse.min.js</exclude>
-							</excludes>
-
-							<options>
-								<browser>true</browser>
-								<sloppy>true</sloppy>
-								<white>true</white>
-								<vars>true</vars>
-								<plusplus>true</plusplus>
-								<unparam>true</unparam>
-								<predef>Ext,msgpack,CBOR,Papa</predef>
-							</options>
+							<executable>sencha</executable>
+							<workingDirectory>${basedir}/client</workingDirectory>
+							<arguments>
+								<argument>app</argument>
+								<argument>clean</argument>
+								<argument>development</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>sencha-app-clean</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>clean</phase>
+						<configuration>
+							<executable>sencha</executable>
+							<workingDirectory>${basedir}/client</workingDirectory>
+							<arguments>
+								<argument>app</argument>
+								<argument>clean</argument>
+							</arguments>
+						</configuration>
+					</execution>
+					<execution>
+						<id>sencha-app-build</id>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+						<phase>prepare-package</phase>
+						<configuration>
+							<executable>sencha</executable>
+							<workingDirectory>${basedir}/client</workingDirectory>
+							<arguments>
+								<argument>app</argument>
+								<argument>build</argument>
+							</arguments>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>prepare-package</phase>
+						<configuration>
+							<target>
+
+								<copy todir="${basedir}/target/classes/static">
+									<fileset dir="${basedir}/client">
+										<include name="address.proto" />
+									</fileset>
+								</copy>
+
+								<copy todir="${basedir}/target/classes/static"
+									includeEmptyDirs="false">
+									<fileset dir="${basedir}/client/build/production/Df">
+										<exclude name="**/Readme.md" />
+									</fileset>
+								</copy>
+
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -152,8 +200,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
-
-
 
 </project>
