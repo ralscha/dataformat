@@ -19,7 +19,7 @@ Ext.define('Df.view.main.MainModel', {
 			xclass: 'Df.store.AddressBaseStore',
 			proxy: {
 				type: 'ajax',
-				url: 'addresses.json',
+				url: serverUrl + 'addresses.json',
 				reader: {
 					type: 'json'
 				}
@@ -30,7 +30,7 @@ Ext.define('Df.view.main.MainModel', {
 			model: 'Df.model.AddressWithMapping',
 			proxy: {
 				type: 'ajax',
-				url: 'addressesArray.json',
+				url: serverUrl + 'addressesArray.json',
 				reader: {
 					type: 'array'
 				}
@@ -41,7 +41,7 @@ Ext.define('Df.view.main.MainModel', {
 			autoLoad: true,
 			proxy: {
 				type: 'ajax',
-				url: 'addresses.xml',
+				url: serverUrl + 'addresses.xml',
 				reader: {
 					type: 'xml',
 					record: 'address',
@@ -54,7 +54,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: 'addresses.cbor',
+				url: serverUrl + 'addresses.cbor',
 				reader: {
 					xclass: 'Df.data.reader.Cbor'
 				}
@@ -66,7 +66,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: 'addressesArray.cbor',
+				url: serverUrl + 'addressesArray.cbor',
 				reader: {
 					xclass: 'Df.data.reader.CborArray'
 				}
@@ -77,7 +77,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: 'addresses.msgpack',
+				url: serverUrl + 'addresses.msgpack',
 				reader: {
 					xclass: 'Df.data.reader.Msgpack'
 				}
@@ -89,7 +89,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: 'addressesArray.msgpack',
+				url: serverUrl + 'addressesArray.msgpack',
 				reader: {
 					xclass: 'Df.data.reader.MsgpackArray'
 				}
@@ -100,7 +100,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: 'addresses.protobuf',
+				url: serverUrl + 'addresses.protobuf',
 				reader: {
 					xclass: 'Df.data.reader.ProtoBuf'
 				}
@@ -110,7 +110,7 @@ Ext.define('Df.view.main.MainModel', {
 			xclass: 'Df.store.AddressBaseStore',
 			proxy: {
 				type: 'ajax',
-				url: 'addresses.csv',
+				url: serverUrl + 'addresses.csv',
 				reader: {
 					xclass: 'Df.data.reader.Csv'
 				}

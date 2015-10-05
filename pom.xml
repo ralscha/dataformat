@@ -147,6 +147,11 @@
 									</fileset>
 								</copy>
 
+								<replace file="${basedir}/target/classes/static/index.html">
+									<replacefilter token="var serverUrl = 'http://localhost:8080/';"
+										value="var serverUrl = '';" />										
+								</replace>
+
 							</target>
 						</configuration>
 						<goals>
