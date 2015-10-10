@@ -20,12 +20,12 @@ import org.springframework.web.servlet.config.annotation.ContentNegotiationConfi
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @SpringBootApplication
-public class DfApplication extends WebMvcConfigurerAdapter {
+public class Application extends WebMvcConfigurerAdapter {
 
 	public static void main(String[] args) {
 		// -Dspring.profiles.active=development
 		// System.setProperty("spring.profiles.active", "development");
-		SpringApplication.run(DfApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 	@Bean
