@@ -7,7 +7,7 @@
     /**
      * The version of the application.
      */
-    "version": "1.0.0.0",
+    "version": "1.0.0",
 
     /**
      * The relative path to the application's markup file (html, jsp, asp, etc.).
@@ -576,5 +576,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "d4f52001-8bc8-4281-8aca-e1c530ce133b"
+    "id": "9886835b-53f1-465a-a120-94eff9d8cb63"
 }

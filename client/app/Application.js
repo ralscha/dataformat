@@ -3,6 +3,10 @@ Ext.define('Df.Application', {
 
 	name: 'Df',
 
+	launch: function() {
+		Ext.fly('loading_container').destroy();
+	},
+
 	onAppUpdate: function() {
 		window.location.reload();
 	}
