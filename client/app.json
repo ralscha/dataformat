@@ -237,7 +237,7 @@
         	"path": "papaparse.min.js",
 			"remote": false
         }, {
-        	"path": "ProtoBuf.min.js",
+        	"path": "protobuf.min.js",
 			"remote": false
         }
     ],
