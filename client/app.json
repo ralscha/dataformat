@@ -7,7 +7,7 @@
     /**
      * The version of the application.
      */
-    "version": "1.0.0",
+    "version": "1.0.0.0",
 
     /**
      * The relative path to the application's markup file (html, jsp, asp, etc.).
@@ -42,19 +42,7 @@
      */
     "framework": "ext",
     
-    /**
-     * The toolkit to use. Select either "classic" or "modern".
-     */
     
-    "toolkit": "classic",
-    
-    
-    /**
-     * The name of the theme for this application.
-     */
-    
-    
-    "theme": "theme-triton",
     
     
     /**
@@ -105,8 +93,6 @@
          *
          */
          
-        // "save": "sass/save.scss",
-        
         /**
          * Comma-separated list of files or folders containing extra Sass. These
          * files are automatically included in the Sass compilation. By default this
@@ -225,7 +211,10 @@
             "path": "app.js",
             "bundle": true
         }, {
-        	"path": "ByteBufferAB.min.js",
+        	"path": "long.min.js",
+			"remote": false
+        }, {
+        	"path": "bytebuffer.min.js",
 			"remote": false
         }, {
         	"path": "cbor.min.js",
@@ -242,17 +231,16 @@
         }
     ],
 
+    
     /**
      * Settings specific to classic toolkit builds.
      */
     "classic": {
         "js": [
             // Remove this entry to individually load sources from the framework.
-            /*
             {
                 "path": "${framework.dir}/build/ext-all-rtl-debug.js"
             }
-            */
         ]
     },
 
@@ -395,6 +383,8 @@
     "bootstrap": {
         "base": "${app.dir}",
         
+        "manifest": "${build.id}.json",
+        
         "microloader": "bootstrap.js",
         "css": "bootstrap.css"
     },
@@ -442,8 +432,15 @@
     
     "output": {
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
+        "page": "index.html",
+        "manifest": "${build.id}.json",
+        "js": "${build.id}/app.js",
         "appCache": {
             "enable": false
+        },
+        "resources": {
+            "path": "${build.id}/resources",
+            "shared": "resources"
         }
     },
     
@@ -466,7 +463,7 @@
     
     "cache": {
         "enable": false,
-        "deltas": true
+        "deltas": "${build.id}/deltas"
     },
     
 
@@ -524,7 +521,7 @@
      * deltas between updates.
      */
     
-    "archivePath": "archive",
+    "archivePath": "archive/${build.id}",
     
 
 
@@ -571,10 +568,32 @@
      *
      */
     
+    "builds": {
+        "classic": {
+            "toolkit": "classic",
+            
+            "theme": "theme-triton",
+            
+            "sass": {
+                // "save": "classic/sass/save.scss"
+            }
+        },
+
+        "modern": {
+            "toolkit": "modern",
+            
+            "theme": "theme-triton",
+            
+            "sass": {
+                // "save": "modern/sass/save.scss"
+            }
+        }
+    },
+    
 
     /**
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "9886835b-53f1-465a-a120-94eff9d8cb63"
+    "id": "5a416b53-8e39-4094-952b-8d0eb0c99ff8"
 }
