@@ -232,7 +232,7 @@
         	"path": "cbor.min.js",
 			"remote": false
         }, {
-        	"path": "msgpack.js",
+        	"path": "msgpack.min.js",
 			"remote": false
         }, {
         	"path": "papaparse.min.js",

@@ -135,40 +135,40 @@ Ext.define('Df.view.main.MainModel', {
 			} ],
 			data: [ {
 				format: 'XML',
-				uncompressed: 292111,
-				compressed: 76074
+				uncompressed: 291940,
+				compressed: 75970
 			}, {
 				format: 'JSON',
-				uncompressed: 224969,
-				compressed: 72193
+				uncompressed: 224798,
+				compressed: 72128
 			}, {
 				format: 'JSON Array',
-				uncompressed: 138882,
-				compressed: 64059
+				uncompressed: 138711,
+				compressed: 64007
 			}, {
 				format: 'CBOR',
-				uncompressed: 177173,
-				compressed: 73484
+				uncompressed: 177000,
+				compressed: 73427
 			}, {
 				format: 'CBOR Array',
-				uncompressed: 113109,
-				compressed: 64463
+				uncompressed: 111936,
+				compressed: 64230
 			}, {
 				format: 'MsgPack',
-				uncompressed: 175696,
-				compressed: 74301
+				uncompressed: 175511,
+				compressed: 74224
 			}, {
 				format: 'MsgPack Array',
-				uncompressed: 111633,
-				compressed: 64804
+				uncompressed: 111448,
+				compressed: 64746
 			}, {
 				format: 'CSV',
-				uncompressed: 127297,
-				compressed: 62565
+				uncompressed: 127124,
+				compressed: 62519
 			}, {
 				format: 'Protocol Buffers',
-				uncompressed: 119705,
-				compressed: 68910
+				uncompressed: 119531,
+				compressed: 68833
 			} ]
 		}
 	}

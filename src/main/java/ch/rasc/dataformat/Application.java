@@ -67,10 +67,7 @@ public class Application extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-		configurer.favorPathExtension(true).ignoreAcceptHeader(true).useJaf(false)
-				.defaultContentType(MediaType.APPLICATION_JSON)
-				.mediaType("json", MediaType.APPLICATION_JSON)
-				.mediaType("xml", MediaType.APPLICATION_XML)
+		configurer
 				.mediaType("cbor", MediaType.valueOf("application/cbor"))
 				.mediaType("msgpack", MediaType.valueOf("application/x-msgpack"))
 				.mediaType("csv", MediaType.valueOf("text/csv"))

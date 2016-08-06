@@ -1,10 +1,14 @@
 package ch.rasc.dataformat;
 
 import java.io.IOException;
+import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
+import java.lang.reflect.TypeVariable;
+import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicReference;
 
+import org.springframework.core.ResolvableType;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
@@ -12,8 +16,11 @@ import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
+import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.type.TypeFactory;
 import com.fasterxml.jackson.dataformat.csv.CsvMapper;
 import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 
@@ -32,43 +39,50 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 
 	@Override
 	public boolean canRead(Type type, Class<?> contextClass, MediaType mediaType) {
+		if (!canRead(mediaType)) {
+			return false;
+		}
 		JavaType javaType = getJavaType(type, contextClass);
-
+		if (!logger.isWarnEnabled()) {
+			return this.csvMapper.canDeserialize(javaType);
+		}
 		AtomicReference<Throwable> causeRef = new AtomicReference<>();
-		if (this.csvMapper.canDeserialize(javaType, causeRef) && canRead(mediaType)) {
+		if (this.csvMapper.canDeserialize(javaType, causeRef)) {
 			return true;
 		}
-		Throwable cause = causeRef.get();
-		if (cause != null) {
-			String msg = "Failed to evaluate deserialization for type " + javaType;
-			if (this.logger.isDebugEnabled()) {
-				this.logger.warn(msg, cause);
-			}
-			else {
-				this.logger.warn(msg + ": " + cause);
-			}
-		}
+		logWarningIfNecessary(javaType, causeRef.get());
 		return false;
 	}
 
 	@Override
 	public boolean canWrite(Class<?> clazz, MediaType mediaType) {
-
+		if (!canWrite(mediaType)) {
+			return false;
+		}
+		if (!logger.isWarnEnabled()) {
+			return this.csvMapper.canSerialize(clazz);
+		}
 		AtomicReference<Throwable> causeRef = new AtomicReference<>();
-		if (this.csvMapper.canSerialize(clazz, causeRef) && canWrite(mediaType)) {
+		if (this.csvMapper.canSerialize(clazz, causeRef)) {
 			return true;
 		}
-		Throwable cause = causeRef.get();
-		if (cause != null) {
-			String msg = "Failed to evaluate serialization for type [" + clazz + "]";
-			if (this.logger.isDebugEnabled()) {
-				this.logger.warn(msg, cause);
+		logWarningIfNecessary(clazz, causeRef.get());
+		return false;
+	}
+
+	protected void logWarningIfNecessary(Type type, Throwable cause) {
+		if (cause != null && !(cause instanceof JsonMappingException
+				&& cause.getMessage().startsWith("Can not find"))) {
+			String msg = "Failed to evaluate Jackson "
+					+ (type instanceof JavaType ? "de" : "") + "serialization for type ["
+					+ type + "]";
+			if (logger.isDebugEnabled()) {
+				logger.warn(msg, cause);
 			}
 			else {
-				this.logger.warn(msg + ": " + cause);
+				logger.warn(msg + ": " + cause);
 			}
 		}
-		return false;
 	}
 
 	@Override
@@ -147,8 +161,79 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 		}
 	}
 
-	protected JavaType getJavaType(Type type, Class<?> contextClass) {
-		return this.csvMapper.getTypeFactory().constructType(type, contextClass);
+	protected JsonEncoding getJsonEncoding(MediaType contentType) {
+		if (contentType != null && contentType.getCharset() != null) {
+			Charset charset = contentType.getCharset();
+			for (JsonEncoding encoding : JsonEncoding.values()) {
+				if (charset.name().equals(encoding.getJavaName())) {
+					return encoding;
+				}
+			}
+		}
+		return JsonEncoding.UTF8;
 	}
 
+	protected JavaType getJavaType(Type type, Class<?> contextClass) {
+		TypeFactory typeFactory = this.csvMapper.getTypeFactory();
+		if (contextClass != null) {
+			ResolvableType resolvedType = ResolvableType.forType(type);
+			if (type instanceof TypeVariable) {
+				ResolvableType resolvedTypeVariable = resolveVariable(
+						(TypeVariable<?>) type, ResolvableType.forClass(contextClass));
+				if (resolvedTypeVariable != ResolvableType.NONE) {
+					return typeFactory.constructType(resolvedTypeVariable.resolve());
+				}
+			}
+			else if (type instanceof ParameterizedType
+					&& resolvedType.hasUnresolvableGenerics()) {
+				ParameterizedType parameterizedType = (ParameterizedType) type;
+				Class<?>[] generics = new Class<?>[parameterizedType
+						.getActualTypeArguments().length];
+				Type[] typeArguments = parameterizedType.getActualTypeArguments();
+				for (int i = 0; i < typeArguments.length; i++) {
+					Type typeArgument = typeArguments[i];
+					if (typeArgument instanceof TypeVariable) {
+						ResolvableType resolvedTypeArgument = resolveVariable(
+								(TypeVariable<?>) typeArgument,
+								ResolvableType.forClass(contextClass));
+						if (resolvedTypeArgument != ResolvableType.NONE) {
+							generics[i] = resolvedTypeArgument.resolve();
+						}
+						else {
+							generics[i] = ResolvableType.forType(typeArgument).resolve();
+						}
+					}
+					else {
+						generics[i] = ResolvableType.forType(typeArgument).resolve();
+					}
+				}
+				return typeFactory.constructType(ResolvableType
+						.forClassWithGenerics(resolvedType.getRawClass(), generics)
+						.getType());
+			}
+		}
+		return typeFactory.constructType(type);
+	}
+
+	private ResolvableType resolveVariable(TypeVariable<?> typeVariable,
+			ResolvableType contextType) {
+		ResolvableType resolvedType;
+		if (contextType.hasGenerics()) {
+			resolvedType = ResolvableType.forType(typeVariable, contextType);
+			if (resolvedType.resolve() != null) {
+				return resolvedType;
+			}
+		}
+		resolvedType = resolveVariable(typeVariable, contextType.getSuperType());
+		if (resolvedType.resolve() != null) {
+			return resolvedType;
+		}
+		for (ResolvableType ifc : contextType.getInterfaces()) {
+			resolvedType = resolveVariable(typeVariable, ifc);
+			if (resolvedType.resolve() != null) {
+				return resolvedType;
+			}
+		}
+		return ResolvableType.NONE;
+	}
 }
