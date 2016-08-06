@@ -1,6 +1,6 @@
 server:
   compression:
-    enabled: false
+    enabled: true
     mime-types:
       - text/html
       - text/xml
