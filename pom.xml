@@ -142,6 +142,7 @@
 								<copy todir="${basedir}/target/classes/static">
 									<fileset dir="${basedir}/client">
 										<include name="address.proto" />
+										<include name="msgpack.min.js" />
 									</fileset>
 								</copy>
 
