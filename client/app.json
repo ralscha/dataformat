@@ -224,22 +224,22 @@
             "bundle": true
         }, {
         	"path": "long.min.js",
-			"remote": false
+			"includeInBundle": true
         }, {
         	"path": "bytebuffer.min.js",
-			"remote": false
+			"includeInBundle": true
         }, {
         	"path": "cbor.min.js",
-			"remote": false
+			"includeInBundle": true
         }, {
         	"path": "msgpack.min.js",
-			"remote": false
+			"remote": true
         }, {
         	"path": "papaparse.min.js",
-			"remote": false
+			"includeInBundle": true
         }, {
         	"path": "protobuf.min.js",
-			"remote": false
+			"includeInBundle": true
         }
     ],
 
