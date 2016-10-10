@@ -1,12 +1,6 @@
-Ext.define('Df.data.reader.ProtoBuf', {
+Ext.define('Df.data.reader.FlatBuffers', {
 	extend: 'Ext.data.reader.Json',
-	alias: 'reader.protobuf',
-
-	constructor: function () {
-        this.callParent(arguments);         
-        var builder = dcodeIO.ProtoBuf.loadProtoFile("address.proto");
-		this.root = builder.build();
-    },
+	alias: 'reader.flatbuffers',
 	
 	read: function(response, readOptions) {
 		var data, result;
@@ -34,13 +28,35 @@ Ext.define('Df.data.reader.ProtoBuf', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = this.root.Addresses.decode(response.responseBytes).address;
+			
+			var buf = new flatbuffers.ByteBuffer(response.responseBytes);
+			var addresses = ch.rasc.dataformat.fb.Addresses.getRootAsAddresses(buf);									
+			
+			var result = [];			
+			var len = addresses.addressLength();
+			for (var i = 0; i < len; i++) {
+				var adr = addresses.address(i);
+				result.push({
+					id: adr.id(),
+					lastName: adr.lastName(),
+					firstName: adr.firstName(),
+					street: adr.street(),
+					zip: adr.zip(),
+					city: adr.city(),
+					country: adr.country(),
+					lat: adr.lat(),
+					lng: adr.lng(),
+					email: adr.email(),
+					dob: adr.dob()
+				});
+			}
 			console.log('protobuf', (performance.now()-start) + ' ms');
+
 			return result;
 		}
 		catch (ex) {
 			error = this.createReadError(ex.message);
-            Ext.Logger.warn('Unable to parse the ProtoBuffer returned by the server');
+            Ext.Logger.warn('Unable to parse the FlatBuffers returned by the server');
             this.fireEvent('exception', this, response, error);
             return error;
 		}

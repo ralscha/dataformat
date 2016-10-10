@@ -25,6 +25,7 @@ Ext.define('Df.data.reader.Msgpack', {
 	},
 
 	getResponseData: function(response) {
+		var error;
 		try {
 			var start = performance.now();
 			var result = msgpack.decode(response.responseBytes);
@@ -32,8 +33,10 @@ Ext.define('Df.data.reader.Msgpack', {
 			return result;
 		}
 		catch (ex) {
-			Ext.Logger.warn('Unable to parse the Msgpack returned by the server');
-			return this.createReadError(ex.message);
+			error = this.createReadError(ex.message);
+            Ext.Logger.warn('Unable to parse the Msgpack returned by the server');
+            this.fireEvent('exception', this, response, error);
+            return error;
 		}
 	}
 });

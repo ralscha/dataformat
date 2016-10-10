@@ -11,7 +11,12 @@ server:
       - application/x-msgpack
       - text/csv
       - application/x-protobuf
-  
+      - application/x-flatbuffers
+
+spring:
+  resources:
+    static-locations: file:./client/
+
 logging:
   level:
     org.springframework: WARN

@@ -9,6 +9,7 @@ Ext.define('Df.view.main.MainModel', {
 	            'Df.data.reader.CborArray', 
 	            'Df.data.reader.MsgpackArray', 
 	            'Df.data.reader.ProtoBuf',
+	            'Df.data.reader.FlatBuffers',
 	            'Ext.data.reader.Xml',
 	            'Ext.data.reader.Json',
 	            'Ext.data.reader.Array',
@@ -106,6 +107,17 @@ Ext.define('Df.view.main.MainModel', {
 				}
 			}
 		},
+		addressesFLATBUFFERS: {
+			xclass: 'Df.store.AddressBaseStore',
+			proxy: {
+				type: 'ajax',
+				binary: true,
+				url: serverUrl + 'addresses.flatbuffers',
+				reader: {
+					xclass: 'Df.data.reader.FlatBuffers'
+				}
+			}
+		},		
 		addressesCSV: {
 			xclass: 'Df.store.AddressBaseStore',
 			proxy: {
@@ -169,6 +181,10 @@ Ext.define('Df.view.main.MainModel', {
 				format: 'Protocol Buffers',
 				uncompressed: 119531,
 				compressed: 68833
+			}, {
+				format: 'FlatBuffers',
+				uncompressed: 160964,
+				compressed: 80948
 			} ]
 		}
 	}

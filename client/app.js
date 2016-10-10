@@ -9,7 +9,7 @@ Ext.application({
     extend: 'Df.Application',
 
     requires: [
-        'Df.view.main.Main', 'Ext.plugin.Viewport'
+        'Df.view.main.Main'
     ],
 
     // The name of the initial view to create. With the classic toolkit this class

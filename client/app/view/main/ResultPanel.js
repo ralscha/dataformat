@@ -42,7 +42,7 @@ Ext.define('Df.view.main.ResultPanel', {
 			fields: [ 'format' ],
 			label: {
 				rotate: {
-					degrees: -45
+					degrees: -70
 				}
 			}
 		} ],

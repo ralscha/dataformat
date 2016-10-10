@@ -49,7 +49,7 @@ public class CborHttpMessageConverter
 			return false;
 		}
 		JavaType javaType = getJavaType(type, contextClass);
-		if (!logger.isWarnEnabled()) {
+		if (!this.logger.isWarnEnabled()) {
 			return this.objectMapper.canDeserialize(javaType);
 		}
 		AtomicReference<Throwable> causeRef = new AtomicReference<>();
@@ -65,7 +65,7 @@ public class CborHttpMessageConverter
 		if (!canWrite(mediaType)) {
 			return false;
 		}
-		if (!logger.isWarnEnabled()) {
+		if (!this.logger.isWarnEnabled()) {
 			return this.objectMapper.canSerialize(clazz);
 		}
 		AtomicReference<Throwable> causeRef = new AtomicReference<>();
@@ -90,11 +90,11 @@ public class CborHttpMessageConverter
 			String msg = "Failed to evaluate Jackson "
 					+ (type instanceof JavaType ? "de" : "") + "serialization for type ["
 					+ type + "]";
-			if (logger.isDebugEnabled()) {
-				logger.warn(msg, cause);
+			if (this.logger.isDebugEnabled()) {
+				this.logger.warn(msg, cause);
 			}
 			else {
-				logger.warn(msg + ": " + cause);
+				this.logger.warn(msg + ": " + cause);
 			}
 		}
 	}
@@ -192,7 +192,7 @@ public class CborHttpMessageConverter
 	 * The default implementation returns
 	 * {@code typeFactory.constructType(type, contextClass)}, but this can be overridden
 	 * in subclasses, to allow for custom generic collection handling. For instance:
-	 * 
+	 *
 	 * <pre class="code">
 	 * protected JavaType getJavaType(Type type) {
 	 * 	if (type instanceof Class && List.class.isAssignableFrom((Class) type)) {
@@ -203,7 +203,7 @@ public class CborHttpMessageConverter
 	 * 	}
 	 * }
 	 * </pre>
-	 * 
+	 *
 	 * @param type the generic type to return the Jackson JavaType for
 	 * @param contextClass a context class for the target type, for example a class in
 	 * which the target type appears in a method signature (can be {@code null})

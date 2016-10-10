@@ -1,7 +1,7 @@
 Ext.define('Df.view.main.Main', {
 	extend: 'Ext.tab.Panel',
 
-	requires: [ 'Df.view.main.MainController', 'Df.view.main.MainModel' ],
+	requires: [ 'Df.view.main.MainController', 'Df.view.main.MainModel', 'Ext.plugin.Viewport' ],
 
 	controller: {
 		xclass: 'Df.view.main.MainController'
@@ -51,6 +51,10 @@ Ext.define('Df.view.main.Main', {
 		title: 'Protocol Buffers',
 		xclass: 'Df.view.main.AddressGrid',
 		bind: '{addressesPROTO}'
+	}, {
+		title: 'FlatBuffers',
+		xclass: 'Df.view.main.AddressGrid',
+		bind: '{addressesFLATBUFFERS}'
 	}, {
 		title: 'Result',
 		xclass: 'Df.view.main.ResultPanel'

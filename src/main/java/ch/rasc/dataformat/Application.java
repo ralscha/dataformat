@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
@@ -54,8 +53,8 @@ public class Application extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public ProtobufHttpMessageConverter protobufHttpMessageConverter() {
-		return new ProtobufHttpMessageConverter();
+	public Protobuf3HttpMessageConverter protobufHttpMessageConverter() {
+		return new Protobuf3HttpMessageConverter();
 	}
 
 	@Bean
@@ -67,11 +66,11 @@ public class Application extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-		configurer
-				.mediaType("cbor", MediaType.valueOf("application/cbor"))
+		configurer.mediaType("cbor", MediaType.valueOf("application/cbor"))
 				.mediaType("msgpack", MediaType.valueOf("application/x-msgpack"))
 				.mediaType("csv", MediaType.valueOf("text/csv"))
-				.mediaType("protobuf", MediaType.valueOf("application/x-protobuf"));
+				.mediaType("protobuf", MediaType.valueOf("application/x-protobuf"))
+				.mediaType("flatbuffers", MediaType.valueOf("application/x-flatbuffers"));
 	}
 
 }

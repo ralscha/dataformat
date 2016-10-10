@@ -3,6 +3,7 @@ Ext.define('Df.data.reader.Csv', {
 	alias: 'reader.csv',
 
 	getResponseData: function(response) {
+		var error;
 		try {
 			var start = performance.now();
 			var results = Papa.parse(response.responseText);
@@ -10,8 +11,10 @@ Ext.define('Df.data.reader.Csv', {
 			return results.data;
 		}
 		catch (ex) {
-			Ext.Logger.warn('Unable to parse the CSV returned by the server');
-			return this.createReadError(ex.message);
+			error = this.createReadError(ex.message);
+            Ext.Logger.warn('Unable to parse the CSV returned by the server');
+            this.fireEvent('exception', this, response, error);
+            return error;			
 		}
 	}
 });

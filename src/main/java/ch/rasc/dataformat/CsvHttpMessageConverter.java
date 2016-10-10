@@ -43,7 +43,7 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 			return false;
 		}
 		JavaType javaType = getJavaType(type, contextClass);
-		if (!logger.isWarnEnabled()) {
+		if (!this.logger.isWarnEnabled()) {
 			return this.csvMapper.canDeserialize(javaType);
 		}
 		AtomicReference<Throwable> causeRef = new AtomicReference<>();
@@ -59,7 +59,7 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 		if (!canWrite(mediaType)) {
 			return false;
 		}
-		if (!logger.isWarnEnabled()) {
+		if (!this.logger.isWarnEnabled()) {
 			return this.csvMapper.canSerialize(clazz);
 		}
 		AtomicReference<Throwable> causeRef = new AtomicReference<>();
@@ -76,11 +76,11 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 			String msg = "Failed to evaluate Jackson "
 					+ (type instanceof JavaType ? "de" : "") + "serialization for type ["
 					+ type + "]";
-			if (logger.isDebugEnabled()) {
-				logger.warn(msg, cause);
+			if (this.logger.isDebugEnabled()) {
+				this.logger.warn(msg, cause);
 			}
 			else {
-				logger.warn(msg + ": " + cause);
+				this.logger.warn(msg + ": " + cause);
 			}
 		}
 	}
@@ -122,7 +122,7 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 	@Override
 	protected void writeInternal(Object object, Type type,
 			HttpOutputMessage outputMessage)
-					throws IOException, HttpMessageNotWritableException {
+			throws IOException, HttpMessageNotWritableException {
 
 		try {
 			CsvSchema schema;
