@@ -50,7 +50,7 @@ Ext.define('Df.data.reader.FlatBuffers', {
 					dob: adr.dob()
 				});
 			}
-			console.log('protobuf', (performance.now()-start) + ' ms');
+			console.log('flatbuffer', (performance.now()-start) + ' ms');
 
 			return result;
 		}

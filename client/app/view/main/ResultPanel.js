@@ -1,5 +1,5 @@
 Ext.define('Df.view.main.ResultPanel', {
-	extend: 'Ext.panel.Panel',
+	extend: 'Ext.Panel',
 
 	requires: [ 'Ext.chart.CartesianChart', 'Ext.chart.series.Bar', 'Ext.chart.axis.Numeric', 'Ext.chart.axis.Category',
 	            'Ext.chart.label.Label', 'Ext.chart.interactions.ItemHighlight'],
@@ -120,8 +120,8 @@ Ext.define('Df.view.main.ResultPanel', {
 				var chart = this.up('panel').down('cartesian');
 				var serie = chart.getSeries()[0];
 				var store = serie.getStore();
-
-				chart.setHighlightItem(serie.getItemByIndex(store.indexOf(record)));
+				serie.setHighlightItem(serie.getItemByIndex(store.indexOf(record)));
+				chart.redraw();
 			}
 		}
 

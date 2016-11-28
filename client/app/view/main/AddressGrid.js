@@ -1,6 +1,6 @@
 Ext.define('Df.view.main.AddressGrid', {
-	extend: 'Ext.grid.Panel',
-
+	extend: 'Ext.grid.Grid',
+	titleBar: false,
 	columns: [ {
 		text: 'ID',
 		dataIndex: 'id',

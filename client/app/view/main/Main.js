@@ -1,7 +1,7 @@
 Ext.define('Df.view.main.Main', {
 	extend: 'Ext.tab.Panel',
-
-	requires: [ 'Df.view.main.MainController', 'Df.view.main.MainModel', 'Ext.plugin.Viewport' ],
+		
+	requires: [ 'Df.view.main.MainController', 'Df.view.main.MainModel' ],
 
 	controller: {
 		xclass: 'Df.view.main.MainController'
@@ -12,7 +12,7 @@ Ext.define('Df.view.main.Main', {
 	},
 
 	listeners: {
-		beforetabchange: 'onBeforeTabChange'
+		activeitemchange: 'onActiveItemChange'
 	},
 
 	items: [ {

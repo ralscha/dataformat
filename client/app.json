@@ -44,7 +44,7 @@
     /**
      * The toolkit to use. Select either "classic" or "modern".
      */
-    "toolkit": "classic",
+    "toolkit": "modern",
     
     
     
@@ -228,7 +228,7 @@
      */
     "js": [
         {
-            "path": "${framework.dir}/build/ext-all-rtl-debug.js"
+            "path": "${framework.dir}/build/ext-modern-all-debug.js"
         },
         {
             "path": "app.js",
@@ -504,25 +504,7 @@
     
 
 
-    /**
-     * Additional resources used during theme slicing operations
-     */
-    "slicer": {
-        "js": [
-            {
-                "path": "sass/example/custom.js",
-                "isWidgetManifest": true
-            }
-        ],
-        "output": {
-            "appCache": {
-                "enable": false
-            }
-        },
-        "cache": {
-            "enable": false
-        }
-    },
+    "slicer": null,
 
 
     /**
@@ -547,5 +529,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "df4f4f3b-22ed-4c68-a038-64c79c27822d"
+    "id": "89f9003f-c6d9-4450-8d54-f7accdbb0102"
 }
