@@ -3,9 +3,11 @@ Ext.define('Df.data.reader.ProtoBuf', {
 	alias: 'reader.protobuf',
 
 	constructor: function () {
-        this.callParent(arguments);         
-        var builder = dcodeIO.ProtoBuf.loadProtoFile("address.proto");
-		this.root = builder.build();
+        this.callParent(arguments);   
+        var me = this;
+        var builder = protobuf.load("address.proto", function(err, root) {
+        	me.Addresses = root.lookup("Addresses");
+        });
     },
 	
 	read: function(response, readOptions) {
@@ -34,7 +36,7 @@ Ext.define('Df.data.reader.ProtoBuf', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = this.root.Addresses.decode(response.responseBytes).address;
+			var result = this.Addresses.decode(response.responseBytes).address;
 			console.log('protobuf', (performance.now()-start) + ' ms');
 			return result;
 		}
