@@ -1,10 +1,17 @@
 Ext.define('Df.view.main.ResultPanel', {
 	extend: 'Ext.Panel',
 
-	requires: [ 'Ext.chart.CartesianChart', 'Ext.chart.series.Bar', 'Ext.chart.axis.Numeric', 'Ext.chart.axis.Category',
-	            'Ext.chart.label.Label', 'Ext.chart.interactions.ItemHighlight'],
-	
-	layout: 'hbox',
+    requires: [
+        'Ext.chart.CartesianChart',
+        'Ext.chart.axis.Category',
+        'Ext.chart.axis.Numeric',
+        'Ext.chart.series.Bar',
+        'Ext.grid.Grid',
+        'Ext.layout.HBox',
+        'Ext.util.Format'
+    ],
+
+    layout: 'hbox',
 	
 	items: [ {
 		flex: 1,
@@ -118,9 +125,9 @@ Ext.define('Df.view.main.ResultPanel', {
 			selectionchange: function(model, records) {
 				var record = records[0];
 				var chart = this.up('panel').down('cartesian');
-				var serie = chart.getSeries()[0];
-				var store = serie.getStore();
-				serie.setHighlightItem(serie.getItemByIndex(store.indexOf(record)));
+				var series = chart.getSeries()[0];
+				var store = series.getStore();
+				series.setHighlightItem(series.getItemByIndex(store.indexOf(record)));
 				chart.redraw();
 			}
 		}

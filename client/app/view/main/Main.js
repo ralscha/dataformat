@@ -1,9 +1,14 @@
 Ext.define('Df.view.main.Main', {
 	extend: 'Ext.tab.Panel',
-		
-	requires: [ 'Df.view.main.MainController', 'Df.view.main.MainModel' ],
 
-	controller: {
+    requires: [
+        'Df.view.main.AddressGrid',
+        'Df.view.main.MainController',
+        'Df.view.main.MainModel',
+        'Df.view.main.ResultPanel'
+    ],
+
+    controller: {
 		xclass: 'Df.view.main.MainController'
 	},
 
