@@ -19,92 +19,92 @@ public final class AddressProtos {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional uint32 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      */
     int getId();
 
     /**
-     * <code>optional string lastName = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     java.lang.String getLastName();
     /**
-     * <code>optional string lastName = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     com.google.protobuf.ByteString
         getLastNameBytes();
 
     /**
-     * <code>optional string firstName = 3;</code>
+     * <code>string firstName = 3;</code>
      */
     java.lang.String getFirstName();
     /**
-     * <code>optional string firstName = 3;</code>
+     * <code>string firstName = 3;</code>
      */
     com.google.protobuf.ByteString
         getFirstNameBytes();
 
     /**
-     * <code>optional string street = 4;</code>
+     * <code>string street = 4;</code>
      */
     java.lang.String getStreet();
     /**
-     * <code>optional string street = 4;</code>
+     * <code>string street = 4;</code>
      */
     com.google.protobuf.ByteString
         getStreetBytes();
 
     /**
-     * <code>optional string zip = 5;</code>
+     * <code>string zip = 5;</code>
      */
     java.lang.String getZip();
     /**
-     * <code>optional string zip = 5;</code>
+     * <code>string zip = 5;</code>
      */
     com.google.protobuf.ByteString
         getZipBytes();
 
     /**
-     * <code>optional string city = 6;</code>
+     * <code>string city = 6;</code>
      */
     java.lang.String getCity();
     /**
-     * <code>optional string city = 6;</code>
+     * <code>string city = 6;</code>
      */
     com.google.protobuf.ByteString
         getCityBytes();
 
     /**
-     * <code>optional string country = 7;</code>
+     * <code>string country = 7;</code>
      */
     java.lang.String getCountry();
     /**
-     * <code>optional string country = 7;</code>
+     * <code>string country = 7;</code>
      */
     com.google.protobuf.ByteString
         getCountryBytes();
 
     /**
-     * <code>optional float lat = 8;</code>
+     * <code>float lat = 8;</code>
      */
     float getLat();
 
     /**
-     * <code>optional float lng = 9;</code>
+     * <code>float lng = 9;</code>
      */
     float getLng();
 
     /**
-     * <code>optional string email = 10;</code>
+     * <code>string email = 10;</code>
      */
     java.lang.String getEmail();
     /**
-     * <code>optional string email = 10;</code>
+     * <code>string email = 10;</code>
      */
     com.google.protobuf.ByteString
         getEmailBytes();
 
     /**
-     * <code>optional sint32 dob = 11;</code>
+     * <code>sint32 dob = 11;</code>
      */
     int getDob();
   }
@@ -246,7 +246,7 @@ public final class AddressProtos {
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
-     * <code>optional uint32 id = 1;</code>
+     * <code>uint32 id = 1;</code>
      */
     public int getId() {
       return id_;
@@ -255,7 +255,7 @@ public final class AddressProtos {
     public static final int LASTNAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object lastName_;
     /**
-     * <code>optional string lastName = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     public java.lang.String getLastName() {
       java.lang.Object ref = lastName_;
@@ -270,7 +270,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string lastName = 2;</code>
+     * <code>string lastName = 2;</code>
      */
     public com.google.protobuf.ByteString
         getLastNameBytes() {
@@ -289,7 +289,7 @@ public final class AddressProtos {
     public static final int FIRSTNAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object firstName_;
     /**
-     * <code>optional string firstName = 3;</code>
+     * <code>string firstName = 3;</code>
      */
     public java.lang.String getFirstName() {
       java.lang.Object ref = firstName_;
@@ -304,7 +304,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string firstName = 3;</code>
+     * <code>string firstName = 3;</code>
      */
     public com.google.protobuf.ByteString
         getFirstNameBytes() {
@@ -323,7 +323,7 @@ public final class AddressProtos {
     public static final int STREET_FIELD_NUMBER = 4;
     private volatile java.lang.Object street_;
     /**
-     * <code>optional string street = 4;</code>
+     * <code>string street = 4;</code>
      */
     public java.lang.String getStreet() {
       java.lang.Object ref = street_;
@@ -338,7 +338,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string street = 4;</code>
+     * <code>string street = 4;</code>
      */
     public com.google.protobuf.ByteString
         getStreetBytes() {
@@ -357,7 +357,7 @@ public final class AddressProtos {
     public static final int ZIP_FIELD_NUMBER = 5;
     private volatile java.lang.Object zip_;
     /**
-     * <code>optional string zip = 5;</code>
+     * <code>string zip = 5;</code>
      */
     public java.lang.String getZip() {
       java.lang.Object ref = zip_;
@@ -372,7 +372,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string zip = 5;</code>
+     * <code>string zip = 5;</code>
      */
     public com.google.protobuf.ByteString
         getZipBytes() {
@@ -391,7 +391,7 @@ public final class AddressProtos {
     public static final int CITY_FIELD_NUMBER = 6;
     private volatile java.lang.Object city_;
     /**
-     * <code>optional string city = 6;</code>
+     * <code>string city = 6;</code>
      */
     public java.lang.String getCity() {
       java.lang.Object ref = city_;
@@ -406,7 +406,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string city = 6;</code>
+     * <code>string city = 6;</code>
      */
     public com.google.protobuf.ByteString
         getCityBytes() {
@@ -425,7 +425,7 @@ public final class AddressProtos {
     public static final int COUNTRY_FIELD_NUMBER = 7;
     private volatile java.lang.Object country_;
     /**
-     * <code>optional string country = 7;</code>
+     * <code>string country = 7;</code>
      */
     public java.lang.String getCountry() {
       java.lang.Object ref = country_;
@@ -440,7 +440,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string country = 7;</code>
+     * <code>string country = 7;</code>
      */
     public com.google.protobuf.ByteString
         getCountryBytes() {
@@ -459,7 +459,7 @@ public final class AddressProtos {
     public static final int LAT_FIELD_NUMBER = 8;
     private float lat_;
     /**
-     * <code>optional float lat = 8;</code>
+     * <code>float lat = 8;</code>
      */
     public float getLat() {
       return lat_;
@@ -468,7 +468,7 @@ public final class AddressProtos {
     public static final int LNG_FIELD_NUMBER = 9;
     private float lng_;
     /**
-     * <code>optional float lng = 9;</code>
+     * <code>float lng = 9;</code>
      */
     public float getLng() {
       return lng_;
@@ -477,7 +477,7 @@ public final class AddressProtos {
     public static final int EMAIL_FIELD_NUMBER = 10;
     private volatile java.lang.Object email_;
     /**
-     * <code>optional string email = 10;</code>
+     * <code>string email = 10;</code>
      */
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
@@ -492,7 +492,7 @@ public final class AddressProtos {
       }
     }
     /**
-     * <code>optional string email = 10;</code>
+     * <code>string email = 10;</code>
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
@@ -511,7 +511,7 @@ public final class AddressProtos {
     public static final int DOB_FIELD_NUMBER = 11;
     private int dob_;
     /**
-     * <code>optional sint32 dob = 11;</code>
+     * <code>sint32 dob = 11;</code>
      */
     public int getDob() {
       return dob_;
@@ -657,7 +657,7 @@ public final class AddressProtos {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId();
       hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
@@ -964,13 +964,13 @@ public final class AddressProtos {
 
       private int id_ ;
       /**
-       * <code>optional uint32 id = 1;</code>
+       * <code>uint32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
       /**
-       * <code>optional uint32 id = 1;</code>
+       * <code>uint32 id = 1;</code>
        */
       public Builder setId(int value) {
         
@@ -979,7 +979,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional uint32 id = 1;</code>
+       * <code>uint32 id = 1;</code>
        */
       public Builder clearId() {
         
@@ -990,7 +990,7 @@ public final class AddressProtos {
 
       private java.lang.Object lastName_ = "";
       /**
-       * <code>optional string lastName = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public java.lang.String getLastName() {
         java.lang.Object ref = lastName_;
@@ -1005,7 +1005,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string lastName = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public com.google.protobuf.ByteString
           getLastNameBytes() {
@@ -1021,7 +1021,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string lastName = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public Builder setLastName(
           java.lang.String value) {
@@ -1034,7 +1034,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string lastName = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public Builder clearLastName() {
         
@@ -1043,7 +1043,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string lastName = 2;</code>
+       * <code>string lastName = 2;</code>
        */
       public Builder setLastNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1059,7 +1059,7 @@ public final class AddressProtos {
 
       private java.lang.Object firstName_ = "";
       /**
-       * <code>optional string firstName = 3;</code>
+       * <code>string firstName = 3;</code>
        */
       public java.lang.String getFirstName() {
         java.lang.Object ref = firstName_;
@@ -1074,7 +1074,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string firstName = 3;</code>
+       * <code>string firstName = 3;</code>
        */
       public com.google.protobuf.ByteString
           getFirstNameBytes() {
@@ -1090,7 +1090,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string firstName = 3;</code>
+       * <code>string firstName = 3;</code>
        */
       public Builder setFirstName(
           java.lang.String value) {
@@ -1103,7 +1103,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string firstName = 3;</code>
+       * <code>string firstName = 3;</code>
        */
       public Builder clearFirstName() {
         
@@ -1112,7 +1112,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string firstName = 3;</code>
+       * <code>string firstName = 3;</code>
        */
       public Builder setFirstNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1128,7 +1128,7 @@ public final class AddressProtos {
 
       private java.lang.Object street_ = "";
       /**
-       * <code>optional string street = 4;</code>
+       * <code>string street = 4;</code>
        */
       public java.lang.String getStreet() {
         java.lang.Object ref = street_;
@@ -1143,7 +1143,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string street = 4;</code>
+       * <code>string street = 4;</code>
        */
       public com.google.protobuf.ByteString
           getStreetBytes() {
@@ -1159,7 +1159,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string street = 4;</code>
+       * <code>string street = 4;</code>
        */
       public Builder setStreet(
           java.lang.String value) {
@@ -1172,7 +1172,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string street = 4;</code>
+       * <code>string street = 4;</code>
        */
       public Builder clearStreet() {
         
@@ -1181,7 +1181,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string street = 4;</code>
+       * <code>string street = 4;</code>
        */
       public Builder setStreetBytes(
           com.google.protobuf.ByteString value) {
@@ -1197,7 +1197,7 @@ public final class AddressProtos {
 
       private java.lang.Object zip_ = "";
       /**
-       * <code>optional string zip = 5;</code>
+       * <code>string zip = 5;</code>
        */
       public java.lang.String getZip() {
         java.lang.Object ref = zip_;
@@ -1212,7 +1212,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string zip = 5;</code>
+       * <code>string zip = 5;</code>
        */
       public com.google.protobuf.ByteString
           getZipBytes() {
@@ -1228,7 +1228,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string zip = 5;</code>
+       * <code>string zip = 5;</code>
        */
       public Builder setZip(
           java.lang.String value) {
@@ -1241,7 +1241,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string zip = 5;</code>
+       * <code>string zip = 5;</code>
        */
       public Builder clearZip() {
         
@@ -1250,7 +1250,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string zip = 5;</code>
+       * <code>string zip = 5;</code>
        */
       public Builder setZipBytes(
           com.google.protobuf.ByteString value) {
@@ -1266,7 +1266,7 @@ public final class AddressProtos {
 
       private java.lang.Object city_ = "";
       /**
-       * <code>optional string city = 6;</code>
+       * <code>string city = 6;</code>
        */
       public java.lang.String getCity() {
         java.lang.Object ref = city_;
@@ -1281,7 +1281,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string city = 6;</code>
+       * <code>string city = 6;</code>
        */
       public com.google.protobuf.ByteString
           getCityBytes() {
@@ -1297,7 +1297,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string city = 6;</code>
+       * <code>string city = 6;</code>
        */
       public Builder setCity(
           java.lang.String value) {
@@ -1310,7 +1310,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string city = 6;</code>
+       * <code>string city = 6;</code>
        */
       public Builder clearCity() {
         
@@ -1319,7 +1319,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string city = 6;</code>
+       * <code>string city = 6;</code>
        */
       public Builder setCityBytes(
           com.google.protobuf.ByteString value) {
@@ -1335,7 +1335,7 @@ public final class AddressProtos {
 
       private java.lang.Object country_ = "";
       /**
-       * <code>optional string country = 7;</code>
+       * <code>string country = 7;</code>
        */
       public java.lang.String getCountry() {
         java.lang.Object ref = country_;
@@ -1350,7 +1350,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string country = 7;</code>
+       * <code>string country = 7;</code>
        */
       public com.google.protobuf.ByteString
           getCountryBytes() {
@@ -1366,7 +1366,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string country = 7;</code>
+       * <code>string country = 7;</code>
        */
       public Builder setCountry(
           java.lang.String value) {
@@ -1379,7 +1379,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string country = 7;</code>
+       * <code>string country = 7;</code>
        */
       public Builder clearCountry() {
         
@@ -1388,7 +1388,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string country = 7;</code>
+       * <code>string country = 7;</code>
        */
       public Builder setCountryBytes(
           com.google.protobuf.ByteString value) {
@@ -1404,13 +1404,13 @@ public final class AddressProtos {
 
       private float lat_ ;
       /**
-       * <code>optional float lat = 8;</code>
+       * <code>float lat = 8;</code>
        */
       public float getLat() {
         return lat_;
       }
       /**
-       * <code>optional float lat = 8;</code>
+       * <code>float lat = 8;</code>
        */
       public Builder setLat(float value) {
         
@@ -1419,7 +1419,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional float lat = 8;</code>
+       * <code>float lat = 8;</code>
        */
       public Builder clearLat() {
         
@@ -1430,13 +1430,13 @@ public final class AddressProtos {
 
       private float lng_ ;
       /**
-       * <code>optional float lng = 9;</code>
+       * <code>float lng = 9;</code>
        */
       public float getLng() {
         return lng_;
       }
       /**
-       * <code>optional float lng = 9;</code>
+       * <code>float lng = 9;</code>
        */
       public Builder setLng(float value) {
         
@@ -1445,7 +1445,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional float lng = 9;</code>
+       * <code>float lng = 9;</code>
        */
       public Builder clearLng() {
         
@@ -1456,7 +1456,7 @@ public final class AddressProtos {
 
       private java.lang.Object email_ = "";
       /**
-       * <code>optional string email = 10;</code>
+       * <code>string email = 10;</code>
        */
       public java.lang.String getEmail() {
         java.lang.Object ref = email_;
@@ -1471,7 +1471,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string email = 10;</code>
+       * <code>string email = 10;</code>
        */
       public com.google.protobuf.ByteString
           getEmailBytes() {
@@ -1487,7 +1487,7 @@ public final class AddressProtos {
         }
       }
       /**
-       * <code>optional string email = 10;</code>
+       * <code>string email = 10;</code>
        */
       public Builder setEmail(
           java.lang.String value) {
@@ -1500,7 +1500,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string email = 10;</code>
+       * <code>string email = 10;</code>
        */
       public Builder clearEmail() {
         
@@ -1509,7 +1509,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional string email = 10;</code>
+       * <code>string email = 10;</code>
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
@@ -1525,13 +1525,13 @@ public final class AddressProtos {
 
       private int dob_ ;
       /**
-       * <code>optional sint32 dob = 11;</code>
+       * <code>sint32 dob = 11;</code>
        */
       public int getDob() {
         return dob_;
       }
       /**
-       * <code>optional sint32 dob = 11;</code>
+       * <code>sint32 dob = 11;</code>
        */
       public Builder setDob(int value) {
         
@@ -1540,7 +1540,7 @@ public final class AddressProtos {
         return this;
       }
       /**
-       * <code>optional sint32 dob = 11;</code>
+       * <code>sint32 dob = 11;</code>
        */
       public Builder clearDob() {
         
@@ -1788,7 +1788,7 @@ public final class AddressProtos {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getAddressCount() > 0) {
         hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
         hash = (53 * hash) + getAddressList().hashCode();
