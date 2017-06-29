@@ -15,7 +15,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.3.RELEASE</version>
+		<version>1.5.4.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
@@ -71,7 +71,7 @@
 			<plugin>
 				<groupId>com.github.os72</groupId>
 				<artifactId>protoc-jar-maven-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.3.0.1</version>
 				<executions>
 					<execution>
 						<phase>generate-sources</phase>
@@ -79,7 +79,7 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<protocVersion>3.1.0</protocVersion>
+							<protocVersion>3.3.0</protocVersion>
 							<inputDirectories>
 								<include>client</include>
 							</inputDirectories>

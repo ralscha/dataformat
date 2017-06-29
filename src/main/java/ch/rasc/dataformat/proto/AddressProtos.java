@@ -4,2387 +4,2643 @@
 package ch.rasc.dataformat.proto;
 
 public final class AddressProtos {
-  private AddressProtos() {}
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistryLite registry) {
-  }
-
-  public static void registerAllExtensions(
-      com.google.protobuf.ExtensionRegistry registry) {
-    registerAllExtensions(
-        (com.google.protobuf.ExtensionRegistryLite) registry);
-  }
-  public interface AddressOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Address)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>uint32 id = 1;</code>
-     */
-    int getId();
-
-    /**
-     * <code>string lastName = 2;</code>
-     */
-    java.lang.String getLastName();
-    /**
-     * <code>string lastName = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getLastNameBytes();
-
-    /**
-     * <code>string firstName = 3;</code>
-     */
-    java.lang.String getFirstName();
-    /**
-     * <code>string firstName = 3;</code>
-     */
-    com.google.protobuf.ByteString
-        getFirstNameBytes();
-
-    /**
-     * <code>string street = 4;</code>
-     */
-    java.lang.String getStreet();
-    /**
-     * <code>string street = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getStreetBytes();
-
-    /**
-     * <code>string zip = 5;</code>
-     */
-    java.lang.String getZip();
-    /**
-     * <code>string zip = 5;</code>
-     */
-    com.google.protobuf.ByteString
-        getZipBytes();
-
-    /**
-     * <code>string city = 6;</code>
-     */
-    java.lang.String getCity();
-    /**
-     * <code>string city = 6;</code>
-     */
-    com.google.protobuf.ByteString
-        getCityBytes();
-
-    /**
-     * <code>string country = 7;</code>
-     */
-    java.lang.String getCountry();
-    /**
-     * <code>string country = 7;</code>
-     */
-    com.google.protobuf.ByteString
-        getCountryBytes();
-
-    /**
-     * <code>float lat = 8;</code>
-     */
-    float getLat();
-
-    /**
-     * <code>float lng = 9;</code>
-     */
-    float getLng();
-
-    /**
-     * <code>string email = 10;</code>
-     */
-    java.lang.String getEmail();
-    /**
-     * <code>string email = 10;</code>
-     */
-    com.google.protobuf.ByteString
-        getEmailBytes();
-
-    /**
-     * <code>sint32 dob = 11;</code>
-     */
-    int getDob();
-  }
-  /**
-   * Protobuf type {@code Address}
-   */
-  public  static final class Address extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Address)
-      AddressOrBuilder {
-    // Use Address.newBuilder() to construct.
-    private Address(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Address() {
-      id_ = 0;
-      lastName_ = "";
-      firstName_ = "";
-      street_ = "";
-      zip_ = "";
-      city_ = "";
-      country_ = "";
-      lat_ = 0F;
-      lng_ = 0F;
-      email_ = "";
-      dob_ = 0;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private Address(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 8: {
-
-              id_ = input.readUInt32();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              lastName_ = s;
-              break;
-            }
-            case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              firstName_ = s;
-              break;
-            }
-            case 34: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              street_ = s;
-              break;
-            }
-            case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              zip_ = s;
-              break;
-            }
-            case 50: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              city_ = s;
-              break;
-            }
-            case 58: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              country_ = s;
-              break;
-            }
-            case 69: {
-
-              lat_ = input.readFloat();
-              break;
-            }
-            case 77: {
-
-              lng_ = input.readFloat();
-              break;
-            }
-            case 82: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              email_ = s;
-              break;
-            }
-            case 88: {
-
-              dob_ = input.readSInt32();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              ch.rasc.dataformat.proto.AddressProtos.Address.class, ch.rasc.dataformat.proto.AddressProtos.Address.Builder.class);
-    }
-
-    public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
-    /**
-     * <code>uint32 id = 1;</code>
-     */
-    public int getId() {
-      return id_;
-    }
-
-    public static final int LASTNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object lastName_;
-    /**
-     * <code>string lastName = 2;</code>
-     */
-    public java.lang.String getLastName() {
-      java.lang.Object ref = lastName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        lastName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string lastName = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getLastNameBytes() {
-      java.lang.Object ref = lastName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        lastName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int FIRSTNAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object firstName_;
-    /**
-     * <code>string firstName = 3;</code>
-     */
-    public java.lang.String getFirstName() {
-      java.lang.Object ref = firstName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        firstName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string firstName = 3;</code>
-     */
-    public com.google.protobuf.ByteString
-        getFirstNameBytes() {
-      java.lang.Object ref = firstName_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        firstName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int STREET_FIELD_NUMBER = 4;
-    private volatile java.lang.Object street_;
-    /**
-     * <code>string street = 4;</code>
-     */
-    public java.lang.String getStreet() {
-      java.lang.Object ref = street_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        street_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string street = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getStreetBytes() {
-      java.lang.Object ref = street_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        street_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int ZIP_FIELD_NUMBER = 5;
-    private volatile java.lang.Object zip_;
-    /**
-     * <code>string zip = 5;</code>
-     */
-    public java.lang.String getZip() {
-      java.lang.Object ref = zip_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        zip_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string zip = 5;</code>
-     */
-    public com.google.protobuf.ByteString
-        getZipBytes() {
-      java.lang.Object ref = zip_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        zip_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CITY_FIELD_NUMBER = 6;
-    private volatile java.lang.Object city_;
-    /**
-     * <code>string city = 6;</code>
-     */
-    public java.lang.String getCity() {
-      java.lang.Object ref = city_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        city_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string city = 6;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCityBytes() {
-      java.lang.Object ref = city_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        city_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int COUNTRY_FIELD_NUMBER = 7;
-    private volatile java.lang.Object country_;
-    /**
-     * <code>string country = 7;</code>
-     */
-    public java.lang.String getCountry() {
-      java.lang.Object ref = country_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        country_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string country = 7;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCountryBytes() {
-      java.lang.Object ref = country_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        country_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int LAT_FIELD_NUMBER = 8;
-    private float lat_;
-    /**
-     * <code>float lat = 8;</code>
-     */
-    public float getLat() {
-      return lat_;
-    }
-
-    public static final int LNG_FIELD_NUMBER = 9;
-    private float lng_;
-    /**
-     * <code>float lng = 9;</code>
-     */
-    public float getLng() {
-      return lng_;
-    }
-
-    public static final int EMAIL_FIELD_NUMBER = 10;
-    private volatile java.lang.Object email_;
-    /**
-     * <code>string email = 10;</code>
-     */
-    public java.lang.String getEmail() {
-      java.lang.Object ref = email_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        email_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string email = 10;</code>
-     */
-    public com.google.protobuf.ByteString
-        getEmailBytes() {
-      java.lang.Object ref = email_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        email_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int DOB_FIELD_NUMBER = 11;
-    private int dob_;
-    /**
-     * <code>sint32 dob = 11;</code>
-     */
-    public int getDob() {
-      return dob_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeUInt32(1, id_);
-      }
-      if (!getLastNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, lastName_);
-      }
-      if (!getFirstNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, firstName_);
-      }
-      if (!getStreetBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, street_);
-      }
-      if (!getZipBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, zip_);
-      }
-      if (!getCityBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, city_);
-      }
-      if (!getCountryBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, country_);
-      }
-      if (lat_ != 0F) {
-        output.writeFloat(8, lat_);
-      }
-      if (lng_ != 0F) {
-        output.writeFloat(9, lng_);
-      }
-      if (!getEmailBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, email_);
-      }
-      if (dob_ != 0) {
-        output.writeSInt32(11, dob_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (id_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeUInt32Size(1, id_);
-      }
-      if (!getLastNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, lastName_);
-      }
-      if (!getFirstNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, firstName_);
-      }
-      if (!getStreetBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, street_);
-      }
-      if (!getZipBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, zip_);
-      }
-      if (!getCityBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, city_);
-      }
-      if (!getCountryBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, country_);
-      }
-      if (lat_ != 0F) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(8, lat_);
-      }
-      if (lng_ != 0F) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeFloatSize(9, lng_);
-      }
-      if (!getEmailBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, email_);
-      }
-      if (dob_ != 0) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeSInt32Size(11, dob_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof ch.rasc.dataformat.proto.AddressProtos.Address)) {
-        return super.equals(obj);
-      }
-      ch.rasc.dataformat.proto.AddressProtos.Address other = (ch.rasc.dataformat.proto.AddressProtos.Address) obj;
-
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getLastName()
-          .equals(other.getLastName());
-      result = result && getFirstName()
-          .equals(other.getFirstName());
-      result = result && getStreet()
-          .equals(other.getStreet());
-      result = result && getZip()
-          .equals(other.getZip());
-      result = result && getCity()
-          .equals(other.getCity());
-      result = result && getCountry()
-          .equals(other.getCountry());
-      result = result && (
-          java.lang.Float.floatToIntBits(getLat())
-          == java.lang.Float.floatToIntBits(
-              other.getLat()));
-      result = result && (
-          java.lang.Float.floatToIntBits(getLng())
-          == java.lang.Float.floatToIntBits(
-              other.getLng()));
-      result = result && getEmail()
-          .equals(other.getEmail());
-      result = result && (getDob()
-          == other.getDob());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + ID_FIELD_NUMBER;
-      hash = (53 * hash) + getId();
-      hash = (37 * hash) + LASTNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getLastName().hashCode();
-      hash = (37 * hash) + FIRSTNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getFirstName().hashCode();
-      hash = (37 * hash) + STREET_FIELD_NUMBER;
-      hash = (53 * hash) + getStreet().hashCode();
-      hash = (37 * hash) + ZIP_FIELD_NUMBER;
-      hash = (53 * hash) + getZip().hashCode();
-      hash = (37 * hash) + CITY_FIELD_NUMBER;
-      hash = (53 * hash) + getCity().hashCode();
-      hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
-      hash = (53 * hash) + getCountry().hashCode();
-      hash = (37 * hash) + LAT_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getLat());
-      hash = (37 * hash) + LNG_FIELD_NUMBER;
-      hash = (53 * hash) + java.lang.Float.floatToIntBits(
-          getLng());
-      hash = (37 * hash) + EMAIL_FIELD_NUMBER;
-      hash = (53 * hash) + getEmail().hashCode();
-      hash = (37 * hash) + DOB_FIELD_NUMBER;
-      hash = (53 * hash) + getDob();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(ch.rasc.dataformat.proto.AddressProtos.Address prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Address}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Address)
-        ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                ch.rasc.dataformat.proto.AddressProtos.Address.class, ch.rasc.dataformat.proto.AddressProtos.Address.Builder.class);
-      }
-
-      // Construct using ch.rasc.dataformat.proto.AddressProtos.Address.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        id_ = 0;
-
-        lastName_ = "";
-
-        firstName_ = "";
-
-        street_ = "";
-
-        zip_ = "";
-
-        city_ = "";
-
-        country_ = "";
-
-        lat_ = 0F;
-
-        lng_ = 0F;
-
-        email_ = "";
-
-        dob_ = 0;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
-      }
-
-      public ch.rasc.dataformat.proto.AddressProtos.Address getDefaultInstanceForType() {
-        return ch.rasc.dataformat.proto.AddressProtos.Address.getDefaultInstance();
-      }
-
-      public ch.rasc.dataformat.proto.AddressProtos.Address build() {
-        ch.rasc.dataformat.proto.AddressProtos.Address result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public ch.rasc.dataformat.proto.AddressProtos.Address buildPartial() {
-        ch.rasc.dataformat.proto.AddressProtos.Address result = new ch.rasc.dataformat.proto.AddressProtos.Address(this);
-        result.id_ = id_;
-        result.lastName_ = lastName_;
-        result.firstName_ = firstName_;
-        result.street_ = street_;
-        result.zip_ = zip_;
-        result.city_ = city_;
-        result.country_ = country_;
-        result.lat_ = lat_;
-        result.lng_ = lng_;
-        result.email_ = email_;
-        result.dob_ = dob_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Address) {
-          return mergeFrom((ch.rasc.dataformat.proto.AddressProtos.Address)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(ch.rasc.dataformat.proto.AddressProtos.Address other) {
-        if (other == ch.rasc.dataformat.proto.AddressProtos.Address.getDefaultInstance()) return this;
-        if (other.getId() != 0) {
-          setId(other.getId());
-        }
-        if (!other.getLastName().isEmpty()) {
-          lastName_ = other.lastName_;
-          onChanged();
-        }
-        if (!other.getFirstName().isEmpty()) {
-          firstName_ = other.firstName_;
-          onChanged();
-        }
-        if (!other.getStreet().isEmpty()) {
-          street_ = other.street_;
-          onChanged();
-        }
-        if (!other.getZip().isEmpty()) {
-          zip_ = other.zip_;
-          onChanged();
-        }
-        if (!other.getCity().isEmpty()) {
-          city_ = other.city_;
-          onChanged();
-        }
-        if (!other.getCountry().isEmpty()) {
-          country_ = other.country_;
-          onChanged();
-        }
-        if (other.getLat() != 0F) {
-          setLat(other.getLat());
-        }
-        if (other.getLng() != 0F) {
-          setLng(other.getLng());
-        }
-        if (!other.getEmail().isEmpty()) {
-          email_ = other.email_;
-          onChanged();
-        }
-        if (other.getDob() != 0) {
-          setDob(other.getDob());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        ch.rasc.dataformat.proto.AddressProtos.Address parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ch.rasc.dataformat.proto.AddressProtos.Address) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private int id_ ;
-      /**
-       * <code>uint32 id = 1;</code>
-       */
-      public int getId() {
-        return id_;
-      }
-      /**
-       * <code>uint32 id = 1;</code>
-       */
-      public Builder setId(int value) {
-        
-        id_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>uint32 id = 1;</code>
-       */
-      public Builder clearId() {
-        
-        id_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object lastName_ = "";
-      /**
-       * <code>string lastName = 2;</code>
-       */
-      public java.lang.String getLastName() {
-        java.lang.Object ref = lastName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          lastName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string lastName = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getLastNameBytes() {
-        java.lang.Object ref = lastName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          lastName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string lastName = 2;</code>
-       */
-      public Builder setLastName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        lastName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string lastName = 2;</code>
-       */
-      public Builder clearLastName() {
-        
-        lastName_ = getDefaultInstance().getLastName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string lastName = 2;</code>
-       */
-      public Builder setLastNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        lastName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object firstName_ = "";
-      /**
-       * <code>string firstName = 3;</code>
-       */
-      public java.lang.String getFirstName() {
-        java.lang.Object ref = firstName_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          firstName_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string firstName = 3;</code>
-       */
-      public com.google.protobuf.ByteString
-          getFirstNameBytes() {
-        java.lang.Object ref = firstName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          firstName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string firstName = 3;</code>
-       */
-      public Builder setFirstName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        firstName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string firstName = 3;</code>
-       */
-      public Builder clearFirstName() {
-        
-        firstName_ = getDefaultInstance().getFirstName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string firstName = 3;</code>
-       */
-      public Builder setFirstNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        firstName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object street_ = "";
-      /**
-       * <code>string street = 4;</code>
-       */
-      public java.lang.String getStreet() {
-        java.lang.Object ref = street_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          street_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string street = 4;</code>
-       */
-      public com.google.protobuf.ByteString
-          getStreetBytes() {
-        java.lang.Object ref = street_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          street_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string street = 4;</code>
-       */
-      public Builder setStreet(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        street_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string street = 4;</code>
-       */
-      public Builder clearStreet() {
-        
-        street_ = getDefaultInstance().getStreet();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string street = 4;</code>
-       */
-      public Builder setStreetBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        street_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object zip_ = "";
-      /**
-       * <code>string zip = 5;</code>
-       */
-      public java.lang.String getZip() {
-        java.lang.Object ref = zip_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          zip_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string zip = 5;</code>
-       */
-      public com.google.protobuf.ByteString
-          getZipBytes() {
-        java.lang.Object ref = zip_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          zip_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string zip = 5;</code>
-       */
-      public Builder setZip(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        zip_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string zip = 5;</code>
-       */
-      public Builder clearZip() {
-        
-        zip_ = getDefaultInstance().getZip();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string zip = 5;</code>
-       */
-      public Builder setZipBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        zip_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object city_ = "";
-      /**
-       * <code>string city = 6;</code>
-       */
-      public java.lang.String getCity() {
-        java.lang.Object ref = city_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          city_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string city = 6;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCityBytes() {
-        java.lang.Object ref = city_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          city_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string city = 6;</code>
-       */
-      public Builder setCity(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        city_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string city = 6;</code>
-       */
-      public Builder clearCity() {
-        
-        city_ = getDefaultInstance().getCity();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string city = 6;</code>
-       */
-      public Builder setCityBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        city_ = value;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object country_ = "";
-      /**
-       * <code>string country = 7;</code>
-       */
-      public java.lang.String getCountry() {
-        java.lang.Object ref = country_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          country_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string country = 7;</code>
-       */
-      public com.google.protobuf.ByteString
-          getCountryBytes() {
-        java.lang.Object ref = country_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          country_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string country = 7;</code>
-       */
-      public Builder setCountry(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        country_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string country = 7;</code>
-       */
-      public Builder clearCountry() {
-        
-        country_ = getDefaultInstance().getCountry();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string country = 7;</code>
-       */
-      public Builder setCountryBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        country_ = value;
-        onChanged();
-        return this;
-      }
-
-      private float lat_ ;
-      /**
-       * <code>float lat = 8;</code>
-       */
-      public float getLat() {
-        return lat_;
-      }
-      /**
-       * <code>float lat = 8;</code>
-       */
-      public Builder setLat(float value) {
-        
-        lat_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>float lat = 8;</code>
-       */
-      public Builder clearLat() {
-        
-        lat_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      private float lng_ ;
-      /**
-       * <code>float lng = 9;</code>
-       */
-      public float getLng() {
-        return lng_;
-      }
-      /**
-       * <code>float lng = 9;</code>
-       */
-      public Builder setLng(float value) {
-        
-        lng_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>float lng = 9;</code>
-       */
-      public Builder clearLng() {
-        
-        lng_ = 0F;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object email_ = "";
-      /**
-       * <code>string email = 10;</code>
-       */
-      public java.lang.String getEmail() {
-        java.lang.Object ref = email_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          email_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string email = 10;</code>
-       */
-      public com.google.protobuf.ByteString
-          getEmailBytes() {
-        java.lang.Object ref = email_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          email_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string email = 10;</code>
-       */
-      public Builder setEmail(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        email_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string email = 10;</code>
-       */
-      public Builder clearEmail() {
-        
-        email_ = getDefaultInstance().getEmail();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string email = 10;</code>
-       */
-      public Builder setEmailBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        email_ = value;
-        onChanged();
-        return this;
-      }
-
-      private int dob_ ;
-      /**
-       * <code>sint32 dob = 11;</code>
-       */
-      public int getDob() {
-        return dob_;
-      }
-      /**
-       * <code>sint32 dob = 11;</code>
-       */
-      public Builder setDob(int value) {
-        
-        dob_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>sint32 dob = 11;</code>
-       */
-      public Builder clearDob() {
-        
-        dob_ = 0;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Address)
-    }
-
-    // @@protoc_insertion_point(class_scope:Address)
-    private static final ch.rasc.dataformat.proto.AddressProtos.Address DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new ch.rasc.dataformat.proto.AddressProtos.Address();
-    }
-
-    public static ch.rasc.dataformat.proto.AddressProtos.Address getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Address>
-        PARSER = new com.google.protobuf.AbstractParser<Address>() {
-      public Address parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Address(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Address> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Address> getParserForType() {
-      return PARSER;
-    }
-
-    public ch.rasc.dataformat.proto.AddressProtos.Address getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface AddressesOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Addresses)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> 
-        getAddressList();
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index);
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    int getAddressCount();
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> 
-        getAddressOrBuilderList();
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code Addresses}
-   */
-  public  static final class Addresses extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Addresses)
-      AddressesOrBuilder {
-    // Use Addresses.newBuilder() to construct.
-    private Addresses(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Addresses() {
-      address_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private Addresses(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                address_ = new java.util.ArrayList<ch.rasc.dataformat.proto.AddressProtos.Address>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              address_.add(
-                  input.readMessage(ch.rasc.dataformat.proto.AddressProtos.Address.parser(), extensionRegistry));
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          address_ = java.util.Collections.unmodifiableList(address_);
-        }
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              ch.rasc.dataformat.proto.AddressProtos.Addresses.class, ch.rasc.dataformat.proto.AddressProtos.Addresses.Builder.class);
-    }
-
-    public static final int ADDRESS_FIELD_NUMBER = 1;
-    private java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> address_;
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> getAddressList() {
-      return address_;
-    }
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    public java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> 
-        getAddressOrBuilderList() {
-      return address_;
-    }
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    public int getAddressCount() {
-      return address_.size();
-    }
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    public ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index) {
-      return address_.get(index);
-    }
-    /**
-     * <code>repeated .Address address = 1;</code>
-     */
-    public ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
-        int index) {
-      return address_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < address_.size(); i++) {
-        output.writeMessage(1, address_.get(i));
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < address_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, address_.get(i));
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof ch.rasc.dataformat.proto.AddressProtos.Addresses)) {
-        return super.equals(obj);
-      }
-      ch.rasc.dataformat.proto.AddressProtos.Addresses other = (ch.rasc.dataformat.proto.AddressProtos.Addresses) obj;
-
-      boolean result = true;
-      result = result && getAddressList()
-          .equals(other.getAddressList());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getAddressCount() > 0) {
-        hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
-        hash = (53 * hash) + getAddressList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(ch.rasc.dataformat.proto.AddressProtos.Addresses prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Addresses}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Addresses)
-        ch.rasc.dataformat.proto.AddressProtos.AddressesOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                ch.rasc.dataformat.proto.AddressProtos.Addresses.class, ch.rasc.dataformat.proto.AddressProtos.Addresses.Builder.class);
-      }
-
-      // Construct using ch.rasc.dataformat.proto.AddressProtos.Addresses.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getAddressFieldBuilder();
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        if (addressBuilder_ == null) {
-          address_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          addressBuilder_.clear();
-        }
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
-      }
-
-      public ch.rasc.dataformat.proto.AddressProtos.Addresses getDefaultInstanceForType() {
-        return ch.rasc.dataformat.proto.AddressProtos.Addresses.getDefaultInstance();
-      }
-
-      public ch.rasc.dataformat.proto.AddressProtos.Addresses build() {
-        ch.rasc.dataformat.proto.AddressProtos.Addresses result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public ch.rasc.dataformat.proto.AddressProtos.Addresses buildPartial() {
-        ch.rasc.dataformat.proto.AddressProtos.Addresses result = new ch.rasc.dataformat.proto.AddressProtos.Addresses(this);
-        int from_bitField0_ = bitField0_;
-        if (addressBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            address_ = java.util.Collections.unmodifiableList(address_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.address_ = address_;
-        } else {
-          result.address_ = addressBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Addresses) {
-          return mergeFrom((ch.rasc.dataformat.proto.AddressProtos.Addresses)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(ch.rasc.dataformat.proto.AddressProtos.Addresses other) {
-        if (other == ch.rasc.dataformat.proto.AddressProtos.Addresses.getDefaultInstance()) return this;
-        if (addressBuilder_ == null) {
-          if (!other.address_.isEmpty()) {
-            if (address_.isEmpty()) {
-              address_ = other.address_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureAddressIsMutable();
-              address_.addAll(other.address_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.address_.isEmpty()) {
-            if (addressBuilder_.isEmpty()) {
-              addressBuilder_.dispose();
-              addressBuilder_ = null;
-              address_ = other.address_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              addressBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getAddressFieldBuilder() : null;
-            } else {
-              addressBuilder_.addAllMessages(other.address_);
-            }
-          }
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        ch.rasc.dataformat.proto.AddressProtos.Addresses parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ch.rasc.dataformat.proto.AddressProtos.Addresses) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> address_ =
-        java.util.Collections.emptyList();
-      private void ensureAddressIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          address_ = new java.util.ArrayList<ch.rasc.dataformat.proto.AddressProtos.Address>(address_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          ch.rasc.dataformat.proto.AddressProtos.Address, ch.rasc.dataformat.proto.AddressProtos.Address.Builder, ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> addressBuilder_;
-
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> getAddressList() {
-        if (addressBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(address_);
-        } else {
-          return addressBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public int getAddressCount() {
-        if (addressBuilder_ == null) {
-          return address_.size();
-        } else {
-          return addressBuilder_.getCount();
-        }
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index) {
-        if (addressBuilder_ == null) {
-          return address_.get(index);
-        } else {
-          return addressBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder setAddress(
-          int index, ch.rasc.dataformat.proto.AddressProtos.Address value) {
-        if (addressBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAddressIsMutable();
-          address_.set(index, value);
-          onChanged();
-        } else {
-          addressBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder setAddress(
-          int index, ch.rasc.dataformat.proto.AddressProtos.Address.Builder builderForValue) {
-        if (addressBuilder_ == null) {
-          ensureAddressIsMutable();
-          address_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          addressBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder addAddress(ch.rasc.dataformat.proto.AddressProtos.Address value) {
-        if (addressBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAddressIsMutable();
-          address_.add(value);
-          onChanged();
-        } else {
-          addressBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder addAddress(
-          int index, ch.rasc.dataformat.proto.AddressProtos.Address value) {
-        if (addressBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureAddressIsMutable();
-          address_.add(index, value);
-          onChanged();
-        } else {
-          addressBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder addAddress(
-          ch.rasc.dataformat.proto.AddressProtos.Address.Builder builderForValue) {
-        if (addressBuilder_ == null) {
-          ensureAddressIsMutable();
-          address_.add(builderForValue.build());
-          onChanged();
-        } else {
-          addressBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder addAddress(
-          int index, ch.rasc.dataformat.proto.AddressProtos.Address.Builder builderForValue) {
-        if (addressBuilder_ == null) {
-          ensureAddressIsMutable();
-          address_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          addressBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder addAllAddress(
-          java.lang.Iterable<? extends ch.rasc.dataformat.proto.AddressProtos.Address> values) {
-        if (addressBuilder_ == null) {
-          ensureAddressIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, address_);
-          onChanged();
-        } else {
-          addressBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder clearAddress() {
-        if (addressBuilder_ == null) {
-          address_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          addressBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public Builder removeAddress(int index) {
-        if (addressBuilder_ == null) {
-          ensureAddressIsMutable();
-          address_.remove(index);
-          onChanged();
-        } else {
-          addressBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public ch.rasc.dataformat.proto.AddressProtos.Address.Builder getAddressBuilder(
-          int index) {
-        return getAddressFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
-          int index) {
-        if (addressBuilder_ == null) {
-          return address_.get(index);  } else {
-          return addressBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> 
-           getAddressOrBuilderList() {
-        if (addressBuilder_ != null) {
-          return addressBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(address_);
-        }
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public ch.rasc.dataformat.proto.AddressProtos.Address.Builder addAddressBuilder() {
-        return getAddressFieldBuilder().addBuilder(
-            ch.rasc.dataformat.proto.AddressProtos.Address.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public ch.rasc.dataformat.proto.AddressProtos.Address.Builder addAddressBuilder(
-          int index) {
-        return getAddressFieldBuilder().addBuilder(
-            index, ch.rasc.dataformat.proto.AddressProtos.Address.getDefaultInstance());
-      }
-      /**
-       * <code>repeated .Address address = 1;</code>
-       */
-      public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address.Builder> 
-           getAddressBuilderList() {
-        return getAddressFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          ch.rasc.dataformat.proto.AddressProtos.Address, ch.rasc.dataformat.proto.AddressProtos.Address.Builder, ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> 
-          getAddressFieldBuilder() {
-        if (addressBuilder_ == null) {
-          addressBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              ch.rasc.dataformat.proto.AddressProtos.Address, ch.rasc.dataformat.proto.AddressProtos.Address.Builder, ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder>(
-                  address_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          address_ = null;
-        }
-        return addressBuilder_;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Addresses)
-    }
-
-    // @@protoc_insertion_point(class_scope:Addresses)
-    private static final ch.rasc.dataformat.proto.AddressProtos.Addresses DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new ch.rasc.dataformat.proto.AddressProtos.Addresses();
-    }
-
-    public static ch.rasc.dataformat.proto.AddressProtos.Addresses getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Addresses>
-        PARSER = new com.google.protobuf.AbstractParser<Addresses>() {
-      public Addresses parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Addresses(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Addresses> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Addresses> getParserForType() {
-      return PARSER;
-    }
-
-    public ch.rasc.dataformat.proto.AddressProtos.Addresses getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Address_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Address_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Addresses_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Addresses_fieldAccessorTable;
-
-  public static com.google.protobuf.Descriptors.FileDescriptor
-      getDescriptor() {
-    return descriptor;
-  }
-  private static  com.google.protobuf.Descriptors.FileDescriptor
-      descriptor;
-  static {
-    java.lang.String[] descriptorData = {
-      "\n\raddress.proto\"\254\001\n\007Address\022\n\n\002id\030\001 \001(\r\022" +
-      "\020\n\010lastName\030\002 \001(\t\022\021\n\tfirstName\030\003 \001(\t\022\016\n\006" +
-      "street\030\004 \001(\t\022\013\n\003zip\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022" +
-      "\017\n\007country\030\007 \001(\t\022\013\n\003lat\030\010 \001(\002\022\013\n\003lng\030\t \001" +
-      "(\002\022\r\n\005email\030\n \001(\t\022\013\n\003dob\030\013 \001(\021\"&\n\tAddres" +
-      "ses\022\031\n\007address\030\001 \003(\0132\010.AddressB)\n\030ch.ras" +
-      "c.dataformat.protoB\rAddressProtosb\006proto" +
-      "3"
-    };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
-      .internalBuildGeneratedFileFrom(descriptorData,
-        new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
-    internal_static_Address_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_Address_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Address_descriptor,
-        new java.lang.String[] { "Id", "LastName", "FirstName", "Street", "Zip", "City", "Country", "Lat", "Lng", "Email", "Dob", });
-    internal_static_Addresses_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_Addresses_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Addresses_descriptor,
-        new java.lang.String[] { "Address", });
-  }
-
-  // @@protoc_insertion_point(outer_class_scope)
+	private AddressProtos() {
+	}
+
+	public static void registerAllExtensions(
+			com.google.protobuf.ExtensionRegistryLite registry) {
+	}
+
+	public static void registerAllExtensions(
+			com.google.protobuf.ExtensionRegistry registry) {
+		registerAllExtensions((com.google.protobuf.ExtensionRegistryLite) registry);
+	}
+
+	public interface AddressOrBuilder extends
+			// @@protoc_insertion_point(interface_extends:Address)
+			com.google.protobuf.MessageOrBuilder {
+
+		/**
+		 * <code>uint32 id = 1;</code>
+		 */
+		int getId();
+
+		/**
+		 * <code>string lastName = 2;</code>
+		 */
+		java.lang.String getLastName();
+
+		/**
+		 * <code>string lastName = 2;</code>
+		 */
+		com.google.protobuf.ByteString getLastNameBytes();
+
+		/**
+		 * <code>string firstName = 3;</code>
+		 */
+		java.lang.String getFirstName();
+
+		/**
+		 * <code>string firstName = 3;</code>
+		 */
+		com.google.protobuf.ByteString getFirstNameBytes();
+
+		/**
+		 * <code>string street = 4;</code>
+		 */
+		java.lang.String getStreet();
+
+		/**
+		 * <code>string street = 4;</code>
+		 */
+		com.google.protobuf.ByteString getStreetBytes();
+
+		/**
+		 * <code>string zip = 5;</code>
+		 */
+		java.lang.String getZip();
+
+		/**
+		 * <code>string zip = 5;</code>
+		 */
+		com.google.protobuf.ByteString getZipBytes();
+
+		/**
+		 * <code>string city = 6;</code>
+		 */
+		java.lang.String getCity();
+
+		/**
+		 * <code>string city = 6;</code>
+		 */
+		com.google.protobuf.ByteString getCityBytes();
+
+		/**
+		 * <code>string country = 7;</code>
+		 */
+		java.lang.String getCountry();
+
+		/**
+		 * <code>string country = 7;</code>
+		 */
+		com.google.protobuf.ByteString getCountryBytes();
+
+		/**
+		 * <code>float lat = 8;</code>
+		 */
+		float getLat();
+
+		/**
+		 * <code>float lng = 9;</code>
+		 */
+		float getLng();
+
+		/**
+		 * <code>string email = 10;</code>
+		 */
+		java.lang.String getEmail();
+
+		/**
+		 * <code>string email = 10;</code>
+		 */
+		com.google.protobuf.ByteString getEmailBytes();
+
+		/**
+		 * <code>sint32 dob = 11;</code>
+		 */
+		int getDob();
+	}
+
+	/**
+	 * Protobuf type {@code Address}
+	 */
+	public static final class Address extends com.google.protobuf.GeneratedMessageV3
+			implements
+			// @@protoc_insertion_point(message_implements:Address)
+			AddressOrBuilder {
+		// Use Address.newBuilder() to construct.
+		private Address(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+			super(builder);
+		}
+
+		private Address() {
+			this.id_ = 0;
+			this.lastName_ = "";
+			this.firstName_ = "";
+			this.street_ = "";
+			this.zip_ = "";
+			this.city_ = "";
+			this.country_ = "";
+			this.lat_ = 0F;
+			this.lng_ = 0F;
+			this.email_ = "";
+			this.dob_ = 0;
+		}
+
+		@java.lang.Override
+		public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+			return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+		}
+
+		private Address(com.google.protobuf.CodedInputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			this();
+			int mutable_bitField0_ = 0;
+			try {
+				boolean done = false;
+				while (!done) {
+					int tag = input.readTag();
+					switch (tag) {
+					case 0:
+						done = true;
+						break;
+					default: {
+						if (!input.skipField(tag)) {
+							done = true;
+						}
+						break;
+					}
+					case 8: {
+
+						this.id_ = input.readUInt32();
+						break;
+					}
+					case 18: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.lastName_ = s;
+						break;
+					}
+					case 26: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.firstName_ = s;
+						break;
+					}
+					case 34: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.street_ = s;
+						break;
+					}
+					case 42: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.zip_ = s;
+						break;
+					}
+					case 50: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.city_ = s;
+						break;
+					}
+					case 58: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.country_ = s;
+						break;
+					}
+					case 69: {
+
+						this.lat_ = input.readFloat();
+						break;
+					}
+					case 77: {
+
+						this.lng_ = input.readFloat();
+						break;
+					}
+					case 82: {
+						java.lang.String s = input.readStringRequireUtf8();
+
+						this.email_ = s;
+						break;
+					}
+					case 88: {
+
+						this.dob_ = input.readSInt32();
+						break;
+					}
+					}
+				}
+			}
+			catch (com.google.protobuf.InvalidProtocolBufferException e) {
+				throw e.setUnfinishedMessage(this);
+			}
+			catch (java.io.IOException e) {
+				throw new com.google.protobuf.InvalidProtocolBufferException(e)
+						.setUnfinishedMessage(this);
+			}
+			finally {
+				makeExtensionsImmutable();
+			}
+		}
+
+		public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+			return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
+		}
+
+		@Override
+		protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
+			return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_fieldAccessorTable
+					.ensureFieldAccessorsInitialized(
+							ch.rasc.dataformat.proto.AddressProtos.Address.class,
+							ch.rasc.dataformat.proto.AddressProtos.Address.Builder.class);
+		}
+
+		public static final int ID_FIELD_NUMBER = 1;
+		private int id_;
+
+		/**
+		 * <code>uint32 id = 1;</code>
+		 */
+		@Override
+		public int getId() {
+			return this.id_;
+		}
+
+		public static final int LASTNAME_FIELD_NUMBER = 2;
+		private volatile java.lang.Object lastName_;
+
+		/**
+		 * <code>string lastName = 2;</code>
+		 */
+		@Override
+		public java.lang.String getLastName() {
+			java.lang.Object ref = this.lastName_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.lastName_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string lastName = 2;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getLastNameBytes() {
+			java.lang.Object ref = this.lastName_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.lastName_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int FIRSTNAME_FIELD_NUMBER = 3;
+		private volatile java.lang.Object firstName_;
+
+		/**
+		 * <code>string firstName = 3;</code>
+		 */
+		@Override
+		public java.lang.String getFirstName() {
+			java.lang.Object ref = this.firstName_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.firstName_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string firstName = 3;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getFirstNameBytes() {
+			java.lang.Object ref = this.firstName_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.firstName_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int STREET_FIELD_NUMBER = 4;
+		private volatile java.lang.Object street_;
+
+		/**
+		 * <code>string street = 4;</code>
+		 */
+		@Override
+		public java.lang.String getStreet() {
+			java.lang.Object ref = this.street_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.street_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string street = 4;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getStreetBytes() {
+			java.lang.Object ref = this.street_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.street_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int ZIP_FIELD_NUMBER = 5;
+		private volatile java.lang.Object zip_;
+
+		/**
+		 * <code>string zip = 5;</code>
+		 */
+		@Override
+		public java.lang.String getZip() {
+			java.lang.Object ref = this.zip_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.zip_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string zip = 5;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getZipBytes() {
+			java.lang.Object ref = this.zip_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.zip_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int CITY_FIELD_NUMBER = 6;
+		private volatile java.lang.Object city_;
+
+		/**
+		 * <code>string city = 6;</code>
+		 */
+		@Override
+		public java.lang.String getCity() {
+			java.lang.Object ref = this.city_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.city_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string city = 6;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getCityBytes() {
+			java.lang.Object ref = this.city_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.city_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int COUNTRY_FIELD_NUMBER = 7;
+		private volatile java.lang.Object country_;
+
+		/**
+		 * <code>string country = 7;</code>
+		 */
+		@Override
+		public java.lang.String getCountry() {
+			java.lang.Object ref = this.country_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.country_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string country = 7;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getCountryBytes() {
+			java.lang.Object ref = this.country_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.country_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int LAT_FIELD_NUMBER = 8;
+		private float lat_;
+
+		/**
+		 * <code>float lat = 8;</code>
+		 */
+		@Override
+		public float getLat() {
+			return this.lat_;
+		}
+
+		public static final int LNG_FIELD_NUMBER = 9;
+		private float lng_;
+
+		/**
+		 * <code>float lng = 9;</code>
+		 */
+		@Override
+		public float getLng() {
+			return this.lng_;
+		}
+
+		public static final int EMAIL_FIELD_NUMBER = 10;
+		private volatile java.lang.Object email_;
+
+		/**
+		 * <code>string email = 10;</code>
+		 */
+		@Override
+		public java.lang.String getEmail() {
+			java.lang.Object ref = this.email_;
+			if (ref instanceof java.lang.String) {
+				return (java.lang.String) ref;
+			}
+			else {
+				com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+				java.lang.String s = bs.toStringUtf8();
+				this.email_ = s;
+				return s;
+			}
+		}
+
+		/**
+		 * <code>string email = 10;</code>
+		 */
+		@Override
+		public com.google.protobuf.ByteString getEmailBytes() {
+			java.lang.Object ref = this.email_;
+			if (ref instanceof java.lang.String) {
+				com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+						.copyFromUtf8((java.lang.String) ref);
+				this.email_ = b;
+				return b;
+			}
+			else {
+				return (com.google.protobuf.ByteString) ref;
+			}
+		}
+
+		public static final int DOB_FIELD_NUMBER = 11;
+		private int dob_;
+
+		/**
+		 * <code>sint32 dob = 11;</code>
+		 */
+		@Override
+		public int getDob() {
+			return this.dob_;
+		}
+
+		private byte memoizedIsInitialized = -1;
+
+		@Override
+		public final boolean isInitialized() {
+			byte isInitialized = this.memoizedIsInitialized;
+			if (isInitialized == 1) {
+				return true;
+			}
+			if (isInitialized == 0) {
+				return false;
+			}
+
+			this.memoizedIsInitialized = 1;
+			return true;
+		}
+
+		@Override
+		public void writeTo(com.google.protobuf.CodedOutputStream output)
+				throws java.io.IOException {
+			if (this.id_ != 0) {
+				output.writeUInt32(1, this.id_);
+			}
+			if (!getLastNameBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 2,
+						this.lastName_);
+			}
+			if (!getFirstNameBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 3,
+						this.firstName_);
+			}
+			if (!getStreetBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 4,
+						this.street_);
+			}
+			if (!getZipBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 5, this.zip_);
+			}
+			if (!getCityBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 6, this.city_);
+			}
+			if (!getCountryBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 7,
+						this.country_);
+			}
+			if (this.lat_ != 0F) {
+				output.writeFloat(8, this.lat_);
+			}
+			if (this.lng_ != 0F) {
+				output.writeFloat(9, this.lng_);
+			}
+			if (!getEmailBytes().isEmpty()) {
+				com.google.protobuf.GeneratedMessageV3.writeString(output, 10,
+						this.email_);
+			}
+			if (this.dob_ != 0) {
+				output.writeSInt32(11, this.dob_);
+			}
+		}
+
+		@Override
+		public int getSerializedSize() {
+			int size = this.memoizedSize;
+			if (size != -1) {
+				return size;
+			}
+
+			size = 0;
+			if (this.id_ != 0) {
+				size += com.google.protobuf.CodedOutputStream.computeUInt32Size(1,
+						this.id_);
+			}
+			if (!getLastNameBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2,
+						this.lastName_);
+			}
+			if (!getFirstNameBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3,
+						this.firstName_);
+			}
+			if (!getStreetBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4,
+						this.street_);
+			}
+			if (!getZipBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5,
+						this.zip_);
+			}
+			if (!getCityBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6,
+						this.city_);
+			}
+			if (!getCountryBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7,
+						this.country_);
+			}
+			if (this.lat_ != 0F) {
+				size += com.google.protobuf.CodedOutputStream.computeFloatSize(8,
+						this.lat_);
+			}
+			if (this.lng_ != 0F) {
+				size += com.google.protobuf.CodedOutputStream.computeFloatSize(9,
+						this.lng_);
+			}
+			if (!getEmailBytes().isEmpty()) {
+				size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10,
+						this.email_);
+			}
+			if (this.dob_ != 0) {
+				size += com.google.protobuf.CodedOutputStream.computeSInt32Size(11,
+						this.dob_);
+			}
+			this.memoizedSize = size;
+			return size;
+		}
+
+		private static final long serialVersionUID = 0L;
+
+		@java.lang.Override
+		public boolean equals(final java.lang.Object obj) {
+			if (obj == this) {
+				return true;
+			}
+			if (!(obj instanceof ch.rasc.dataformat.proto.AddressProtos.Address)) {
+				return super.equals(obj);
+			}
+			ch.rasc.dataformat.proto.AddressProtos.Address other = (ch.rasc.dataformat.proto.AddressProtos.Address) obj;
+
+			boolean result = true;
+			result = result && getId() == other.getId();
+			result = result && getLastName().equals(other.getLastName());
+			result = result && getFirstName().equals(other.getFirstName());
+			result = result && getStreet().equals(other.getStreet());
+			result = result && getZip().equals(other.getZip());
+			result = result && getCity().equals(other.getCity());
+			result = result && getCountry().equals(other.getCountry());
+			result = result && java.lang.Float.floatToIntBits(getLat()) == java.lang.Float
+					.floatToIntBits(other.getLat());
+			result = result && java.lang.Float.floatToIntBits(getLng()) == java.lang.Float
+					.floatToIntBits(other.getLng());
+			result = result && getEmail().equals(other.getEmail());
+			result = result && getDob() == other.getDob();
+			return result;
+		}
+
+		@java.lang.Override
+		public int hashCode() {
+			if (this.memoizedHashCode != 0) {
+				return this.memoizedHashCode;
+			}
+			int hash = 41;
+			hash = 19 * hash + getDescriptor().hashCode();
+			hash = 37 * hash + ID_FIELD_NUMBER;
+			hash = 53 * hash + getId();
+			hash = 37 * hash + LASTNAME_FIELD_NUMBER;
+			hash = 53 * hash + getLastName().hashCode();
+			hash = 37 * hash + FIRSTNAME_FIELD_NUMBER;
+			hash = 53 * hash + getFirstName().hashCode();
+			hash = 37 * hash + STREET_FIELD_NUMBER;
+			hash = 53 * hash + getStreet().hashCode();
+			hash = 37 * hash + ZIP_FIELD_NUMBER;
+			hash = 53 * hash + getZip().hashCode();
+			hash = 37 * hash + CITY_FIELD_NUMBER;
+			hash = 53 * hash + getCity().hashCode();
+			hash = 37 * hash + COUNTRY_FIELD_NUMBER;
+			hash = 53 * hash + getCountry().hashCode();
+			hash = 37 * hash + LAT_FIELD_NUMBER;
+			hash = 53 * hash + java.lang.Float.floatToIntBits(getLat());
+			hash = 37 * hash + LNG_FIELD_NUMBER;
+			hash = 53 * hash + java.lang.Float.floatToIntBits(getLng());
+			hash = 37 * hash + EMAIL_FIELD_NUMBER;
+			hash = 53 * hash + getEmail().hashCode();
+			hash = 37 * hash + DOB_FIELD_NUMBER;
+			hash = 53 * hash + getDob();
+			hash = 29 * hash + this.unknownFields.hashCode();
+			this.memoizedHashCode = hash;
+			return hash;
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				java.nio.ByteBuffer data)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				java.nio.ByteBuffer data,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				com.google.protobuf.ByteString data)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				com.google.protobuf.ByteString data,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				java.io.InputStream input) throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				java.io.InputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(
+				java.io.InputStream input) throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3
+					.parseDelimitedWithIOException(PARSER, input);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(
+				java.io.InputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3
+					.parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address parseFrom(
+				com.google.protobuf.CodedInputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input, extensionRegistry);
+		}
+
+		@Override
+		public Builder newBuilderForType() {
+			return newBuilder();
+		}
+
+		public static Builder newBuilder() {
+			return DEFAULT_INSTANCE.toBuilder();
+		}
+
+		public static Builder newBuilder(
+				ch.rasc.dataformat.proto.AddressProtos.Address prototype) {
+			return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+		}
+
+		@Override
+		public Builder toBuilder() {
+			return this == DEFAULT_INSTANCE ? new Builder()
+					: new Builder().mergeFrom(this);
+		}
+
+		@java.lang.Override
+		protected Builder newBuilderForType(
+				com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+			Builder builder = new Builder(parent);
+			return builder;
+		}
+
+		/**
+		 * Protobuf type {@code Address}
+		 */
+		public static final class Builder
+				extends com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+				// @@protoc_insertion_point(builder_implements:Address)
+				ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder {
+			public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
+			}
+
+			@Override
+			protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
+				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_fieldAccessorTable
+						.ensureFieldAccessorsInitialized(
+								ch.rasc.dataformat.proto.AddressProtos.Address.class,
+								ch.rasc.dataformat.proto.AddressProtos.Address.Builder.class);
+			}
+
+			// Construct using ch.rasc.dataformat.proto.AddressProtos.Address.newBuilder()
+			private Builder() {
+				maybeForceBuilderInitialization();
+			}
+
+			private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+				super(parent);
+				maybeForceBuilderInitialization();
+			}
+
+			private void maybeForceBuilderInitialization() {
+				if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+				}
+			}
+
+			@Override
+			public Builder clear() {
+				super.clear();
+				this.id_ = 0;
+
+				this.lastName_ = "";
+
+				this.firstName_ = "";
+
+				this.street_ = "";
+
+				this.zip_ = "";
+
+				this.city_ = "";
+
+				this.country_ = "";
+
+				this.lat_ = 0F;
+
+				this.lng_ = 0F;
+
+				this.email_ = "";
+
+				this.dob_ = 0;
+
+				return this;
+			}
+
+			@Override
+			public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
+			}
+
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Address getDefaultInstanceForType() {
+				return ch.rasc.dataformat.proto.AddressProtos.Address
+						.getDefaultInstance();
+			}
+
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Address build() {
+				ch.rasc.dataformat.proto.AddressProtos.Address result = buildPartial();
+				if (!result.isInitialized()) {
+					throw newUninitializedMessageException(result);
+				}
+				return result;
+			}
+
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Address buildPartial() {
+				ch.rasc.dataformat.proto.AddressProtos.Address result = new ch.rasc.dataformat.proto.AddressProtos.Address(
+						this);
+				result.id_ = this.id_;
+				result.lastName_ = this.lastName_;
+				result.firstName_ = this.firstName_;
+				result.street_ = this.street_;
+				result.zip_ = this.zip_;
+				result.city_ = this.city_;
+				result.country_ = this.country_;
+				result.lat_ = this.lat_;
+				result.lng_ = this.lng_;
+				result.email_ = this.email_;
+				result.dob_ = this.dob_;
+				onBuilt();
+				return result;
+			}
+
+			@Override
+			public Builder clone() {
+				return super.clone();
+			}
+
+			@Override
+			public Builder setField(com.google.protobuf.Descriptors.FieldDescriptor field,
+					Object value) {
+				return super.setField(field, value);
+			}
+
+			@Override
+			public Builder clearField(
+					com.google.protobuf.Descriptors.FieldDescriptor field) {
+				return super.clearField(field);
+			}
+
+			@Override
+			public Builder clearOneof(
+					com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+				return super.clearOneof(oneof);
+			}
+
+			@Override
+			public Builder setRepeatedField(
+					com.google.protobuf.Descriptors.FieldDescriptor field, int index,
+					Object value) {
+				return super.setRepeatedField(field, index, value);
+			}
+
+			@Override
+			public Builder addRepeatedField(
+					com.google.protobuf.Descriptors.FieldDescriptor field, Object value) {
+				return super.addRepeatedField(field, value);
+			}
+
+			@Override
+			public Builder mergeFrom(com.google.protobuf.Message other) {
+				if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Address) {
+					return mergeFrom(
+							(ch.rasc.dataformat.proto.AddressProtos.Address) other);
+				}
+				else {
+					super.mergeFrom(other);
+					return this;
+				}
+			}
+
+			public Builder mergeFrom(
+					ch.rasc.dataformat.proto.AddressProtos.Address other) {
+				if (other == ch.rasc.dataformat.proto.AddressProtos.Address
+						.getDefaultInstance()) {
+					return this;
+				}
+				if (other.getId() != 0) {
+					setId(other.getId());
+				}
+				if (!other.getLastName().isEmpty()) {
+					this.lastName_ = other.lastName_;
+					onChanged();
+				}
+				if (!other.getFirstName().isEmpty()) {
+					this.firstName_ = other.firstName_;
+					onChanged();
+				}
+				if (!other.getStreet().isEmpty()) {
+					this.street_ = other.street_;
+					onChanged();
+				}
+				if (!other.getZip().isEmpty()) {
+					this.zip_ = other.zip_;
+					onChanged();
+				}
+				if (!other.getCity().isEmpty()) {
+					this.city_ = other.city_;
+					onChanged();
+				}
+				if (!other.getCountry().isEmpty()) {
+					this.country_ = other.country_;
+					onChanged();
+				}
+				if (other.getLat() != 0F) {
+					setLat(other.getLat());
+				}
+				if (other.getLng() != 0F) {
+					setLng(other.getLng());
+				}
+				if (!other.getEmail().isEmpty()) {
+					this.email_ = other.email_;
+					onChanged();
+				}
+				if (other.getDob() != 0) {
+					setDob(other.getDob());
+				}
+				onChanged();
+				return this;
+			}
+
+			@Override
+			public final boolean isInitialized() {
+				return true;
+			}
+
+			@Override
+			public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
+					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+					throws java.io.IOException {
+				ch.rasc.dataformat.proto.AddressProtos.Address parsedMessage = null;
+				try {
+					parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+				}
+				catch (com.google.protobuf.InvalidProtocolBufferException e) {
+					parsedMessage = (ch.rasc.dataformat.proto.AddressProtos.Address) e
+							.getUnfinishedMessage();
+					throw e.unwrapIOException();
+				}
+				finally {
+					if (parsedMessage != null) {
+						mergeFrom(parsedMessage);
+					}
+				}
+				return this;
+			}
+
+			private int id_;
+
+			/**
+			 * <code>uint32 id = 1;</code>
+			 */
+			@Override
+			public int getId() {
+				return this.id_;
+			}
+
+			/**
+			 * <code>uint32 id = 1;</code>
+			 */
+			public Builder setId(int value) {
+
+				this.id_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>uint32 id = 1;</code>
+			 */
+			public Builder clearId() {
+
+				this.id_ = 0;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object lastName_ = "";
+
+			/**
+			 * <code>string lastName = 2;</code>
+			 */
+			@Override
+			public java.lang.String getLastName() {
+				java.lang.Object ref = this.lastName_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.lastName_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string lastName = 2;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getLastNameBytes() {
+				java.lang.Object ref = this.lastName_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.lastName_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string lastName = 2;</code>
+			 */
+			public Builder setLastName(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.lastName_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string lastName = 2;</code>
+			 */
+			public Builder clearLastName() {
+
+				this.lastName_ = getDefaultInstance().getLastName();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string lastName = 2;</code>
+			 */
+			public Builder setLastNameBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.lastName_ = value;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object firstName_ = "";
+
+			/**
+			 * <code>string firstName = 3;</code>
+			 */
+			@Override
+			public java.lang.String getFirstName() {
+				java.lang.Object ref = this.firstName_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.firstName_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string firstName = 3;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getFirstNameBytes() {
+				java.lang.Object ref = this.firstName_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.firstName_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string firstName = 3;</code>
+			 */
+			public Builder setFirstName(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.firstName_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string firstName = 3;</code>
+			 */
+			public Builder clearFirstName() {
+
+				this.firstName_ = getDefaultInstance().getFirstName();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string firstName = 3;</code>
+			 */
+			public Builder setFirstNameBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.firstName_ = value;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object street_ = "";
+
+			/**
+			 * <code>string street = 4;</code>
+			 */
+			@Override
+			public java.lang.String getStreet() {
+				java.lang.Object ref = this.street_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.street_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string street = 4;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getStreetBytes() {
+				java.lang.Object ref = this.street_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.street_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string street = 4;</code>
+			 */
+			public Builder setStreet(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.street_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string street = 4;</code>
+			 */
+			public Builder clearStreet() {
+
+				this.street_ = getDefaultInstance().getStreet();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string street = 4;</code>
+			 */
+			public Builder setStreetBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.street_ = value;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object zip_ = "";
+
+			/**
+			 * <code>string zip = 5;</code>
+			 */
+			@Override
+			public java.lang.String getZip() {
+				java.lang.Object ref = this.zip_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.zip_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string zip = 5;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getZipBytes() {
+				java.lang.Object ref = this.zip_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.zip_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string zip = 5;</code>
+			 */
+			public Builder setZip(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.zip_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string zip = 5;</code>
+			 */
+			public Builder clearZip() {
+
+				this.zip_ = getDefaultInstance().getZip();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string zip = 5;</code>
+			 */
+			public Builder setZipBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.zip_ = value;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object city_ = "";
+
+			/**
+			 * <code>string city = 6;</code>
+			 */
+			@Override
+			public java.lang.String getCity() {
+				java.lang.Object ref = this.city_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.city_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string city = 6;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getCityBytes() {
+				java.lang.Object ref = this.city_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.city_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string city = 6;</code>
+			 */
+			public Builder setCity(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.city_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string city = 6;</code>
+			 */
+			public Builder clearCity() {
+
+				this.city_ = getDefaultInstance().getCity();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string city = 6;</code>
+			 */
+			public Builder setCityBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.city_ = value;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object country_ = "";
+
+			/**
+			 * <code>string country = 7;</code>
+			 */
+			@Override
+			public java.lang.String getCountry() {
+				java.lang.Object ref = this.country_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.country_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string country = 7;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getCountryBytes() {
+				java.lang.Object ref = this.country_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.country_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string country = 7;</code>
+			 */
+			public Builder setCountry(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.country_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string country = 7;</code>
+			 */
+			public Builder clearCountry() {
+
+				this.country_ = getDefaultInstance().getCountry();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string country = 7;</code>
+			 */
+			public Builder setCountryBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.country_ = value;
+				onChanged();
+				return this;
+			}
+
+			private float lat_;
+
+			/**
+			 * <code>float lat = 8;</code>
+			 */
+			@Override
+			public float getLat() {
+				return this.lat_;
+			}
+
+			/**
+			 * <code>float lat = 8;</code>
+			 */
+			public Builder setLat(float value) {
+
+				this.lat_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>float lat = 8;</code>
+			 */
+			public Builder clearLat() {
+
+				this.lat_ = 0F;
+				onChanged();
+				return this;
+			}
+
+			private float lng_;
+
+			/**
+			 * <code>float lng = 9;</code>
+			 */
+			@Override
+			public float getLng() {
+				return this.lng_;
+			}
+
+			/**
+			 * <code>float lng = 9;</code>
+			 */
+			public Builder setLng(float value) {
+
+				this.lng_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>float lng = 9;</code>
+			 */
+			public Builder clearLng() {
+
+				this.lng_ = 0F;
+				onChanged();
+				return this;
+			}
+
+			private java.lang.Object email_ = "";
+
+			/**
+			 * <code>string email = 10;</code>
+			 */
+			@Override
+			public java.lang.String getEmail() {
+				java.lang.Object ref = this.email_;
+				if (!(ref instanceof java.lang.String)) {
+					com.google.protobuf.ByteString bs = (com.google.protobuf.ByteString) ref;
+					java.lang.String s = bs.toStringUtf8();
+					this.email_ = s;
+					return s;
+				}
+				else {
+					return (java.lang.String) ref;
+				}
+			}
+
+			/**
+			 * <code>string email = 10;</code>
+			 */
+			@Override
+			public com.google.protobuf.ByteString getEmailBytes() {
+				java.lang.Object ref = this.email_;
+				if (ref instanceof String) {
+					com.google.protobuf.ByteString b = com.google.protobuf.ByteString
+							.copyFromUtf8((java.lang.String) ref);
+					this.email_ = b;
+					return b;
+				}
+				else {
+					return (com.google.protobuf.ByteString) ref;
+				}
+			}
+
+			/**
+			 * <code>string email = 10;</code>
+			 */
+			public Builder setEmail(java.lang.String value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+
+				this.email_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string email = 10;</code>
+			 */
+			public Builder clearEmail() {
+
+				this.email_ = getDefaultInstance().getEmail();
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>string email = 10;</code>
+			 */
+			public Builder setEmailBytes(com.google.protobuf.ByteString value) {
+				if (value == null) {
+					throw new NullPointerException();
+				}
+				checkByteStringIsUtf8(value);
+
+				this.email_ = value;
+				onChanged();
+				return this;
+			}
+
+			private int dob_;
+
+			/**
+			 * <code>sint32 dob = 11;</code>
+			 */
+			@Override
+			public int getDob() {
+				return this.dob_;
+			}
+
+			/**
+			 * <code>sint32 dob = 11;</code>
+			 */
+			public Builder setDob(int value) {
+
+				this.dob_ = value;
+				onChanged();
+				return this;
+			}
+
+			/**
+			 * <code>sint32 dob = 11;</code>
+			 */
+			public Builder clearDob() {
+
+				this.dob_ = 0;
+				onChanged();
+				return this;
+			}
+
+			@Override
+			public final Builder setUnknownFields(
+					final com.google.protobuf.UnknownFieldSet unknownFields) {
+				return this;
+			}
+
+			@Override
+			public final Builder mergeUnknownFields(
+					final com.google.protobuf.UnknownFieldSet unknownFields) {
+				return this;
+			}
+
+			// @@protoc_insertion_point(builder_scope:Address)
+		}
+
+		// @@protoc_insertion_point(class_scope:Address)
+		private static final ch.rasc.dataformat.proto.AddressProtos.Address DEFAULT_INSTANCE;
+		static {
+			DEFAULT_INSTANCE = new ch.rasc.dataformat.proto.AddressProtos.Address();
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Address getDefaultInstance() {
+			return DEFAULT_INSTANCE;
+		}
+
+		private static final com.google.protobuf.Parser<Address> PARSER = new com.google.protobuf.AbstractParser<Address>() {
+			@Override
+			public Address parsePartialFrom(com.google.protobuf.CodedInputStream input,
+					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+					throws com.google.protobuf.InvalidProtocolBufferException {
+				return new Address(input, extensionRegistry);
+			}
+		};
+
+		public static com.google.protobuf.Parser<Address> parser() {
+			return PARSER;
+		}
+
+		@java.lang.Override
+		public com.google.protobuf.Parser<Address> getParserForType() {
+			return PARSER;
+		}
+
+		@Override
+		public ch.rasc.dataformat.proto.AddressProtos.Address getDefaultInstanceForType() {
+			return DEFAULT_INSTANCE;
+		}
+
+	}
+
+	public interface AddressesOrBuilder extends
+			// @@protoc_insertion_point(interface_extends:Addresses)
+			com.google.protobuf.MessageOrBuilder {
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> getAddressList();
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index);
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		int getAddressCount();
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> getAddressOrBuilderList();
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
+				int index);
+	}
+
+	/**
+	 * Protobuf type {@code Addresses}
+	 */
+	public static final class Addresses extends com.google.protobuf.GeneratedMessageV3
+			implements
+			// @@protoc_insertion_point(message_implements:Addresses)
+			AddressesOrBuilder {
+		// Use Addresses.newBuilder() to construct.
+		private Addresses(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+			super(builder);
+		}
+
+		private Addresses() {
+			this.address_ = java.util.Collections.emptyList();
+		}
+
+		@java.lang.Override
+		public final com.google.protobuf.UnknownFieldSet getUnknownFields() {
+			return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+		}
+
+		private Addresses(com.google.protobuf.CodedInputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			this();
+			int mutable_bitField0_ = 0;
+			try {
+				boolean done = false;
+				while (!done) {
+					int tag = input.readTag();
+					switch (tag) {
+					case 0:
+						done = true;
+						break;
+					default: {
+						if (!input.skipField(tag)) {
+							done = true;
+						}
+						break;
+					}
+					case 10: {
+						if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+							this.address_ = new java.util.ArrayList<>();
+							mutable_bitField0_ |= 0x00000001;
+						}
+						this.address_.add(input.readMessage(
+								ch.rasc.dataformat.proto.AddressProtos.Address.parser(),
+								extensionRegistry));
+						break;
+					}
+					}
+				}
+			}
+			catch (com.google.protobuf.InvalidProtocolBufferException e) {
+				throw e.setUnfinishedMessage(this);
+			}
+			catch (java.io.IOException e) {
+				throw new com.google.protobuf.InvalidProtocolBufferException(e)
+						.setUnfinishedMessage(this);
+			}
+			finally {
+				if ((mutable_bitField0_ & 0x00000001) == 0x00000001) {
+					this.address_ = java.util.Collections.unmodifiableList(this.address_);
+				}
+				makeExtensionsImmutable();
+			}
+		}
+
+		public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+			return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
+		}
+
+		@Override
+		protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
+			return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_fieldAccessorTable
+					.ensureFieldAccessorsInitialized(
+							ch.rasc.dataformat.proto.AddressProtos.Addresses.class,
+							ch.rasc.dataformat.proto.AddressProtos.Addresses.Builder.class);
+		}
+
+		public static final int ADDRESS_FIELD_NUMBER = 1;
+		private java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> address_;
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		@Override
+		public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> getAddressList() {
+			return this.address_;
+		}
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		@Override
+		public java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> getAddressOrBuilderList() {
+			return this.address_;
+		}
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		@Override
+		public int getAddressCount() {
+			return this.address_.size();
+		}
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		@Override
+		public ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index) {
+			return this.address_.get(index);
+		}
+
+		/**
+		 * <code>repeated .Address address = 1;</code>
+		 */
+		@Override
+		public ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
+				int index) {
+			return this.address_.get(index);
+		}
+
+		private byte memoizedIsInitialized = -1;
+
+		@Override
+		public final boolean isInitialized() {
+			byte isInitialized = this.memoizedIsInitialized;
+			if (isInitialized == 1) {
+				return true;
+			}
+			if (isInitialized == 0) {
+				return false;
+			}
+
+			this.memoizedIsInitialized = 1;
+			return true;
+		}
+
+		@Override
+		public void writeTo(com.google.protobuf.CodedOutputStream output)
+				throws java.io.IOException {
+			for (int i = 0; i < this.address_.size(); i++) {
+				output.writeMessage(1, this.address_.get(i));
+			}
+		}
+
+		@Override
+		public int getSerializedSize() {
+			int size = this.memoizedSize;
+			if (size != -1) {
+				return size;
+			}
+
+			size = 0;
+			for (int i = 0; i < this.address_.size(); i++) {
+				size += com.google.protobuf.CodedOutputStream.computeMessageSize(1,
+						this.address_.get(i));
+			}
+			this.memoizedSize = size;
+			return size;
+		}
+
+		private static final long serialVersionUID = 0L;
+
+		@java.lang.Override
+		public boolean equals(final java.lang.Object obj) {
+			if (obj == this) {
+				return true;
+			}
+			if (!(obj instanceof ch.rasc.dataformat.proto.AddressProtos.Addresses)) {
+				return super.equals(obj);
+			}
+			ch.rasc.dataformat.proto.AddressProtos.Addresses other = (ch.rasc.dataformat.proto.AddressProtos.Addresses) obj;
+
+			boolean result = true;
+			result = result && getAddressList().equals(other.getAddressList());
+			return result;
+		}
+
+		@java.lang.Override
+		public int hashCode() {
+			if (this.memoizedHashCode != 0) {
+				return this.memoizedHashCode;
+			}
+			int hash = 41;
+			hash = 19 * hash + getDescriptor().hashCode();
+			if (getAddressCount() > 0) {
+				hash = 37 * hash + ADDRESS_FIELD_NUMBER;
+				hash = 53 * hash + getAddressList().hashCode();
+			}
+			hash = 29 * hash + this.unknownFields.hashCode();
+			this.memoizedHashCode = hash;
+			return hash;
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				java.nio.ByteBuffer data)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				java.nio.ByteBuffer data,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				com.google.protobuf.ByteString data)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				com.google.protobuf.ByteString data,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				byte[] data) throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				byte[] data, com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws com.google.protobuf.InvalidProtocolBufferException {
+			return PARSER.parseFrom(data, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				java.io.InputStream input) throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				java.io.InputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(
+				java.io.InputStream input) throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3
+					.parseDelimitedWithIOException(PARSER, input);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(
+				java.io.InputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3
+					.parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				com.google.protobuf.CodedInputStream input) throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input);
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseFrom(
+				com.google.protobuf.CodedInputStream input,
+				com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+				throws java.io.IOException {
+			return com.google.protobuf.GeneratedMessageV3.parseWithIOException(PARSER,
+					input, extensionRegistry);
+		}
+
+		@Override
+		public Builder newBuilderForType() {
+			return newBuilder();
+		}
+
+		public static Builder newBuilder() {
+			return DEFAULT_INSTANCE.toBuilder();
+		}
+
+		public static Builder newBuilder(
+				ch.rasc.dataformat.proto.AddressProtos.Addresses prototype) {
+			return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+		}
+
+		@Override
+		public Builder toBuilder() {
+			return this == DEFAULT_INSTANCE ? new Builder()
+					: new Builder().mergeFrom(this);
+		}
+
+		@java.lang.Override
+		protected Builder newBuilderForType(
+				com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+			Builder builder = new Builder(parent);
+			return builder;
+		}
+
+		/**
+		 * Protobuf type {@code Addresses}
+		 */
+		public static final class Builder
+				extends com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+				// @@protoc_insertion_point(builder_implements:Addresses)
+				ch.rasc.dataformat.proto.AddressProtos.AddressesOrBuilder {
+			public static final com.google.protobuf.Descriptors.Descriptor getDescriptor() {
+				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
+			}
+
+			@Override
+			protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internalGetFieldAccessorTable() {
+				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_fieldAccessorTable
+						.ensureFieldAccessorsInitialized(
+								ch.rasc.dataformat.proto.AddressProtos.Addresses.class,
+								ch.rasc.dataformat.proto.AddressProtos.Addresses.Builder.class);
+			}
+
+			// Construct using
+			// ch.rasc.dataformat.proto.AddressProtos.Addresses.newBuilder()
+			private Builder() {
+				maybeForceBuilderInitialization();
+			}
+
+			private Builder(com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+				super(parent);
+				maybeForceBuilderInitialization();
+			}
+
+			private void maybeForceBuilderInitialization() {
+				if (com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders) {
+					getAddressFieldBuilder();
+				}
+			}
+
+			@Override
+			public Builder clear() {
+				super.clear();
+				if (this.addressBuilder_ == null) {
+					this.address_ = java.util.Collections.emptyList();
+					this.bitField0_ = this.bitField0_ & ~0x00000001;
+				}
+				else {
+					this.addressBuilder_.clear();
+				}
+				return this;
+			}
+
+			@Override
+			public com.google.protobuf.Descriptors.Descriptor getDescriptorForType() {
+				return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
+			}
+
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Addresses getDefaultInstanceForType() {
+				return ch.rasc.dataformat.proto.AddressProtos.Addresses
+						.getDefaultInstance();
+			}
+
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Addresses build() {
+				ch.rasc.dataformat.proto.AddressProtos.Addresses result = buildPartial();
+				if (!result.isInitialized()) {
+					throw newUninitializedMessageException(result);
+				}
+				return result;
+			}
+
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Addresses buildPartial() {
+				ch.rasc.dataformat.proto.AddressProtos.Addresses result = new ch.rasc.dataformat.proto.AddressProtos.Addresses(
+						this);
+				int from_bitField0_ = this.bitField0_;
+				if (this.addressBuilder_ == null) {
+					if ((this.bitField0_ & 0x00000001) == 0x00000001) {
+						this.address_ = java.util.Collections
+								.unmodifiableList(this.address_);
+						this.bitField0_ = this.bitField0_ & ~0x00000001;
+					}
+					result.address_ = this.address_;
+				}
+				else {
+					result.address_ = this.addressBuilder_.build();
+				}
+				onBuilt();
+				return result;
+			}
+
+			@Override
+			public Builder clone() {
+				return super.clone();
+			}
+
+			@Override
+			public Builder setField(com.google.protobuf.Descriptors.FieldDescriptor field,
+					Object value) {
+				return super.setField(field, value);
+			}
+
+			@Override
+			public Builder clearField(
+					com.google.protobuf.Descriptors.FieldDescriptor field) {
+				return super.clearField(field);
+			}
+
+			@Override
+			public Builder clearOneof(
+					com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+				return super.clearOneof(oneof);
+			}
+
+			@Override
+			public Builder setRepeatedField(
+					com.google.protobuf.Descriptors.FieldDescriptor field, int index,
+					Object value) {
+				return super.setRepeatedField(field, index, value);
+			}
+
+			@Override
+			public Builder addRepeatedField(
+					com.google.protobuf.Descriptors.FieldDescriptor field, Object value) {
+				return super.addRepeatedField(field, value);
+			}
+
+			@Override
+			public Builder mergeFrom(com.google.protobuf.Message other) {
+				if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Addresses) {
+					return mergeFrom(
+							(ch.rasc.dataformat.proto.AddressProtos.Addresses) other);
+				}
+				else {
+					super.mergeFrom(other);
+					return this;
+				}
+			}
+
+			public Builder mergeFrom(
+					ch.rasc.dataformat.proto.AddressProtos.Addresses other) {
+				if (other == ch.rasc.dataformat.proto.AddressProtos.Addresses
+						.getDefaultInstance()) {
+					return this;
+				}
+				if (this.addressBuilder_ == null) {
+					if (!other.address_.isEmpty()) {
+						if (this.address_.isEmpty()) {
+							this.address_ = other.address_;
+							this.bitField0_ = this.bitField0_ & ~0x00000001;
+						}
+						else {
+							ensureAddressIsMutable();
+							this.address_.addAll(other.address_);
+						}
+						onChanged();
+					}
+				}
+				else {
+					if (!other.address_.isEmpty()) {
+						if (this.addressBuilder_.isEmpty()) {
+							this.addressBuilder_.dispose();
+							this.addressBuilder_ = null;
+							this.address_ = other.address_;
+							this.bitField0_ = this.bitField0_ & ~0x00000001;
+							this.addressBuilder_ = com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders
+									? getAddressFieldBuilder()
+									: null;
+						}
+						else {
+							this.addressBuilder_.addAllMessages(other.address_);
+						}
+					}
+				}
+				onChanged();
+				return this;
+			}
+
+			@Override
+			public final boolean isInitialized() {
+				return true;
+			}
+
+			@Override
+			public Builder mergeFrom(com.google.protobuf.CodedInputStream input,
+					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+					throws java.io.IOException {
+				ch.rasc.dataformat.proto.AddressProtos.Addresses parsedMessage = null;
+				try {
+					parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+				}
+				catch (com.google.protobuf.InvalidProtocolBufferException e) {
+					parsedMessage = (ch.rasc.dataformat.proto.AddressProtos.Addresses) e
+							.getUnfinishedMessage();
+					throw e.unwrapIOException();
+				}
+				finally {
+					if (parsedMessage != null) {
+						mergeFrom(parsedMessage);
+					}
+				}
+				return this;
+			}
+
+			private int bitField0_;
+
+			private java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> address_ = java.util.Collections
+					.emptyList();
+
+			private void ensureAddressIsMutable() {
+				if (!((this.bitField0_ & 0x00000001) == 0x00000001)) {
+					this.address_ = new java.util.ArrayList<>(this.address_);
+					this.bitField0_ |= 0x00000001;
+				}
+			}
+
+			private com.google.protobuf.RepeatedFieldBuilderV3<ch.rasc.dataformat.proto.AddressProtos.Address, ch.rasc.dataformat.proto.AddressProtos.Address.Builder, ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> addressBuilder_;
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			@Override
+			public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> getAddressList() {
+				if (this.addressBuilder_ == null) {
+					return java.util.Collections.unmodifiableList(this.address_);
+				}
+				else {
+					return this.addressBuilder_.getMessageList();
+				}
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			@Override
+			public int getAddressCount() {
+				if (this.addressBuilder_ == null) {
+					return this.address_.size();
+				}
+				else {
+					return this.addressBuilder_.getCount();
+				}
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index) {
+				if (this.addressBuilder_ == null) {
+					return this.address_.get(index);
+				}
+				else {
+					return this.addressBuilder_.getMessage(index);
+				}
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder setAddress(int index,
+					ch.rasc.dataformat.proto.AddressProtos.Address value) {
+				if (this.addressBuilder_ == null) {
+					if (value == null) {
+						throw new NullPointerException();
+					}
+					ensureAddressIsMutable();
+					this.address_.set(index, value);
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.setMessage(index, value);
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder setAddress(int index,
+					ch.rasc.dataformat.proto.AddressProtos.Address.Builder builderForValue) {
+				if (this.addressBuilder_ == null) {
+					ensureAddressIsMutable();
+					this.address_.set(index, builderForValue.build());
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.setMessage(index, builderForValue.build());
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder addAddress(
+					ch.rasc.dataformat.proto.AddressProtos.Address value) {
+				if (this.addressBuilder_ == null) {
+					if (value == null) {
+						throw new NullPointerException();
+					}
+					ensureAddressIsMutable();
+					this.address_.add(value);
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.addMessage(value);
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder addAddress(int index,
+					ch.rasc.dataformat.proto.AddressProtos.Address value) {
+				if (this.addressBuilder_ == null) {
+					if (value == null) {
+						throw new NullPointerException();
+					}
+					ensureAddressIsMutable();
+					this.address_.add(index, value);
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.addMessage(index, value);
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder addAddress(
+					ch.rasc.dataformat.proto.AddressProtos.Address.Builder builderForValue) {
+				if (this.addressBuilder_ == null) {
+					ensureAddressIsMutable();
+					this.address_.add(builderForValue.build());
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.addMessage(builderForValue.build());
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder addAddress(int index,
+					ch.rasc.dataformat.proto.AddressProtos.Address.Builder builderForValue) {
+				if (this.addressBuilder_ == null) {
+					ensureAddressIsMutable();
+					this.address_.add(index, builderForValue.build());
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.addMessage(index, builderForValue.build());
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder addAllAddress(
+					java.lang.Iterable<? extends ch.rasc.dataformat.proto.AddressProtos.Address> values) {
+				if (this.addressBuilder_ == null) {
+					ensureAddressIsMutable();
+					com.google.protobuf.AbstractMessageLite.Builder.addAll(values,
+							this.address_);
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.addAllMessages(values);
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder clearAddress() {
+				if (this.addressBuilder_ == null) {
+					this.address_ = java.util.Collections.emptyList();
+					this.bitField0_ = this.bitField0_ & ~0x00000001;
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.clear();
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public Builder removeAddress(int index) {
+				if (this.addressBuilder_ == null) {
+					ensureAddressIsMutable();
+					this.address_.remove(index);
+					onChanged();
+				}
+				else {
+					this.addressBuilder_.remove(index);
+				}
+				return this;
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public ch.rasc.dataformat.proto.AddressProtos.Address.Builder getAddressBuilder(
+					int index) {
+				return getAddressFieldBuilder().getBuilder(index);
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			@Override
+			public ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
+					int index) {
+				if (this.addressBuilder_ == null) {
+					return this.address_.get(index);
+				}
+				else {
+					return this.addressBuilder_.getMessageOrBuilder(index);
+				}
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			@Override
+			public java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> getAddressOrBuilderList() {
+				if (this.addressBuilder_ != null) {
+					return this.addressBuilder_.getMessageOrBuilderList();
+				}
+				else {
+					return java.util.Collections.unmodifiableList(this.address_);
+				}
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public ch.rasc.dataformat.proto.AddressProtos.Address.Builder addAddressBuilder() {
+				return getAddressFieldBuilder()
+						.addBuilder(ch.rasc.dataformat.proto.AddressProtos.Address
+								.getDefaultInstance());
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public ch.rasc.dataformat.proto.AddressProtos.Address.Builder addAddressBuilder(
+					int index) {
+				return getAddressFieldBuilder().addBuilder(index,
+						ch.rasc.dataformat.proto.AddressProtos.Address
+								.getDefaultInstance());
+			}
+
+			/**
+			 * <code>repeated .Address address = 1;</code>
+			 */
+			public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address.Builder> getAddressBuilderList() {
+				return getAddressFieldBuilder().getBuilderList();
+			}
+
+			private com.google.protobuf.RepeatedFieldBuilderV3<ch.rasc.dataformat.proto.AddressProtos.Address, ch.rasc.dataformat.proto.AddressProtos.Address.Builder, ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> getAddressFieldBuilder() {
+				if (this.addressBuilder_ == null) {
+					this.addressBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<>(
+							this.address_, (this.bitField0_ & 0x00000001) == 0x00000001,
+							getParentForChildren(), isClean());
+					this.address_ = null;
+				}
+				return this.addressBuilder_;
+			}
+
+			@Override
+			public final Builder setUnknownFields(
+					final com.google.protobuf.UnknownFieldSet unknownFields) {
+				return this;
+			}
+
+			@Override
+			public final Builder mergeUnknownFields(
+					final com.google.protobuf.UnknownFieldSet unknownFields) {
+				return this;
+			}
+
+			// @@protoc_insertion_point(builder_scope:Addresses)
+		}
+
+		// @@protoc_insertion_point(class_scope:Addresses)
+		private static final ch.rasc.dataformat.proto.AddressProtos.Addresses DEFAULT_INSTANCE;
+		static {
+			DEFAULT_INSTANCE = new ch.rasc.dataformat.proto.AddressProtos.Addresses();
+		}
+
+		public static ch.rasc.dataformat.proto.AddressProtos.Addresses getDefaultInstance() {
+			return DEFAULT_INSTANCE;
+		}
+
+		private static final com.google.protobuf.Parser<Addresses> PARSER = new com.google.protobuf.AbstractParser<Addresses>() {
+			@Override
+			public Addresses parsePartialFrom(com.google.protobuf.CodedInputStream input,
+					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+					throws com.google.protobuf.InvalidProtocolBufferException {
+				return new Addresses(input, extensionRegistry);
+			}
+		};
+
+		public static com.google.protobuf.Parser<Addresses> parser() {
+			return PARSER;
+		}
+
+		@java.lang.Override
+		public com.google.protobuf.Parser<Addresses> getParserForType() {
+			return PARSER;
+		}
+
+		@Override
+		public ch.rasc.dataformat.proto.AddressProtos.Addresses getDefaultInstanceForType() {
+			return DEFAULT_INSTANCE;
+		}
+
+	}
+
+	private static final com.google.protobuf.Descriptors.Descriptor internal_static_Address_descriptor;
+	private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internal_static_Address_fieldAccessorTable;
+	private static final com.google.protobuf.Descriptors.Descriptor internal_static_Addresses_descriptor;
+	private static final com.google.protobuf.GeneratedMessageV3.FieldAccessorTable internal_static_Addresses_fieldAccessorTable;
+
+	public static com.google.protobuf.Descriptors.FileDescriptor getDescriptor() {
+		return descriptor;
+	}
+
+	private static com.google.protobuf.Descriptors.FileDescriptor descriptor;
+	static {
+		java.lang.String[] descriptorData = {
+				"\n\raddress.proto\"\254\001\n\007Address\022\n\n\002id\030\001 \001(\r\022"
+						+ "\020\n\010lastName\030\002 \001(\t\022\021\n\tfirstName\030\003 \001(\t\022\016\n\006"
+						+ "street\030\004 \001(\t\022\013\n\003zip\030\005 \001(\t\022\014\n\004city\030\006 \001(\t\022"
+						+ "\017\n\007country\030\007 \001(\t\022\013\n\003lat\030\010 \001(\002\022\013\n\003lng\030\t \001"
+						+ "(\002\022\r\n\005email\030\n \001(\t\022\013\n\003dob\030\013 \001(\021\"&\n\tAddres"
+						+ "ses\022\031\n\007address\030\001 \003(\0132\010.AddressB)\n\030ch.ras"
+						+ "c.dataformat.protoB\rAddressProtosb\006proto" + "3" };
+		com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner = root -> {
+			descriptor = root;
+			return null;
+		};
+		com.google.protobuf.Descriptors.FileDescriptor.internalBuildGeneratedFileFrom(
+				descriptorData, new com.google.protobuf.Descriptors.FileDescriptor[] {},
+				assigner);
+		internal_static_Address_descriptor = getDescriptor().getMessageTypes().get(0);
+		internal_static_Address_fieldAccessorTable = new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+				internal_static_Address_descriptor,
+				new java.lang.String[] { "Id", "LastName", "FirstName", "Street", "Zip",
+						"City", "Country", "Lat", "Lng", "Email", "Dob", });
+		internal_static_Addresses_descriptor = getDescriptor().getMessageTypes().get(1);
+		internal_static_Addresses_fieldAccessorTable = new com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+				internal_static_Addresses_descriptor,
+				new java.lang.String[] { "Address", });
+	}
+
+	// @@protoc_insertion_point(outer_class_scope)
 }

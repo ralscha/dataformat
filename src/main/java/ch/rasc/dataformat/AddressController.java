@@ -82,7 +82,7 @@ public class AddressController {
 		FlatBufferBuilder fbb = new FlatBufferBuilder(1_024 * 1_024);
 
 		Map<String, Integer> dictionary = new HashMap<>();
-		for (Address address : testData) {
+		for (Address address : this.testData) {
 			addStringToDict(dictionary, fbb, address.getLastName());
 			addStringToDict(dictionary, fbb, address.getFirstName());
 			addStringToDict(dictionary, fbb, address.getStreet());
@@ -93,7 +93,7 @@ public class AddressController {
 		}
 
 		List<Integer> addressOffsets = new ArrayList<>();
-		for (Address address : testData) {
+		for (Address address : this.testData) {
 			ch.rasc.dataformat.fb.Address.startAddress(fbb);
 			ch.rasc.dataformat.fb.Address.addId(fbb, address.getId());
 
