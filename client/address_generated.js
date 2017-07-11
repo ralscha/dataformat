@@ -69,7 +69,7 @@ ch.rasc.dataformat.fb.Address.prototype.id = function() {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.lastName = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 6);
@@ -78,7 +78,7 @@ ch.rasc.dataformat.fb.Address.prototype.lastName = function(optionalEncoding) {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.firstName = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 8);
@@ -87,7 +87,7 @@ ch.rasc.dataformat.fb.Address.prototype.firstName = function(optionalEncoding) {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.street = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 10);
@@ -96,7 +96,7 @@ ch.rasc.dataformat.fb.Address.prototype.street = function(optionalEncoding) {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.zip = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 12);
@@ -105,7 +105,7 @@ ch.rasc.dataformat.fb.Address.prototype.zip = function(optionalEncoding) {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.city = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 14);
@@ -114,7 +114,7 @@ ch.rasc.dataformat.fb.Address.prototype.city = function(optionalEncoding) {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.country = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 16);
@@ -139,7 +139,7 @@ ch.rasc.dataformat.fb.Address.prototype.lng = function() {
 
 /**
  * @param {flatbuffers.Encoding=} optionalEncoding
- * @returns {string|Uint8Array}
+ * @returns {string|Uint8Array|null}
  */
 ch.rasc.dataformat.fb.Address.prototype.email = function(optionalEncoding) {
   var offset = this.bb.__offset(this.bb_pos, 22);

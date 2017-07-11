@@ -165,6 +165,8 @@
 									<fileset dir="${basedir}/client">
 										<include name="address.proto" />
 										<include name="msgpack.min.js" />
+										<include name="protobuf.min.js" />
+										<include name="papaparse.min.js" />
 									</fileset>
 								</copy>
 

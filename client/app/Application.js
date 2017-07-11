@@ -3,9 +3,12 @@ Ext.define('Df.Application', {
 
 	name: 'Df',
 
-	launch: function() {
-		Ext.fly('loading_container').destroy();
-	},
+    quickTips: false,
+    platformConfig: {
+        desktop: {
+            quickTips: true
+        }
+    },
 
 	onAppUpdate: function() {
 		window.location.reload();

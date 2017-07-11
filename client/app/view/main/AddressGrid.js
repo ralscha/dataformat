@@ -4,7 +4,7 @@ Ext.define('Df.view.main.AddressGrid', {
 	columns: [ {
 		text: 'ID',
 		dataIndex: 'id',
-		width: 50
+		width: 60
 	}, {
 		text: 'Last Name',
 		dataIndex: 'lastName',
@@ -16,7 +16,7 @@ Ext.define('Df.view.main.AddressGrid', {
 	}, {
 		text: 'Street',
 		dataIndex: 'street',
-		width: 100
+		flex: 1
 	}, {
 		text: 'Zip Code',
 		dataIndex: 'zip',
@@ -40,7 +40,7 @@ Ext.define('Df.view.main.AddressGrid', {
 	}, {
 		text: 'Email',
 		dataIndex: 'email',
-		width: 100
+		flex: 1
 	}, {
 		text: 'Date of Birth',
 		dataIndex: 'dob',

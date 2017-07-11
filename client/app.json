@@ -1,13 +1,24 @@
 {
-    /**
-     * The application's namespace.
-     */
     "name": "Df",
-    
-    /**
-     * The version of the application.
-     */
+    "namespace": "Df",
     "version": "1.0.0.0",
+    "framework": "ext",
+    "toolkit": "modern",
+    "theme": "theme-material",
+
+    /**
+     * The list of required packages (with optional versions; default is "latest").
+     *
+     * For example,
+     *
+     *      "requires": [
+     *          "charts"
+     *      ]
+     */
+    "requires": [
+        "font-awesome",
+        "charts"
+    ],
 
     /**
      * The relative path to the application's markup file (html, jsp, asp, etc.).
@@ -36,43 +47,10 @@
     ],
 
     /**
-     * The Sencha Framework for this application: "ext" or "touch".
-     */
-    "framework": "ext",
-    
-    
-    /**
-     * The toolkit to use. Select either "classic" or "modern".
-     */
-    "toolkit": "modern",
-    
-    
-    
-    /**
-     * The name of the theme for this application.
-     */
-    
-    "theme": "theme-triton",
-    
-    
-    /**
-     * The list of required packages (with optional versions; default is "latest").
-     *
-     * For example,
-     *
-     *      "requires": [
-     *          "charts"
-     *      ]
-     */
-    "requires": [
-        "font-awesome",
-        "charts"
-    ],
-
-    /**
      * Fashion build configuration properties.
      */
     "fashion": {
+        "missingParameters": "error",
         "inliner": {
             /**
              * Disable resource inliner. Production builds enable this by default.
@@ -109,13 +87,12 @@
          *      }
          *
          */
-         
+
         "generated": {
             "var": "sass/save.scss",
             "src": "sass/save"
         },
-        
-        
+
         /**
          * Comma-separated list of files or folders containing extra Sass. These
          * files are automatically included in the Sass compilation. By default this
@@ -227,20 +204,16 @@
      *
      */
     "js": [
+    /*
         {
             "path": "${framework.dir}/build/ext-modern-all-debug.js"
         },
+        */
         {
             "path": "app.js",
             "bundle": true
         }, {
-        	"path": "long.min.js",
-			"includeInBundle": true
-        }, {
-        	"path": "bytebuffer.min.js",
-			"includeInBundle": true
-        }, {
-        	"path": "cbor.min.js",
+        	"path": "cbor.js",
 			"includeInBundle": true
         }, {
         	"path": "flatbuffers.js",
@@ -253,14 +226,12 @@
 			"remote": true
         }, {
         	"path": "papaparse.min.js",
-			"includeInBundle": true
+			"remote": true
         }, {
         	"path": "protobuf.min.js",
-			"includeInBundle": true
+			"remote": true
         }
     ],
-
-    
 
     /**
      * List of all CSS assets in the right inclusion order.
@@ -339,13 +310,13 @@
             "type": "yui"
         }
     },
-    
+
     /**
      * Settings specific to testing builds.
      */
     "testing": {
     },
-    
+
     /**
      * Settings specific to development builds.
      */
@@ -365,7 +336,7 @@
      * form:
      *
      *      "bootstrap": {
-     *          "base": "${app.dir},
+     *          "base": "${app.dir}",
      *          "manifest": "bootstrap.json",
      *          "microloader": "bootstrap.js",
      *          "css": "bootstrap.css"
@@ -384,7 +355,7 @@
      */
     "bootstrap": {
         "base": "${app.dir}",
-        
+
         "microloader": "bootstrap.js",
         "css": "bootstrap.css"
     },
@@ -404,7 +375,12 @@
      *              "enable": false
      *          },
      *          "css": "${app.output.resources}/${app.name}-all.css",
-     *          "js": "app.js",
+     *          "js": {
+     *              "path": "app.js",
+     *              // This setting constrols the output language level.  Set to 'ES6' to 
+     *              // disable the transpiler
+     *              "version": "ES5"
+     *          },
      *          "microloader": {
      *              "path": "microloader.js",
      *              "embed": true,
@@ -429,15 +405,14 @@
      *      }
      *
      */
-    
+
     "output": {
         "base": "${workspace.build.dir}/${build.environment}/${app.name}",
         "appCache": {
             "enable": false
         }
     },
-    
-    
+
     /**
     * Controls for localStorage caching
     *   "cache": {
@@ -453,12 +428,11 @@
     *       "deltas": "deltas"
     *   }
     */
-    
+
     "cache": {
         "enable": false,
         "deltas": true
     },
-    
 
     /**
      * Used to automatically generate cache.manifest (HTML 5 application cache manifest)
@@ -499,13 +473,10 @@
      * generated inside this directory must be kept intact for proper generation of
      * deltas between updates.
      */
-    
-    "archivePath": "archive",
-    
 
+    "archivePath": "archive",
 
     "slicer": null,
-
 
     /**
      * Build Profiles. This object's properties are each a "build profile". You can
@@ -515,7 +486,6 @@
      * names.
      *
      */
-    
 
     /**
      * File / directory name patttern to ignore when copying to the builds. Must be a
@@ -529,5 +499,5 @@
      * Uniquely generated id for this application, used as prefix for localStorage keys.
      * Normally you should never change this value.
      */
-    "id": "89f9003f-c6d9-4450-8d54-f7accdbb0102"
+    "id": "aa65abaf-9810-449c-af93-a4c4290eda5f"
 }

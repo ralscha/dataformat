@@ -1,3 +1,7 @@
+server:
+  compression:
+    enabled: false
+    
 spring:
   resources:
     static-locations: file:./client/
