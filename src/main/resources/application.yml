@@ -12,6 +12,7 @@ server:
       - text/csv
       - application/x-protobuf
       - application/x-flatbuffers
+      - application/x-jackson-smile
 
 logging:
   level:

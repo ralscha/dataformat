@@ -228,6 +228,9 @@
         }, {
         	"path": "protobuf.min.js",
 			"remote": true
+        }, {
+        	"path": "smile.min.js",
+			"remote": true
         }
     ],
 

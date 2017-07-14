@@ -41,6 +41,11 @@ public class Application extends WebMvcConfigurerAdapter {
 	public CborHttpMessageConverter cborHttpMessageConverter() {
 		return new CborHttpMessageConverter();
 	}
+	
+	@Bean
+	public MappingJackson2SmileHttpMessageConverter mappingJackson2SmileHttpMessageConverter() {
+		return new MappingJackson2SmileHttpMessageConverter();
+	}
 
 	@Bean
 	public MessagePackHttpMessageConverter messagePackHttpMessageConverter() {
@@ -70,7 +75,8 @@ public class Application extends WebMvcConfigurerAdapter {
 				.mediaType("msgpack", MediaType.valueOf("application/x-msgpack"))
 				.mediaType("csv", MediaType.valueOf("text/csv"))
 				.mediaType("protobuf", MediaType.valueOf("application/x-protobuf"))
-				.mediaType("flatbuffers", MediaType.valueOf("application/x-flatbuffers"));
+				.mediaType("flatbuffers", MediaType.valueOf("application/x-flatbuffers"))
+				.mediaType("smile", MediaType.valueOf("application/x-jackson-smile"));
 	}
 
 }

@@ -49,6 +49,16 @@ public class AddressController {
 	public List<Object[]> getAddressesCborArray() {
 		return this.testData.stream().map(Address::toArray).collect(Collectors.toList());
 	}
+	
+	@GetMapping(value = "/addresses", produces = "application/x-jackson-smile")
+	public List<Address> getAddressesSmile() {
+		return this.testData;
+	}
+
+	@GetMapping(value = "/addressesArray", produces = "application/x-jackson-smile")
+	public List<Object[]> getAddressesSmileArray() {
+		return this.testData.stream().map(Address::toArray).collect(Collectors.toList());
+	}	
 
 	@GetMapping(value = "/addresses", produces = "application/x-msgpack")
 	public List<Map<String, Object>> getAddressesMsgpack() {

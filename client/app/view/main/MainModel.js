@@ -7,7 +7,9 @@ Ext.define('Df.view.main.MainModel', {
 	            'Df.data.reader.Cbor', 
 	            'Df.data.reader.Msgpack', 
 	            'Df.data.reader.CborArray', 
-	            'Df.data.reader.MsgpackArray', 
+	            'Df.data.reader.MsgpackArray',
+	            'Df.data.reader.Smile',
+	            'Df.data.reader.SmileArray', 
 	            'Df.data.reader.ProtoBuf',
 	            'Df.data.reader.FlatBuffers',
 	            'Ext.data.reader.Xml',
@@ -73,6 +75,29 @@ Ext.define('Df.view.main.MainModel', {
 				}
 			}
 		},
+		addressesSMILE: {
+			xclass: 'Df.store.AddressBaseStore',
+			proxy: {
+				type: 'ajax',
+				binary: true,
+				url: serverUrl + 'addresses.smile',
+				reader: {
+					xclass: 'Df.data.reader.Smile'
+				}
+			}
+		},
+		addressesSMILEARRAY: {
+			xclass: 'Df.store.AddressBaseStore',
+			model: 'Df.model.AddressWithMapping',
+			proxy: {
+				type: 'ajax',
+				binary: true,
+				url: serverUrl + 'addressesArray.smile',
+				reader: {
+					xclass: 'Df.data.reader.SmileArray'
+				}
+			}
+		},		
 		addressesMSGPACK: {
 			xclass: 'Df.store.AddressBaseStore',
 			proxy: {
@@ -165,6 +190,14 @@ Ext.define('Df.view.main.MainModel', {
 				format: 'CBOR Array',
 				uncompressed: 111936,
 				compressed: 64230
+			}, {
+				format: 'SMILE',
+				uncompressed: 125740,
+				compressed: 68067
+			}, {
+				format: 'SMILE Array',
+				uncompressed: 114672,
+				compressed: 64518
 			}, {
 				format: 'MsgPack',
 				uncompressed: 175511,

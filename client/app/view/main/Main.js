@@ -41,6 +41,14 @@ Ext.define('Df.view.main.Main', {
 		xclass: 'Df.view.main.AddressGrid',
 		bind: '{addressesCBORARRAY}'
 	}, {
+		title: 'SMILE',
+		xclass: 'Df.view.main.AddressGrid',
+		bind: '{addressesSMILE}'
+	}, {
+		title: 'SMILE Array',
+		xclass: 'Df.view.main.AddressGrid',
+		bind: '{addressesSMILEARRAY}'
+	}, {
 		title: 'MessagePack',
 		xclass: 'Df.view.main.AddressGrid',
 		bind: '{addressesMSGPACK}'

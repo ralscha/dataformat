@@ -45,6 +45,11 @@
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-csv</artifactId>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-smile</artifactId>
+		</dependency>		
 
 		<dependency>
 			<groupId>org.msgpack</groupId>
@@ -167,6 +172,7 @@
 										<include name="msgpack.min.js" />
 										<include name="protobuf.min.js" />
 										<include name="papaparse.min.js" />
+										<include name="smile.min.js"/>
 									</fileset>
 								</copy>
 
