@@ -15,11 +15,12 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
+import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
-public class Application extends WebMvcConfigurerAdapter {
+public class Application implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
 		// -Dspring.profiles.active=development
@@ -38,16 +39,6 @@ public class Application extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public CborHttpMessageConverter cborHttpMessageConverter() {
-		return new CborHttpMessageConverter();
-	}
-	
-	@Bean
-	public MappingJackson2SmileHttpMessageConverter mappingJackson2SmileHttpMessageConverter() {
-		return new MappingJackson2SmileHttpMessageConverter();
-	}
-
-	@Bean
 	public MessagePackHttpMessageConverter messagePackHttpMessageConverter() {
 		return new MessagePackHttpMessageConverter(messagePack());
 	}
@@ -58,10 +49,10 @@ public class Application extends WebMvcConfigurerAdapter {
 	}
 
 	@Bean
-	public Protobuf3HttpMessageConverter protobufHttpMessageConverter() {
-		return new Protobuf3HttpMessageConverter();
-	}
-
+	public ProtobufHttpMessageConverter protobufHttpMessageConverter() {
+		return new ProtobufHttpMessageConverter();
+	}	
+	
 	@Bean
 	public MessagePack messagePack() {
 		MessagePack msgpack = new MessagePack();

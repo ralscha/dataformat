@@ -3,6 +3,8 @@ package ch.rasc.dataformat;
 import java.io.IOException;
 import java.lang.reflect.Type;
 
+import javax.annotation.Nullable;
+
 import org.msgpack.MessagePack;
 import org.msgpack.MessageTypeException;
 import org.springframework.http.HttpInputMessage;
@@ -28,7 +30,7 @@ public class MessagePackHttpMessageConverter
 	}
 
 	@Override
-	public boolean canRead(Type type, Class<?> contextClass, MediaType mediaType) {
+	public boolean canRead(Type type, @Nullable Class<?> contextClass, MediaType mediaType) {
 		try {
 			return canRead(mediaType) && this.messagePack.lookup(type) != null;
 		}

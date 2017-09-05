@@ -14,9 +14,10 @@ import org.springframework.web.filter.CorsFilter;
 @Profile("development")
 class DevelopmentConfig {
 
+	@SuppressWarnings({ "rawtypes", "null" })
 	@Bean
-	public FilterRegistrationBean corsFilter() {
-		FilterRegistrationBean filter = new FilterRegistrationBean();
+	public FilterRegistrationBean corsFilterRegistration() {
+		FilterRegistrationBean<CorsFilter> filter = new FilterRegistrationBean<>();
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowedOrigins(Collections.singletonList(CorsConfiguration.ALL));
 		config.setAllowedMethods(Collections.singletonList(CorsConfiguration.ALL));

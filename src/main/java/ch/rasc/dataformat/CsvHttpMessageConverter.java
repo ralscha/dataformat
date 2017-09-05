@@ -8,6 +8,8 @@ import java.nio.charset.Charset;
 import java.util.Collection;
 import java.util.concurrent.atomic.AtomicReference;
 
+import javax.annotation.Nullable;
+
 import org.springframework.core.ResolvableType;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
@@ -15,6 +17,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
+
 
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -38,7 +41,7 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 	}
 
 	@Override
-	public boolean canRead(Type type, Class<?> contextClass, MediaType mediaType) {
+	public boolean canRead(Type type, @Nullable Class<?> contextClass, MediaType mediaType) {
 		if (!canRead(mediaType)) {
 			return false;
 		}
