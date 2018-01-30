@@ -81,15 +81,15 @@
 		<dependency>
 			<groupId>com.google.protobuf</groupId>
 			<artifactId>protobuf-java</artifactId>
-			<version>3.5.0</version>
+			<version>3.5.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.google.code.findbugs</groupId>
 			<artifactId>jsr305</artifactId>
 			<version>3.0.2</version>
 			<scope>provided</scope>
-		</dependency>		
+		</dependency>
 
 	</dependencies>
 
@@ -99,6 +99,9 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<executable>true</executable>
+				</configuration>
 			</plugin>
 
 			<plugin>
@@ -112,7 +115,7 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<protocVersion>3.5.0</protocVersion>
+							<protocVersion>3.5.1</protocVersion>
 							<inputDirectories>
 								<include>client</include>
 							</inputDirectories>
