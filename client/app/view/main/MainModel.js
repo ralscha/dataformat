@@ -22,7 +22,7 @@ Ext.define('Df.view.main.MainModel', {
 			xclass: 'Df.store.AddressBaseStore',
 			proxy: {
 				type: 'ajax',
-				url: serverUrl + 'addresses.json',
+				url: serverUrl + 'addresses?format=json',
 				reader: {
 					type: 'json'
 				}
@@ -33,7 +33,7 @@ Ext.define('Df.view.main.MainModel', {
 			model: 'Df.model.AddressWithMapping',
 			proxy: {
 				type: 'ajax',
-				url: serverUrl + 'addressesArray.json',
+				url: serverUrl + 'addressesArray?format=json',
 				reader: {
 					type: 'array'
 				}
@@ -44,7 +44,7 @@ Ext.define('Df.view.main.MainModel', {
 			autoLoad: true,
 			proxy: {
 				type: 'ajax',
-				url: serverUrl + 'addresses.xml',
+				url: serverUrl + 'addresses?format=xml',
 				reader: {
 					type: 'xml',
 					record: 'address',
@@ -57,7 +57,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addresses.cbor',
+				url: serverUrl + 'addresses?format=cbor',
 				reader: {
 					xclass: 'Df.data.reader.Cbor'
 				}
@@ -69,7 +69,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addressesArray.cbor',
+				url: serverUrl + 'addressesArray?format=cbor',
 				reader: {
 					xclass: 'Df.data.reader.CborArray'
 				}
@@ -80,7 +80,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addresses.smile',
+				url: serverUrl + 'addresses?format=smile',
 				reader: {
 					xclass: 'Df.data.reader.Smile'
 				}
@@ -92,7 +92,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addressesArray.smile',
+				url: serverUrl + 'addressesArray?format=smile',
 				reader: {
 					xclass: 'Df.data.reader.SmileArray'
 				}
@@ -103,7 +103,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addresses.msgpack',
+				url: serverUrl + 'addresses?format=msgpack',
 				reader: {
 					xclass: 'Df.data.reader.Msgpack'
 				}
@@ -115,7 +115,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addressesArray.msgpack',
+				url: serverUrl + 'addressesArray?format=msgpack',
 				reader: {
 					xclass: 'Df.data.reader.MsgpackArray'
 				}
@@ -126,7 +126,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addresses.protobuf',
+				url: serverUrl + 'addresses?format=protobuf',
 				reader: {
 					xclass: 'Df.data.reader.ProtoBuf'
 				}
@@ -137,7 +137,7 @@ Ext.define('Df.view.main.MainModel', {
 			proxy: {
 				type: 'ajax',
 				binary: true,
-				url: serverUrl + 'addresses.flatbuffers',
+				url: serverUrl + 'addresses?format=flatbuffers',
 				reader: {
 					xclass: 'Df.data.reader.FlatBuffers'
 				}
@@ -147,7 +147,7 @@ Ext.define('Df.view.main.MainModel', {
 			xclass: 'Df.store.AddressBaseStore',
 			proxy: {
 				type: 'ajax',
-				url: serverUrl + 'addresses.csv',
+				url: serverUrl + 'addresses?format=csv',
 				reader: {
 					xclass: 'Df.data.reader.Csv'
 				}

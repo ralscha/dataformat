@@ -14,6 +14,18 @@ server:
       - application/x-flatbuffers
       - application/x-jackson-smile
 
+spring:
+  mvc:
+    content-negotiation:
+      favor-parameter: true
+      media-types:
+        cbor: application/cbor
+        msgpack: application/x-msgpack
+        csv: text/csv
+        protobuf: application/x-protobuf
+        flatbuffers: application/x-flatbuffers
+        smile: application/x-jackson-smile
+
 logging:
   level:
     org.springframework: WARN

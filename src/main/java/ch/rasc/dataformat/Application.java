@@ -14,9 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
-import org.springframework.http.MediaType;
 import org.springframework.http.converter.protobuf.ProtobufHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.ContentNegotiationConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
@@ -58,16 +56,6 @@ public class Application implements WebMvcConfigurer {
 		MessagePack msgpack = new MessagePack();
 		msgpack.register(LocalDate.class, LocalDateTemplate.instance);
 		return msgpack;
-	}
-
-	@Override
-	public void configureContentNegotiation(ContentNegotiationConfigurer configurer) {
-		configurer.mediaType("cbor", MediaType.valueOf("application/cbor"))
-				.mediaType("msgpack", MediaType.valueOf("application/x-msgpack"))
-				.mediaType("csv", MediaType.valueOf("text/csv"))
-				.mediaType("protobuf", MediaType.valueOf("application/x-protobuf"))
-				.mediaType("flatbuffers", MediaType.valueOf("application/x-flatbuffers"))
-				.mediaType("smile", MediaType.valueOf("application/x-jackson-smile"));
 	}
 
 }
