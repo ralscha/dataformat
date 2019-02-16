@@ -118,7 +118,7 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 		}
 		catch (IOException ex) {
 			throw new HttpMessageNotReadableException(
-					"Could not read CBOR: " + ex.getMessage(), ex);
+					"Could not read CBOR: " + ex.getMessage(), ex, inputMessage);
 		}
 	}
 
