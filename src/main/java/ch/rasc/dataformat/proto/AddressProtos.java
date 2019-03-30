@@ -121,17 +121,13 @@ public final class AddressProtos {
       super(builder);
     }
     private Address() {
-      id_ = 0;
       lastName_ = "";
       firstName_ = "";
       street_ = "";
       zip_ = "";
       city_ = "";
       country_ = "";
-      lat_ = 0F;
-      lng_ = 0F;
       email_ = "";
-      dob_ = 0;
     }
 
     @java.lang.Override
@@ -221,7 +217,7 @@ public final class AddressProtos {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -634,35 +630,32 @@ public final class AddressProtos {
       }
       ch.rasc.dataformat.proto.AddressProtos.Address other = (ch.rasc.dataformat.proto.AddressProtos.Address) obj;
 
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getLastName()
-          .equals(other.getLastName());
-      result = result && getFirstName()
-          .equals(other.getFirstName());
-      result = result && getStreet()
-          .equals(other.getStreet());
-      result = result && getZip()
-          .equals(other.getZip());
-      result = result && getCity()
-          .equals(other.getCity());
-      result = result && getCountry()
-          .equals(other.getCountry());
-      result = result && (
-          java.lang.Float.floatToIntBits(getLat())
-          == java.lang.Float.floatToIntBits(
-              other.getLat()));
-      result = result && (
-          java.lang.Float.floatToIntBits(getLng())
-          == java.lang.Float.floatToIntBits(
-              other.getLng()));
-      result = result && getEmail()
-          .equals(other.getEmail());
-      result = result && (getDob()
-          == other.getDob());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getId()
+          != other.getId()) return false;
+      if (!getLastName()
+          .equals(other.getLastName())) return false;
+      if (!getFirstName()
+          .equals(other.getFirstName())) return false;
+      if (!getStreet()
+          .equals(other.getStreet())) return false;
+      if (!getZip()
+          .equals(other.getZip())) return false;
+      if (!getCity()
+          .equals(other.getCity())) return false;
+      if (!getCountry()
+          .equals(other.getCountry())) return false;
+      if (java.lang.Float.floatToIntBits(getLat())
+          != java.lang.Float.floatToIntBits(
+              other.getLat())) return false;
+      if (java.lang.Float.floatToIntBits(getLng())
+          != java.lang.Float.floatToIntBits(
+              other.getLng())) return false;
+      if (!getEmail()
+          .equals(other.getEmail())) return false;
+      if (getDob()
+          != other.getDob()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -894,35 +887,35 @@ public final class AddressProtos {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1594,7 +1587,7 @@ public final class AddressProtos {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1713,7 +1706,7 @@ public final class AddressProtos {
               done = true;
               break;
             case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 address_ = new java.util.ArrayList<ch.rasc.dataformat.proto.AddressProtos.Address>();
                 mutable_bitField0_ |= 0x00000001;
               }
@@ -1722,7 +1715,7 @@ public final class AddressProtos {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1736,7 +1729,7 @@ public final class AddressProtos {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
           address_ = java.util.Collections.unmodifiableList(address_);
         }
         this.unknownFields = unknownFields.build();
@@ -1836,11 +1829,10 @@ public final class AddressProtos {
       }
       ch.rasc.dataformat.proto.AddressProtos.Addresses other = (ch.rasc.dataformat.proto.AddressProtos.Addresses) obj;
 
-      boolean result = true;
-      result = result && getAddressList()
-          .equals(other.getAddressList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getAddressList()
+          .equals(other.getAddressList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2022,7 +2014,7 @@ public final class AddressProtos {
         ch.rasc.dataformat.proto.AddressProtos.Addresses result = new ch.rasc.dataformat.proto.AddressProtos.Addresses(this);
         int from_bitField0_ = bitField0_;
         if (addressBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+          if (((bitField0_ & 0x00000001) != 0)) {
             address_ = java.util.Collections.unmodifiableList(address_);
             bitField0_ = (bitField0_ & ~0x00000001);
           }
@@ -2036,35 +2028,35 @@ public final class AddressProtos {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2137,7 +2129,7 @@ public final class AddressProtos {
       private java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> address_ =
         java.util.Collections.emptyList();
       private void ensureAddressIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        if (!((bitField0_ & 0x00000001) != 0)) {
           address_ = new java.util.ArrayList<ch.rasc.dataformat.proto.AddressProtos.Address>(address_);
           bitField0_ |= 0x00000001;
          }
@@ -2366,7 +2358,7 @@ public final class AddressProtos {
           addressBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
               ch.rasc.dataformat.proto.AddressProtos.Address, ch.rasc.dataformat.proto.AddressProtos.Address.Builder, ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder>(
                   address_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
                   isClean());
           address_ = null;
@@ -2376,7 +2368,7 @@ public final class AddressProtos {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
