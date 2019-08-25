@@ -49,8 +49,8 @@ public class Application implements WebMvcConfigurer {
 	@Bean
 	public ProtobufHttpMessageConverter protobufHttpMessageConverter() {
 		return new ProtobufHttpMessageConverter();
-	}	
-	
+	}
+
 	@Bean
 	public MessagePack messagePack() {
 		MessagePack msgpack = new MessagePack();

@@ -18,7 +18,6 @@ import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.http.converter.HttpMessageNotWritableException;
 
-
 import com.fasterxml.jackson.core.JsonEncoding;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;
@@ -41,7 +40,8 @@ public class CsvHttpMessageConverter extends AbstractGenericHttpMessageConverter
 	}
 
 	@Override
-	public boolean canRead(Type type, @Nullable Class<?> contextClass, MediaType mediaType) {
+	public boolean canRead(Type type, @Nullable Class<?> contextClass,
+			MediaType mediaType) {
 		if (!canRead(mediaType)) {
 			return false;
 		}

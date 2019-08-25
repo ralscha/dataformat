@@ -30,7 +30,8 @@ public class MessagePackHttpMessageConverter
 	}
 
 	@Override
-	public boolean canRead(Type type, @Nullable Class<?> contextClass, MediaType mediaType) {
+	public boolean canRead(Type type, @Nullable Class<?> contextClass,
+			MediaType mediaType) {
 		try {
 			return canRead(mediaType) && this.messagePack.lookup(type) != null;
 		}

@@ -365,7 +365,7 @@ public class FlatBufferBuilder {
 	 * </ol>
 	 * <p>
 	 * For example, to create an array of strings, do:
-	 * 
+	 *
 	 * <pre>
 	 * {
 	 * 	&#64;code
