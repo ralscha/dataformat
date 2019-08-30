@@ -28,7 +28,7 @@ Ext.define('Df.data.reader.MsgpackArray', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = msgpack.decode(response.responseBytes);
+			var result = MessagePack.decode(response.responseBytes);
 			console.log('msgpack array', (performance.now()-start) + ' ms');
 			return result;
 		}

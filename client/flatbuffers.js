@@ -226,6 +226,19 @@ flatbuffers.Builder = function(opt_initial_size) {
   this.force_defaults = false;
 };
 
+flatbuffers.Builder.prototype.clear = function() {
+  this.bb.clear();
+  this.space = this.bb.capacity();
+  this.minalign = 1;
+  this.vtable = null;
+  this.vtable_in_use = 0;
+  this.isNested = false;
+  this.object_start = 0;
+  this.vtables = [];
+  this.vector_num_elems = 0;
+  this.force_defaults = false;
+};
+
 /**
  * In order to save space, fields that are set to their default value
  * don't get serialized into the buffer. Forcing defaults provides a
@@ -604,23 +617,28 @@ flatbuffers.Builder.prototype.endObject = function() {
   this.addInt32(0);
   var vtableloc = this.offset();
 
+  // Trim trailing zeroes.
+  var i = this.vtable_in_use - 1;
+  for (; i >= 0 && this.vtable[i] == 0; i--) {}
+  var trimmed_size = i + 1;
+
   // Write out the current vtable.
-  for (var i = this.vtable_in_use - 1; i >= 0; i--) {
+  for (; i >= 0; i--) {
     // Offset relative to the start of the table.
     this.addInt16(this.vtable[i] != 0 ? vtableloc - this.vtable[i] : 0);
   }
 
   var standard_fields = 2; // The fields below:
   this.addInt16(vtableloc - this.object_start);
-  this.addInt16((this.vtable_in_use + standard_fields) * flatbuffers.SIZEOF_SHORT);
+  var len = (trimmed_size + standard_fields) * flatbuffers.SIZEOF_SHORT;
+  this.addInt16(len);
 
   // Search for an existing vtable that matches the current one.
   var existing_vtable = 0;
+  var vt1 = this.space;
 outer_loop:
-  for (var i = 0; i < this.vtables.length; i++) {
-    var vt1 = this.bb.capacity() - this.vtables[i];
-    var vt2 = this.space;
-    var len = this.bb.readInt16(vt1);
+  for (i = 0; i < this.vtables.length; i++) {
+    var vt2 = this.bb.capacity() - this.vtables[i];
     if (len == this.bb.readInt16(vt2)) {
       for (var j = flatbuffers.SIZEOF_SHORT; j < len; j += flatbuffers.SIZEOF_SHORT) {
         if (this.bb.readInt16(vt1 + j) != this.bb.readInt16(vt2 + j)) {
@@ -821,6 +839,10 @@ flatbuffers.ByteBuffer = function(bytes) {
  */
 flatbuffers.ByteBuffer.allocate = function(byte_size) {
   return new flatbuffers.ByteBuffer(new Uint8Array(byte_size));
+};
+
+flatbuffers.ByteBuffer.prototype.clear = function() {
+  this.position_ = 0;
 };
 
 /**
@@ -1033,6 +1055,26 @@ flatbuffers.ByteBuffer.prototype.writeFloat64 = function(offset, value) {
   flatbuffers.float64[0] = value;
   this.writeInt32(offset, flatbuffers.int32[flatbuffers.isLittleEndian ? 0 : 1]);
   this.writeInt32(offset + 4, flatbuffers.int32[flatbuffers.isLittleEndian ? 1 : 0]);
+};
+
+/**
+ * Return the file identifier.   Behavior is undefined for FlatBuffers whose
+ * schema does not include a file_identifier (likely points at padding or the
+ * start of a the root vtable).
+ * @returns {string}
+ */
+flatbuffers.ByteBuffer.prototype.getBufferIdentifier = function() {
+  if (this.bytes_.length < this.position_ + flatbuffers.SIZEOF_INT +
+      flatbuffers.FILE_IDENTIFIER_LENGTH) {
+    throw new Error(
+        'FlatBuffers: ByteBuffer is too short to contain an identifier.');
+  }
+  var result = "";
+  for (var i = 0; i < flatbuffers.FILE_IDENTIFIER_LENGTH; i++) {
+    result += String.fromCharCode(
+        this.readInt8(this.position_ + flatbuffers.SIZEOF_INT + i));
+  }
+  return result;
 };
 
 /**
