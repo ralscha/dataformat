@@ -1,7 +1,7 @@
-Ext.define('Df.data.reader.MsgpackArray', {
-	extend: 'Ext.data.reader.Array',
-	alias: 'reader.msgpackarray',
-
+Ext.define('Df.data.reader.Msgpack', {
+	extend: 'Ext.data.reader.Json',
+	alias: 'reader.msgpack',
+	responseType: 'arraybuffer',
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -29,7 +29,7 @@ Ext.define('Df.data.reader.MsgpackArray', {
 		try {
 			var start = performance.now();
 			var result = msgpack.decode(response.responseBytes);
-			console.log('msgpack array', (performance.now()-start) + ' ms');
+			console.log('msgpack', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {

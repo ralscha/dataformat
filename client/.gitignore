@@ -1,8 +1,4 @@
-/build/
-/bootstrap.css
-/bootstrap.js
-/bootstrap.json
-/classic.json
-/bootstrap.jsonp
-/.idea/
-/ext/
+/build
+/generatedFiles
+/cordova
+/node_modules

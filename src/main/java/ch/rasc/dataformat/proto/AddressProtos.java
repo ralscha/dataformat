@@ -1754,7 +1754,7 @@ public final class AddressProtos {
 			return DEFAULT_INSTANCE;
 		}
 
-		private static final com.google.protobuf.Parser<Address> PARSER = new com.google.protobuf.AbstractParser<Address>() {
+		private static final com.google.protobuf.Parser<Address> PARSER = new com.google.protobuf.AbstractParser<>() {
 			@java.lang.Override
 			public Address parsePartialFrom(com.google.protobuf.CodedInputStream input,
 					com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2637,7 +2637,7 @@ public final class AddressProtos {
 			return DEFAULT_INSTANCE;
 		}
 
-		private static final com.google.protobuf.Parser<Addresses> PARSER = new com.google.protobuf.AbstractParser<Addresses>() {
+		private static final com.google.protobuf.Parser<Addresses> PARSER = new com.google.protobuf.AbstractParser<>() {
 			@java.lang.Override
 			public Addresses parsePartialFrom(com.google.protobuf.CodedInputStream input,
 					com.google.protobuf.ExtensionRegistryLite extensionRegistry)

@@ -1,7 +1,7 @@
-Ext.define('Df.data.reader.Cbor', {
+Ext.define('Df.data.reader.SmileArray', {
 	extend: 'Ext.data.reader.Json',
-	alias: 'reader.cbor',
-
+	alias: 'reader.smilearray',
+	responseType: 'arraybuffer',
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -28,13 +28,13 @@ Ext.define('Df.data.reader.Cbor', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = CBOR.decode(response.responseBytes.buffer);
-			console.log('cbor', (performance.now()-start) + ' ms');
+			var result = Smile.Parser.parse(response.responseBytes.buffer);
+			console.log('smile array', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {
 			error = this.createReadError(ex.message);
-            Ext.Logger.warn('Unable to parse the CBOR returned by the server');
+            Ext.Logger.warn('Unable to parse the SMILE returned by the server');
             this.fireEvent('exception', this, response, error);
             return error;
 		}

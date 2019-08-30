@@ -4,15 +4,26 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=10, user-scalable=yes">
+  <title>Dataformats</title>
 
-    <title>Dataformats</title>
-    <script>
-	var serverUrl = 'http://localhost:8080/';
+  <script type="text/javascript">
+    var serverUrl = 'http://localhost:8080/';
+    var Ext = Ext || {};
+    Ext.beforeLoad = function (tags) {
+      //var s = location.search;
+      var profile;
+      profile = 'desktop';
+      Ext.manifest ='generatedFiles/' + profile;
+    };
     </script>
     
     <!-- The line below must be kept intact for Sencha Cmd to build your application -->
-    <script id="microloader" data-app="aa65abaf-9810-449c-af93-a4c4290eda5f" type="text/javascript" src="bootstrap.js"></script>
-
+  <script id="microloader" data-app="e7283efa-6f17-474d-9584-191c71c445ef" type="text/javascript" src="generatedFiles/bootstrap.js"></script>
 </head>
-<body></body>
+  <body class="launching">
+    <div id="splash" style="margin-top:20%;font-family:Arial;font-size:64px;text-align:center;color:#404040;">
+      <div id="theLoadingText">LOADING...</div>
+      <i style="margin:20px;" class="fa fa-spinner fa-spin"></i>
+    </div>
+  </body>
 </html>

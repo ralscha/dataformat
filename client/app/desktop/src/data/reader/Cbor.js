@@ -1,7 +1,8 @@
-Ext.define('Df.data.reader.CborArray', {
-	extend: 'Ext.data.reader.Array',
-	alias: 'reader.cborarray',
-
+Ext.define('Df.data.reader.Cbor', {
+	extend: 'Ext.data.reader.Json',
+	alias: 'reader.cbor',
+	responseType: 'arraybuffer',
+	 
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -29,7 +30,7 @@ Ext.define('Df.data.reader.CborArray', {
 		try {
 			var start = performance.now();
 			var result = CBOR.decode(response.responseBytes.buffer);
-			console.log('cbor array', (performance.now()-start) + ' ms');
+			console.log('cbor', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {

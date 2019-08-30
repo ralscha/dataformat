@@ -33,13 +33,13 @@ import java.nio.charset.CoderResult;
  * All tables in the generated code derive from this class, and add their own accessors.
  */
 public class Table {
-	private final static ThreadLocal<CharsetDecoder> UTF8_DECODER = new ThreadLocal<CharsetDecoder>() {
+	private final static ThreadLocal<CharsetDecoder> UTF8_DECODER = new ThreadLocal<>() {
 		@Override
 		protected CharsetDecoder initialValue() {
 			return Charset.forName("UTF-8").newDecoder();
 		}
 	};
-	public final static ThreadLocal<Charset> UTF8_CHARSET = new ThreadLocal<Charset>() {
+	public final static ThreadLocal<Charset> UTF8_CHARSET = new ThreadLocal<>() {
 		@Override
 		protected Charset initialValue() {
 			return Charset.forName("UTF-8");

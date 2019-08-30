@@ -1,7 +1,7 @@
 Ext.define('Df.data.reader.FlatBuffers', {
 	extend: 'Ext.data.reader.Json',
 	alias: 'reader.flatbuffers',
-	
+	responseType: 'arraybuffer',
 	read: function(response, readOptions) {
 		var data, result;
 

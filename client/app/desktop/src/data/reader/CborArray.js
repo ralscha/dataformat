@@ -1,7 +1,8 @@
-Ext.define('Df.data.reader.Msgpack', {
+Ext.define('Df.data.reader.CborArray', {
 	extend: 'Ext.data.reader.Json',
-	alias: 'reader.msgpack',
-
+	alias: 'reader.cborarray',
+	responseType: 'arraybuffer',
+	
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -28,13 +29,13 @@ Ext.define('Df.data.reader.Msgpack', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = msgpack.decode(response.responseBytes);
-			console.log('msgpack', (performance.now()-start) + ' ms');
+			var result = CBOR.decode(response.responseBytes.buffer);
+			console.log('cbor array', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {
 			error = this.createReadError(ex.message);
-            Ext.Logger.warn('Unable to parse the Msgpack returned by the server');
+            Ext.Logger.warn('Unable to parse the CBOR returned by the server');
             this.fireEvent('exception', this, response, error);
             return error;
 		}

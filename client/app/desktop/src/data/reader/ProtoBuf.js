@@ -1,7 +1,15 @@
-Ext.define('Df.data.reader.SmileArray', {
-	extend: 'Ext.data.reader.Array',
-	alias: 'reader.smilearray',
-
+Ext.define('Df.data.reader.ProtoBuf', {
+	extend: 'Ext.data.reader.Json',
+	alias: 'reader.protobuf',
+	responseType: 'arraybuffer',
+	constructor: function () {
+        this.callParent(arguments);   
+        var me = this;
+        var builder = protobuf.load("address.proto", function(err, root) {
+        	me.Addresses = root.lookup("Addresses");
+        });
+    },
+	
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -28,13 +36,13 @@ Ext.define('Df.data.reader.SmileArray', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = Smile.Parser.parse(response.responseBytes.buffer);
-			console.log('smile array', (performance.now()-start) + ' ms');
+			var result = this.Addresses.decode(response.responseBytes).address;
+			console.log('protobuf', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {
 			error = this.createReadError(ex.message);
-            Ext.Logger.warn('Unable to parse the SMILE returned by the server');
+            Ext.Logger.warn('Unable to parse the ProtoBuffer returned by the server');
             this.fireEvent('exception', this, response, error);
             return error;
 		}

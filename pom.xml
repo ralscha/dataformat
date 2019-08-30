@@ -30,11 +30,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
@@ -134,32 +129,16 @@
 				<artifactId>exec-maven-plugin</artifactId>
 				<executions>
 					<execution>
-						<id>sencha-app-clean-development</id>
-						<goals>
-							<goal>exec</goal>
-						</goals>
-						<phase>clean</phase>
-						<configuration>
-							<executable>sencha</executable>
-							<workingDirectory>${basedir}/client</workingDirectory>
-							<arguments>
-								<argument>app</argument>
-								<argument>clean</argument>
-								<argument>development</argument>
-							</arguments>
-						</configuration>
-					</execution>
-					<execution>
 						<id>sencha-app-clean</id>
 						<goals>
 							<goal>exec</goal>
 						</goals>
 						<phase>clean</phase>
 						<configuration>
-							<executable>sencha</executable>
+							<executable>npm</executable>
 							<workingDirectory>${basedir}/client</workingDirectory>
 							<arguments>
-								<argument>app</argument>
+								<argument>run</argument>
 								<argument>clean</argument>
 							</arguments>
 						</configuration>
@@ -171,11 +150,11 @@
 						</goals>
 						<phase>prepare-package</phase>
 						<configuration>
-							<executable>sencha</executable>
+							<executable>npm</executable>
 							<workingDirectory>${basedir}/client</workingDirectory>
 							<arguments>
-								<argument>app</argument>
-								<argument>build</argument>
+								<argument>run</argument>
+								<argument>build:desktop</argument>
 							</arguments>
 						</configuration>
 					</execution>
@@ -203,7 +182,6 @@
 								<copy todir="${basedir}/target/classes/static"
 									includeEmptyDirs="false">
 									<fileset dir="${basedir}/client/build/production/Df">
-										<exclude name="**/Readme.md" />
 									</fileset>
 								</copy>
 

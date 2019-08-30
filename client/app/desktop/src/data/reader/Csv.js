@@ -1,7 +1,7 @@
 Ext.define('Df.data.reader.Csv', {
-	extend: 'Ext.data.reader.Array',
+	extend: 'Ext.data.reader.Json',
 	alias: 'reader.csv',
-
+	responseType: 'text',
 	getResponseData: function(response) {
 		var error;
 		try {

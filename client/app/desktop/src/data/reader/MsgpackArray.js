@@ -1,7 +1,7 @@
-Ext.define('Df.data.reader.Smile', {
+Ext.define('Df.data.reader.MsgpackArray', {
 	extend: 'Ext.data.reader.Json',
-	alias: 'reader.smile',
-
+	alias: 'reader.msgpackarray',
+	responseType: 'arraybuffer',
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -28,13 +28,13 @@ Ext.define('Df.data.reader.Smile', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = Smile.Parser.parse(response.responseBytes.buffer);
-			console.log('smile', (performance.now()-start) + ' ms');
+			var result = msgpack.decode(response.responseBytes);
+			console.log('msgpack array', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {
 			error = this.createReadError(ex.message);
-            Ext.Logger.warn('Unable to parse the SMILE returned by the server');
+            Ext.Logger.warn('Unable to parse the Msgpack returned by the server');
             this.fireEvent('exception', this, response, error);
             return error;
 		}

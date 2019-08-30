@@ -1,15 +1,7 @@
-Ext.define('Df.data.reader.ProtoBuf', {
+Ext.define('Df.data.reader.Smile', {
 	extend: 'Ext.data.reader.Json',
-	alias: 'reader.protobuf',
-
-	constructor: function () {
-        this.callParent(arguments);   
-        var me = this;
-        var builder = protobuf.load("address.proto", function(err, root) {
-        	me.Addresses = root.lookup("Addresses");
-        });
-    },
-	
+	alias: 'reader.smile',
+	responseType: 'arraybuffer',
 	read: function(response, readOptions) {
 		var data, result;
 
@@ -36,13 +28,13 @@ Ext.define('Df.data.reader.ProtoBuf', {
 		var error;
 		try {
 			var start = performance.now();
-			var result = this.Addresses.decode(response.responseBytes).address;
-			console.log('protobuf', (performance.now()-start) + ' ms');
+			var result = Smile.Parser.parse(response.responseBytes.buffer);
+			console.log('smile', (performance.now()-start) + ' ms');
 			return result;
 		}
 		catch (ex) {
 			error = this.createReadError(ex.message);
-            Ext.Logger.warn('Unable to parse the ProtoBuffer returned by the server');
+            Ext.Logger.warn('Unable to parse the SMILE returned by the server');
             this.fireEvent('exception', this, response, error);
             return error;
 		}
