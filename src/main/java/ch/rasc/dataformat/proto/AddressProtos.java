@@ -121,13 +121,13 @@ public final class AddressProtos {
       super(builder);
     }
     private Address() {
-      lastName_ = "";
-      firstName_ = "";
-      street_ = "";
-      zip_ = "";
-      city_ = "";
-      country_ = "";
-      email_ = "";
+      this.lastName_ = "";
+      this.firstName_ = "";
+      this.street_ = "";
+      this.zip_ = "";
+      this.city_ = "";
+      this.country_ = "";
+      this.email_ = "";
     }
 
     @java.lang.Override
@@ -162,64 +162,64 @@ public final class AddressProtos {
               break;
             case 8: {
 
-              id_ = input.readUInt32();
+              this.id_ = input.readUInt32();
               break;
             }
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              lastName_ = s;
+              this.lastName_ = s;
               break;
             }
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              firstName_ = s;
+              this.firstName_ = s;
               break;
             }
             case 34: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              street_ = s;
+              this.street_ = s;
               break;
             }
             case 42: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              zip_ = s;
+              this.zip_ = s;
               break;
             }
             case 50: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              city_ = s;
+              this.city_ = s;
               break;
             }
             case 58: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              country_ = s;
+              this.country_ = s;
               break;
             }
             case 69: {
 
-              lat_ = input.readFloat();
+              this.lat_ = input.readFloat();
               break;
             }
             case 77: {
 
-              lng_ = input.readFloat();
+              this.lng_ = input.readFloat();
               break;
             }
             case 82: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              email_ = s;
+              this.email_ = s;
               break;
             }
             case 88: {
 
-              dob_ = input.readSInt32();
+              this.dob_ = input.readSInt32();
               break;
             }
             default: {
@@ -260,7 +260,7 @@ public final class AddressProtos {
      * <code>uint32 id = 1;</code>
      */
     public int getId() {
-      return id_;
+      return this.id_;
     }
 
     public static final int LASTNAME_FIELD_NUMBER = 2;
@@ -269,14 +269,14 @@ public final class AddressProtos {
      * <code>string lastName = 2;</code>
      */
     public java.lang.String getLastName() {
-      java.lang.Object ref = lastName_;
+      java.lang.Object ref = this.lastName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        lastName_ = s;
+        this.lastName_ = s;
         return s;
       }
     }
@@ -285,12 +285,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getLastNameBytes() {
-      java.lang.Object ref = lastName_;
+      java.lang.Object ref = this.lastName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        lastName_ = b;
+        this.lastName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -303,14 +303,14 @@ public final class AddressProtos {
      * <code>string firstName = 3;</code>
      */
     public java.lang.String getFirstName() {
-      java.lang.Object ref = firstName_;
+      java.lang.Object ref = this.firstName_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        firstName_ = s;
+        this.firstName_ = s;
         return s;
       }
     }
@@ -319,12 +319,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getFirstNameBytes() {
-      java.lang.Object ref = firstName_;
+      java.lang.Object ref = this.firstName_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        firstName_ = b;
+        this.firstName_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -337,14 +337,14 @@ public final class AddressProtos {
      * <code>string street = 4;</code>
      */
     public java.lang.String getStreet() {
-      java.lang.Object ref = street_;
+      java.lang.Object ref = this.street_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        street_ = s;
+        this.street_ = s;
         return s;
       }
     }
@@ -353,12 +353,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getStreetBytes() {
-      java.lang.Object ref = street_;
+      java.lang.Object ref = this.street_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        street_ = b;
+        this.street_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -371,14 +371,14 @@ public final class AddressProtos {
      * <code>string zip = 5;</code>
      */
     public java.lang.String getZip() {
-      java.lang.Object ref = zip_;
+      java.lang.Object ref = this.zip_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        zip_ = s;
+        this.zip_ = s;
         return s;
       }
     }
@@ -387,12 +387,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getZipBytes() {
-      java.lang.Object ref = zip_;
+      java.lang.Object ref = this.zip_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        zip_ = b;
+        this.zip_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -405,14 +405,14 @@ public final class AddressProtos {
      * <code>string city = 6;</code>
      */
     public java.lang.String getCity() {
-      java.lang.Object ref = city_;
+      java.lang.Object ref = this.city_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        city_ = s;
+        this.city_ = s;
         return s;
       }
     }
@@ -421,12 +421,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getCityBytes() {
-      java.lang.Object ref = city_;
+      java.lang.Object ref = this.city_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        city_ = b;
+        this.city_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -439,14 +439,14 @@ public final class AddressProtos {
      * <code>string country = 7;</code>
      */
     public java.lang.String getCountry() {
-      java.lang.Object ref = country_;
+      java.lang.Object ref = this.country_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        country_ = s;
+        this.country_ = s;
         return s;
       }
     }
@@ -455,12 +455,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getCountryBytes() {
-      java.lang.Object ref = country_;
+      java.lang.Object ref = this.country_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        country_ = b;
+        this.country_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -473,7 +473,7 @@ public final class AddressProtos {
      * <code>float lat = 8;</code>
      */
     public float getLat() {
-      return lat_;
+      return this.lat_;
     }
 
     public static final int LNG_FIELD_NUMBER = 9;
@@ -482,7 +482,7 @@ public final class AddressProtos {
      * <code>float lng = 9;</code>
      */
     public float getLng() {
-      return lng_;
+      return this.lng_;
     }
 
     public static final int EMAIL_FIELD_NUMBER = 10;
@@ -491,14 +491,14 @@ public final class AddressProtos {
      * <code>string email = 10;</code>
      */
     public java.lang.String getEmail() {
-      java.lang.Object ref = email_;
+      java.lang.Object ref = this.email_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        email_ = s;
+        this.email_ = s;
         return s;
       }
     }
@@ -507,12 +507,12 @@ public final class AddressProtos {
      */
     public com.google.protobuf.ByteString
         getEmailBytes() {
-      java.lang.Object ref = email_;
+      java.lang.Object ref = this.email_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        email_ = b;
+        this.email_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -525,48 +525,48 @@ public final class AddressProtos {
      * <code>sint32 dob = 11;</code>
      */
     public int getDob() {
-      return dob_;
+      return this.dob_;
     }
 
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
+      byte isInitialized = this.memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
-      memoizedIsInitialized = 1;
+      this.memoizedIsInitialized = 1;
       return true;
     }
 
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (id_ != 0) {
-        output.writeUInt32(1, id_);
+      if (this.id_ != 0) {
+        output.writeUInt32(1, this.id_);
       }
       if (!getLastNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, lastName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, this.lastName_);
       }
       if (!getFirstNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, firstName_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, this.firstName_);
       }
       if (!getStreetBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, street_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, this.street_);
       }
       if (!getZipBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, zip_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, this.zip_);
       }
       if (!getCityBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, city_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, this.city_);
       }
       if (!getCountryBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, country_);
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, this.country_);
       }
-      if (lat_ != 0F) {
-        output.writeFloat(8, lat_);
+      if (this.lat_ != 0F) {
+        output.writeFloat(8, this.lat_);
       }
-      if (lng_ != 0F) {
+      if (this.lng_ != 0F) {
         output.writeFloat(9, lng_);
       }
       if (!getEmailBytes().isEmpty()) {
