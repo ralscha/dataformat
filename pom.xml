@@ -104,7 +104,7 @@
 							<goal>run</goal>
 						</goals>
 						<configuration>
-							<protocVersion>3.11.1</protocVersion>
+							<protocVersion>3.11.4</protocVersion>
 							<inputDirectories>
 								<include>client</include>
 							</inputDirectories>
