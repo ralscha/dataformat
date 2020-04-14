@@ -1,3 +1,2 @@
 
-Online: https://demo.rasc.ch/dataformat/
-
+Different dataformats with Spring Boot
