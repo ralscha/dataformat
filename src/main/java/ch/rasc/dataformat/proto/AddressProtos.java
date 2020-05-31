@@ -129,7 +129,7 @@ public final class AddressProtos {
   /**
    * Protobuf type {@code Address}
    */
-  public  static final class Address extends
+  public static final class Address extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:Address)
       AddressOrBuilder {
@@ -278,6 +278,7 @@ public final class AddressProtos {
      * <code>uint32 id = 1;</code>
      * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
@@ -288,6 +289,7 @@ public final class AddressProtos {
      * <code>string lastName = 2;</code>
      * @return The lastName.
      */
+    @java.lang.Override
     public java.lang.String getLastName() {
       java.lang.Object ref = lastName_;
       if (ref instanceof java.lang.String) {
@@ -304,6 +306,7 @@ public final class AddressProtos {
      * <code>string lastName = 2;</code>
      * @return The bytes for lastName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getLastNameBytes() {
       java.lang.Object ref = lastName_;
@@ -324,6 +327,7 @@ public final class AddressProtos {
      * <code>string firstName = 3;</code>
      * @return The firstName.
      */
+    @java.lang.Override
     public java.lang.String getFirstName() {
       java.lang.Object ref = firstName_;
       if (ref instanceof java.lang.String) {
@@ -340,6 +344,7 @@ public final class AddressProtos {
      * <code>string firstName = 3;</code>
      * @return The bytes for firstName.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFirstNameBytes() {
       java.lang.Object ref = firstName_;
@@ -360,6 +365,7 @@ public final class AddressProtos {
      * <code>string street = 4;</code>
      * @return The street.
      */
+    @java.lang.Override
     public java.lang.String getStreet() {
       java.lang.Object ref = street_;
       if (ref instanceof java.lang.String) {
@@ -376,6 +382,7 @@ public final class AddressProtos {
      * <code>string street = 4;</code>
      * @return The bytes for street.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getStreetBytes() {
       java.lang.Object ref = street_;
@@ -396,6 +403,7 @@ public final class AddressProtos {
      * <code>string zip = 5;</code>
      * @return The zip.
      */
+    @java.lang.Override
     public java.lang.String getZip() {
       java.lang.Object ref = zip_;
       if (ref instanceof java.lang.String) {
@@ -412,6 +420,7 @@ public final class AddressProtos {
      * <code>string zip = 5;</code>
      * @return The bytes for zip.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getZipBytes() {
       java.lang.Object ref = zip_;
@@ -432,6 +441,7 @@ public final class AddressProtos {
      * <code>string city = 6;</code>
      * @return The city.
      */
+    @java.lang.Override
     public java.lang.String getCity() {
       java.lang.Object ref = city_;
       if (ref instanceof java.lang.String) {
@@ -448,6 +458,7 @@ public final class AddressProtos {
      * <code>string city = 6;</code>
      * @return The bytes for city.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getCityBytes() {
       java.lang.Object ref = city_;
@@ -468,6 +479,7 @@ public final class AddressProtos {
      * <code>string country = 7;</code>
      * @return The country.
      */
+    @java.lang.Override
     public java.lang.String getCountry() {
       java.lang.Object ref = country_;
       if (ref instanceof java.lang.String) {
@@ -484,6 +496,7 @@ public final class AddressProtos {
      * <code>string country = 7;</code>
      * @return The bytes for country.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getCountryBytes() {
       java.lang.Object ref = country_;
@@ -504,6 +517,7 @@ public final class AddressProtos {
      * <code>float lat = 8;</code>
      * @return The lat.
      */
+    @java.lang.Override
     public float getLat() {
       return lat_;
     }
@@ -514,6 +528,7 @@ public final class AddressProtos {
      * <code>float lng = 9;</code>
      * @return The lng.
      */
+    @java.lang.Override
     public float getLng() {
       return lng_;
     }
@@ -524,6 +539,7 @@ public final class AddressProtos {
      * <code>string email = 10;</code>
      * @return The email.
      */
+    @java.lang.Override
     public java.lang.String getEmail() {
       java.lang.Object ref = email_;
       if (ref instanceof java.lang.String) {
@@ -540,6 +556,7 @@ public final class AddressProtos {
      * <code>string email = 10;</code>
      * @return The bytes for email.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getEmailBytes() {
       java.lang.Object ref = email_;
@@ -560,6 +577,7 @@ public final class AddressProtos {
      * <code>sint32 dob = 11;</code>
      * @return The dob.
      */
+    @java.lang.Override
     public int getDob() {
       return dob_;
     }
@@ -1045,6 +1063,7 @@ public final class AddressProtos {
        * <code>uint32 id = 1;</code>
        * @return The id.
        */
+      @java.lang.Override
       public int getId() {
         return id_;
       }
@@ -1531,6 +1550,7 @@ public final class AddressProtos {
        * <code>float lat = 8;</code>
        * @return The lat.
        */
+      @java.lang.Override
       public float getLat() {
         return lat_;
       }
@@ -1561,6 +1581,7 @@ public final class AddressProtos {
        * <code>float lng = 9;</code>
        * @return The lng.
        */
+      @java.lang.Override
       public float getLng() {
         return lng_;
       }
@@ -1667,6 +1688,7 @@ public final class AddressProtos {
        * <code>sint32 dob = 11;</code>
        * @return The dob.
        */
+      @java.lang.Override
       public int getDob() {
         return dob_;
       }
@@ -1775,7 +1797,7 @@ public final class AddressProtos {
   /**
    * Protobuf type {@code Addresses}
    */
-  public  static final class Addresses extends
+  public static final class Addresses extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:Addresses)
       AddressesOrBuilder {
@@ -1868,12 +1890,14 @@ public final class AddressProtos {
     /**
      * <code>repeated .Address address = 1;</code>
      */
+    @java.lang.Override
     public java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> getAddressList() {
       return address_;
     }
     /**
      * <code>repeated .Address address = 1;</code>
      */
+    @java.lang.Override
     public java.util.List<? extends ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder> 
         getAddressOrBuilderList() {
       return address_;
@@ -1881,18 +1905,21 @@ public final class AddressProtos {
     /**
      * <code>repeated .Address address = 1;</code>
      */
+    @java.lang.Override
     public int getAddressCount() {
       return address_.size();
     }
     /**
      * <code>repeated .Address address = 1;</code>
      */
+    @java.lang.Override
     public ch.rasc.dataformat.proto.AddressProtos.Address getAddress(int index) {
       return address_.get(index);
     }
     /**
      * <code>repeated .Address address = 1;</code>
      */
+    @java.lang.Override
     public ch.rasc.dataformat.proto.AddressProtos.AddressOrBuilder getAddressOrBuilder(
         int index) {
       return address_.get(index);
