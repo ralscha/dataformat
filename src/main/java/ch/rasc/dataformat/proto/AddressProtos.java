@@ -599,31 +599,31 @@ public final class AddressProtos {
       if (id_ != 0) {
         output.writeUInt32(1, id_);
       }
-      if (!getLastNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, lastName_);
       }
-      if (!getFirstNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, firstName_);
       }
-      if (!getStreetBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, street_);
       }
-      if (!getZipBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(zip_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 5, zip_);
       }
-      if (!getCityBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(city_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, city_);
       }
-      if (!getCountryBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(country_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 7, country_);
       }
-      if (lat_ != 0F) {
+      if (java.lang.Float.floatToRawIntBits(lat_) != 0) {
         output.writeFloat(8, lat_);
       }
-      if (lng_ != 0F) {
+      if (java.lang.Float.floatToRawIntBits(lng_) != 0) {
         output.writeFloat(9, lng_);
       }
-      if (!getEmailBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 10, email_);
       }
       if (dob_ != 0) {
@@ -642,33 +642,33 @@ public final class AddressProtos {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, id_);
       }
-      if (!getLastNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(lastName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, lastName_);
       }
-      if (!getFirstNameBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(firstName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, firstName_);
       }
-      if (!getStreetBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(street_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, street_);
       }
-      if (!getZipBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(zip_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, zip_);
       }
-      if (!getCityBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(city_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, city_);
       }
-      if (!getCountryBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(country_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, country_);
       }
-      if (lat_ != 0F) {
+      if (java.lang.Float.floatToRawIntBits(lat_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(8, lat_);
       }
-      if (lng_ != 0F) {
+      if (java.lang.Float.floatToRawIntBits(lng_) != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeFloatSize(9, lng_);
       }
-      if (!getEmailBytes().isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, email_);
       }
       if (dob_ != 0) {
