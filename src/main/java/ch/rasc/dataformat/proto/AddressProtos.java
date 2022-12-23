@@ -174,7 +174,7 @@ public final class AddressProtos {
     }
 
     public static final int ID_FIELD_NUMBER = 1;
-    private int id_;
+    private int id_ = 0;
     /**
      * <code>uint32 id = 1;</code>
      * @return The id.
@@ -185,7 +185,8 @@ public final class AddressProtos {
     }
 
     public static final int LASTNAME_FIELD_NUMBER = 2;
-    private volatile java.lang.Object lastName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object lastName_ = "";
     /**
      * <code>string lastName = 2;</code>
      * @return The lastName.
@@ -223,7 +224,8 @@ public final class AddressProtos {
     }
 
     public static final int FIRSTNAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object firstName_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object firstName_ = "";
     /**
      * <code>string firstName = 3;</code>
      * @return The firstName.
@@ -261,7 +263,8 @@ public final class AddressProtos {
     }
 
     public static final int STREET_FIELD_NUMBER = 4;
-    private volatile java.lang.Object street_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object street_ = "";
     /**
      * <code>string street = 4;</code>
      * @return The street.
@@ -299,7 +302,8 @@ public final class AddressProtos {
     }
 
     public static final int ZIP_FIELD_NUMBER = 5;
-    private volatile java.lang.Object zip_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object zip_ = "";
     /**
      * <code>string zip = 5;</code>
      * @return The zip.
@@ -337,7 +341,8 @@ public final class AddressProtos {
     }
 
     public static final int CITY_FIELD_NUMBER = 6;
-    private volatile java.lang.Object city_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object city_ = "";
     /**
      * <code>string city = 6;</code>
      * @return The city.
@@ -375,7 +380,8 @@ public final class AddressProtos {
     }
 
     public static final int COUNTRY_FIELD_NUMBER = 7;
-    private volatile java.lang.Object country_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object country_ = "";
     /**
      * <code>string country = 7;</code>
      * @return The country.
@@ -413,7 +419,7 @@ public final class AddressProtos {
     }
 
     public static final int LAT_FIELD_NUMBER = 8;
-    private float lat_;
+    private float lat_ = 0F;
     /**
      * <code>float lat = 8;</code>
      * @return The lat.
@@ -424,7 +430,7 @@ public final class AddressProtos {
     }
 
     public static final int LNG_FIELD_NUMBER = 9;
-    private float lng_;
+    private float lng_ = 0F;
     /**
      * <code>float lng = 9;</code>
      * @return The lng.
@@ -435,7 +441,8 @@ public final class AddressProtos {
     }
 
     public static final int EMAIL_FIELD_NUMBER = 10;
-    private volatile java.lang.Object email_;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object email_ = "";
     /**
      * <code>string email = 10;</code>
      * @return The email.
@@ -473,7 +480,7 @@ public final class AddressProtos {
     }
 
     public static final int DOB_FIELD_NUMBER = 11;
-    private int dob_;
+    private int dob_ = 0;
     /**
      * <code>sint32 dob = 11;</code>
      * @return The dob.
@@ -778,28 +785,18 @@ public final class AddressProtos {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         id_ = 0;
-
         lastName_ = "";
-
         firstName_ = "";
-
         street_ = "";
-
         zip_ = "";
-
         city_ = "";
-
         country_ = "";
-
         lat_ = 0F;
-
         lng_ = 0F;
-
         email_ = "";
-
         dob_ = 0;
-
         return this;
       }
 
@@ -826,19 +823,46 @@ public final class AddressProtos {
       @java.lang.Override
       public ch.rasc.dataformat.proto.AddressProtos.Address buildPartial() {
         ch.rasc.dataformat.proto.AddressProtos.Address result = new ch.rasc.dataformat.proto.AddressProtos.Address(this);
-        result.id_ = id_;
-        result.lastName_ = lastName_;
-        result.firstName_ = firstName_;
-        result.street_ = street_;
-        result.zip_ = zip_;
-        result.city_ = city_;
-        result.country_ = country_;
-        result.lat_ = lat_;
-        result.lng_ = lng_;
-        result.email_ = email_;
-        result.dob_ = dob_;
+        if (bitField0_ != 0) { buildPartial0(result); }
         onBuilt();
         return result;
+      }
+
+      private void buildPartial0(ch.rasc.dataformat.proto.AddressProtos.Address result) {
+        int from_bitField0_ = bitField0_;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.id_ = id_;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastName_ = lastName_;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.firstName_ = firstName_;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.street_ = street_;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.zip_ = zip_;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.city_ = city_;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.country_ = country_;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.lat_ = lat_;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.lng_ = lng_;
+        }
+        if (((from_bitField0_ & 0x00000200) != 0)) {
+          result.email_ = email_;
+        }
+        if (((from_bitField0_ & 0x00000400) != 0)) {
+          result.dob_ = dob_;
+        }
       }
 
       @java.lang.Override
@@ -890,26 +914,32 @@ public final class AddressProtos {
         }
         if (!other.getLastName().isEmpty()) {
           lastName_ = other.lastName_;
+          bitField0_ |= 0x00000002;
           onChanged();
         }
         if (!other.getFirstName().isEmpty()) {
           firstName_ = other.firstName_;
+          bitField0_ |= 0x00000004;
           onChanged();
         }
         if (!other.getStreet().isEmpty()) {
           street_ = other.street_;
+          bitField0_ |= 0x00000008;
           onChanged();
         }
         if (!other.getZip().isEmpty()) {
           zip_ = other.zip_;
+          bitField0_ |= 0x00000010;
           onChanged();
         }
         if (!other.getCity().isEmpty()) {
           city_ = other.city_;
+          bitField0_ |= 0x00000020;
           onChanged();
         }
         if (!other.getCountry().isEmpty()) {
           country_ = other.country_;
+          bitField0_ |= 0x00000040;
           onChanged();
         }
         if (other.getLat() != 0F) {
@@ -920,6 +950,7 @@ public final class AddressProtos {
         }
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
+          bitField0_ |= 0x00000200;
           onChanged();
         }
         if (other.getDob() != 0) {
@@ -953,57 +984,57 @@ public final class AddressProtos {
                 break;
               case 8: {
                 id_ = input.readUInt32();
-
+                bitField0_ |= 0x00000001;
                 break;
               } // case 8
               case 18: {
                 lastName_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000002;
                 break;
               } // case 18
               case 26: {
                 firstName_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000004;
                 break;
               } // case 26
               case 34: {
                 street_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000008;
                 break;
               } // case 34
               case 42: {
                 zip_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000010;
                 break;
               } // case 42
               case 50: {
                 city_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000020;
                 break;
               } // case 50
               case 58: {
                 country_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000040;
                 break;
               } // case 58
               case 69: {
                 lat_ = input.readFloat();
-
+                bitField0_ |= 0x00000080;
                 break;
               } // case 69
               case 77: {
                 lng_ = input.readFloat();
-
+                bitField0_ |= 0x00000100;
                 break;
               } // case 77
               case 82: {
                 email_ = input.readStringRequireUtf8();
-
+                bitField0_ |= 0x00000200;
                 break;
               } // case 82
               case 88: {
                 dob_ = input.readSInt32();
-
+                bitField0_ |= 0x00000400;
                 break;
               } // case 88
               default: {
@@ -1021,6 +1052,7 @@ public final class AddressProtos {
         } // finally
         return this;
       }
+      private int bitField0_;
 
       private int id_ ;
       /**
@@ -1039,6 +1071,7 @@ public final class AddressProtos {
       public Builder setId(int value) {
         
         id_ = value;
+        bitField0_ |= 0x00000001;
         onChanged();
         return this;
       }
@@ -1047,7 +1080,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearId() {
-        
+        bitField0_ = (bitField0_ & ~0x00000001);
         id_ = 0;
         onChanged();
         return this;
@@ -1094,11 +1127,9 @@ public final class AddressProtos {
        */
       public Builder setLastName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         lastName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1107,8 +1138,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearLastName() {
-        
         lastName_ = getDefaultInstance().getLastName();
+        bitField0_ = (bitField0_ & ~0x00000002);
         onChanged();
         return this;
       }
@@ -1119,12 +1150,10 @@ public final class AddressProtos {
        */
       public Builder setLastNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         lastName_ = value;
+        bitField0_ |= 0x00000002;
         onChanged();
         return this;
       }
@@ -1170,11 +1199,9 @@ public final class AddressProtos {
        */
       public Builder setFirstName(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         firstName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1183,8 +1210,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearFirstName() {
-        
         firstName_ = getDefaultInstance().getFirstName();
+        bitField0_ = (bitField0_ & ~0x00000004);
         onChanged();
         return this;
       }
@@ -1195,12 +1222,10 @@ public final class AddressProtos {
        */
       public Builder setFirstNameBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         firstName_ = value;
+        bitField0_ |= 0x00000004;
         onChanged();
         return this;
       }
@@ -1246,11 +1271,9 @@ public final class AddressProtos {
        */
       public Builder setStreet(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         street_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1259,8 +1282,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearStreet() {
-        
         street_ = getDefaultInstance().getStreet();
+        bitField0_ = (bitField0_ & ~0x00000008);
         onChanged();
         return this;
       }
@@ -1271,12 +1294,10 @@ public final class AddressProtos {
        */
       public Builder setStreetBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         street_ = value;
+        bitField0_ |= 0x00000008;
         onChanged();
         return this;
       }
@@ -1322,11 +1343,9 @@ public final class AddressProtos {
        */
       public Builder setZip(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         zip_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1335,8 +1354,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearZip() {
-        
         zip_ = getDefaultInstance().getZip();
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
@@ -1347,12 +1366,10 @@ public final class AddressProtos {
        */
       public Builder setZipBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         zip_ = value;
+        bitField0_ |= 0x00000010;
         onChanged();
         return this;
       }
@@ -1398,11 +1415,9 @@ public final class AddressProtos {
        */
       public Builder setCity(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         city_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1411,8 +1426,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearCity() {
-        
         city_ = getDefaultInstance().getCity();
+        bitField0_ = (bitField0_ & ~0x00000020);
         onChanged();
         return this;
       }
@@ -1423,12 +1438,10 @@ public final class AddressProtos {
        */
       public Builder setCityBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         city_ = value;
+        bitField0_ |= 0x00000020;
         onChanged();
         return this;
       }
@@ -1474,11 +1487,9 @@ public final class AddressProtos {
        */
       public Builder setCountry(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         country_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1487,8 +1498,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearCountry() {
-        
         country_ = getDefaultInstance().getCountry();
+        bitField0_ = (bitField0_ & ~0x00000040);
         onChanged();
         return this;
       }
@@ -1499,12 +1510,10 @@ public final class AddressProtos {
        */
       public Builder setCountryBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         country_ = value;
+        bitField0_ |= 0x00000040;
         onChanged();
         return this;
       }
@@ -1526,6 +1535,7 @@ public final class AddressProtos {
       public Builder setLat(float value) {
         
         lat_ = value;
+        bitField0_ |= 0x00000080;
         onChanged();
         return this;
       }
@@ -1534,7 +1544,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearLat() {
-        
+        bitField0_ = (bitField0_ & ~0x00000080);
         lat_ = 0F;
         onChanged();
         return this;
@@ -1557,6 +1567,7 @@ public final class AddressProtos {
       public Builder setLng(float value) {
         
         lng_ = value;
+        bitField0_ |= 0x00000100;
         onChanged();
         return this;
       }
@@ -1565,7 +1576,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearLng() {
-        
+        bitField0_ = (bitField0_ & ~0x00000100);
         lng_ = 0F;
         onChanged();
         return this;
@@ -1612,11 +1623,9 @@ public final class AddressProtos {
        */
       public Builder setEmail(
           java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+        if (value == null) { throw new NullPointerException(); }
         email_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -1625,8 +1634,8 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearEmail() {
-        
         email_ = getDefaultInstance().getEmail();
+        bitField0_ = (bitField0_ & ~0x00000200);
         onChanged();
         return this;
       }
@@ -1637,12 +1646,10 @@ public final class AddressProtos {
        */
       public Builder setEmailBytes(
           com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
         email_ = value;
+        bitField0_ |= 0x00000200;
         onChanged();
         return this;
       }
@@ -1664,6 +1671,7 @@ public final class AddressProtos {
       public Builder setDob(int value) {
         
         dob_ = value;
+        bitField0_ |= 0x00000400;
         onChanged();
         return this;
       }
@@ -1672,7 +1680,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder clearDob() {
-        
+        bitField0_ = (bitField0_ & ~0x00000400);
         dob_ = 0;
         onChanged();
         return this;
@@ -1811,6 +1819,7 @@ public final class AddressProtos {
     }
 
     public static final int ADDRESS_FIELD_NUMBER = 1;
+    @SuppressWarnings("serial")
     private java.util.List<ch.rasc.dataformat.proto.AddressProtos.Address> address_;
     /**
      * <code>repeated .Address address = 1;</code>
@@ -2040,6 +2049,7 @@ public final class AddressProtos {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        bitField0_ = 0;
         if (addressBuilder_ == null) {
           address_ = java.util.Collections.emptyList();
         } else {
@@ -2073,7 +2083,13 @@ public final class AddressProtos {
       @java.lang.Override
       public ch.rasc.dataformat.proto.AddressProtos.Addresses buildPartial() {
         ch.rasc.dataformat.proto.AddressProtos.Addresses result = new ch.rasc.dataformat.proto.AddressProtos.Addresses(this);
-        int from_bitField0_ = bitField0_;
+        buildPartialRepeatedFields(result);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartialRepeatedFields(ch.rasc.dataformat.proto.AddressProtos.Addresses result) {
         if (addressBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             address_ = java.util.Collections.unmodifiableList(address_);
@@ -2083,8 +2099,10 @@ public final class AddressProtos {
         } else {
           result.address_ = addressBuilder_.build();
         }
-        onBuilt();
-        return result;
+      }
+
+      private void buildPartial0(ch.rasc.dataformat.proto.AddressProtos.Addresses result) {
+        int from_bitField0_ = bitField0_;
       }
 
       @java.lang.Override
