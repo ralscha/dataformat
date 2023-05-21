@@ -155,11 +155,6 @@ public final class AddressProtos {
       return new Address();
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ch.rasc.dataformat.proto.AddressProtos.internal_static_Address_descriptor;
@@ -706,11 +701,13 @@ public final class AddressProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static ch.rasc.dataformat.proto.AddressProtos.Address parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -865,38 +862,6 @@ public final class AddressProtos {
         }
       }
 
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Address) {
@@ -1069,7 +1034,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder setId(int value) {
-        
+
         id_ = value;
         bitField0_ |= 0x00000001;
         onChanged();
@@ -1533,7 +1498,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder setLat(float value) {
-        
+
         lat_ = value;
         bitField0_ |= 0x00000080;
         onChanged();
@@ -1565,7 +1530,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder setLng(float value) {
-        
+
         lng_ = value;
         bitField0_ |= 0x00000100;
         onChanged();
@@ -1669,7 +1634,7 @@ public final class AddressProtos {
        * @return This builder for chaining.
        */
       public Builder setDob(int value) {
-        
+
         dob_ = value;
         bitField0_ |= 0x00000400;
         onChanged();
@@ -1800,11 +1765,6 @@ public final class AddressProtos {
       return new Addresses();
     }
 
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
       return ch.rasc.dataformat.proto.AddressProtos.internal_static_Addresses_descriptor;
@@ -1970,11 +1930,13 @@ public final class AddressProtos {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
+
     public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
+
     public static ch.rasc.dataformat.proto.AddressProtos.Addresses parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2105,38 +2067,6 @@ public final class AddressProtos {
         int from_bitField0_ = bitField0_;
       }
 
-      @java.lang.Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return super.addRepeatedField(field, value);
-      }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof ch.rasc.dataformat.proto.AddressProtos.Addresses) {
