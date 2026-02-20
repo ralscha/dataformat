@@ -1,0 +1,29 @@
+<div class="app-shell">
+  <!-- Tab bar -->
+  <nav class="tab-bar" role="tablist">
+    @for (tab of tabs; track tab.label; let i = $index) {
+      <button
+        role="tab"
+        class="tab-btn"
+        [class.active]="activeIndex() === i"
+        (click)="selectTab(i)"
+      >
+        {{ tab.label }}
+      </button>
+    }
+  </nav>
+
+  <!-- Tab panels (kept in DOM but hidden via CSS so components are not destroyed) -->
+  <div class="tab-content">
+    @for (tab of tabs; track tab.label; let i = $index) {
+      <div class="tab-panel" [class.visible]="activeIndex() === i">
+        @if (tab.type === 'grid' && tab.loader) {
+          <app-address-grid [loader]="tab.loader" />
+        }
+        @if (tab.type === 'result') {
+          <app-result-panel />
+        }
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+message Address {
+  uint32 id = 1;
+  string lastName = 2;
+  string firstName = 3;
+  string street = 4;
+  string zip = 5;
+  string city = 6;
+  string country = 7;
+  float lat = 8;
+  float lng = 9;
+  string email = 10;
+  sint32 dob = 11;
+}
+
+message Addresses {
+  repeated Address address = 1;
+}

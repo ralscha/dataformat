@@ -1,0 +1,36 @@
+<div class="result-wrapper">
+  <!-- Chart on the left -->
+  <div class="chart-pane">
+    <div echarts [options]="chartOptions" class="chart"></div>
+  </div>
+
+  <!-- Table on the right -->
+  <div class="table-pane">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Format</th>
+            <th class="num">Uncompressed</th>
+            <th class="num">Vs JSON</th>
+            <th class="num">Compressed</th>
+            <th class="num">Vs JSON</th>
+            <th class="num">Space Savings</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (row of rows; track row.format) {
+            <tr [class.highlighted]="highlightedFormat === row.format" (click)="onRowClick(row)">
+              <td>{{ row.format }}</td>
+              <td class="num">{{ row.uncompressed | number }}</td>
+              <td class="num">{{ row.uncompressedComparison / 100 | percent: '1.2-2' }}</td>
+              <td class="num">{{ row.compressed | number }}</td>
+              <td class="num">{{ row.compressedComparison / 100 | percent: '1.2-2' }}</td>
+              <td class="num">{{ row.spaceSavings / 100 | percent: '1.2-2' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

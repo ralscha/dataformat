@@ -1,0 +1,10 @@
+{
+  "/addresses": {
+    "target": "http://localhost:8080",
+    "secure": false
+  },
+  "/addressesArray": {
+    "target": "http://localhost:8080",
+    "secure": false
+  }
+}

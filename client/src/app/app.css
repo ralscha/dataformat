@@ -1,0 +1,65 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.app-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* -- tab bar -- */
+.tab-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 6px 8px 0;
+  background: #263238;
+  flex-shrink: 0;
+}
+
+.tab-btn {
+  padding: 7px 14px;
+  font-size: 13px;
+  border: none;
+  border-radius: 4px 4px 0 0;
+  background: #37474f;
+  color: #b0bec5;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  background: #455a64;
+  color: #eceff1;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: #1976d2;
+  font-weight: 600;
+}
+
+/* -- panels -- */
+.tab-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.tab-panel {
+  display: none;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.tab-panel.visible {
+  display: flex;
+  flex-direction: column;
+}

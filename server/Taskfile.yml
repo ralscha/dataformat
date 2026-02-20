@@ -1,0 +1,96 @@
+version: '3'
+
+vars:
+  FLATC_VERSION: 25.2.10
+  FLATC_DIR: .flatbuffers
+  FLATC_URL_WINDOWS: https://github.com/google/flatbuffers/releases/download/v{{.FLATC_VERSION}}/Windows.flatc.binary.zip
+  FLATC_URL_LINUX: https://github.com/google/flatbuffers/releases/download/v{{.FLATC_VERSION}}/Linux.flatc.binary.clang++-15.zip
+  FLATC_URL_MAC: https://github.com/google/flatbuffers/releases/download/v{{.FLATC_VERSION}}/Mac.flatc.binary.zip
+  FLATC_BIN_WINDOWS: '{{.FLATC_DIR}}/flatc.exe'
+  FLATC_BIN_UNIX: '{{.FLATC_DIR}}/flatc'
+  INPUT_DIR: src/main/flatbuffers
+  OUTPUT_DIR: target/generated-sources/flatbuffers
+  MVNW: '{{if eq OS "windows"}}cmd /c mvnw.cmd{{else}}./mvnw{{end}}'
+
+tasks:
+  download-flatc:
+    desc: Download FlatBuffers compiler based on OS
+    cmds:
+      - task: download-flatc-{{OS}}
+    status:
+      - test -f {{if eq OS "windows"}}{{.FLATC_BIN_WINDOWS}}{{else}}{{.FLATC_BIN_UNIX}}{{end}}
+
+  download-flatc-windows:
+    internal: true
+    cmds:
+      - mkdir -p {{.FLATC_DIR}}
+      - curl -L -o {{.FLATC_DIR}}/flatc.zip {{.FLATC_URL_WINDOWS}}
+      - cd {{.FLATC_DIR}} && unzip -o flatc.zip
+      - rm {{.FLATC_DIR}}/flatc.zip
+
+  download-flatc-linux:
+    internal: true
+    cmds:
+      - mkdir -p {{.FLATC_DIR}}
+      - curl -L -o {{.FLATC_DIR}}/flatc.zip {{.FLATC_URL_LINUX}}
+      - cd {{.FLATC_DIR}} && unzip -o flatc.zip
+      - chmod +x {{.FLATC_BIN_UNIX}}
+      - rm {{.FLATC_DIR}}/flatc.zip
+
+  download-flatc-darwin:
+    internal: true
+    cmds:
+      - mkdir -p {{.FLATC_DIR}}
+      - curl -L -o {{.FLATC_DIR}}/flatc.zip {{.FLATC_URL_MAC}}
+      - cd {{.FLATC_DIR}} && unzip -o flatc.zip
+      - chmod +x {{.FLATC_BIN_UNIX}}
+      - rm {{.FLATC_DIR}}/flatc.zip
+
+  compile-flatbuffers:
+    desc: Compile FlatBuffer schema files to Java
+    deps:
+      - download-flatc
+    cmds:
+      - mkdir -p {{.OUTPUT_DIR}}
+      - |
+        {{if eq OS "windows"}}
+        for file in {{.INPUT_DIR}}/*.fbs; do
+          {{.FLATC_BIN_WINDOWS}} --java -o {{.OUTPUT_DIR}} "$file"
+        done
+        {{else}}
+        for file in {{.INPUT_DIR}}/*.fbs; do
+          {{.FLATC_BIN_UNIX}} --java -o {{.OUTPUT_DIR}} "$file"
+        done
+        {{end}}
+    sources:
+      - '{{.INPUT_DIR}}/**/*.fbs'
+    generates:
+      - '{{.OUTPUT_DIR}}/**/*.java'
+
+  clean:
+    desc: Clean generated files and downloaded flatc
+    cmds:
+      - rm -rf {{.OUTPUT_DIR}}
+      - rm -rf {{.FLATC_DIR}}
+
+  default:
+    cmds:
+      - task --list-all
+
+  clean-build:
+    desc: Clean and build the project
+    cmds:
+      - task clean
+      - task build
+
+  build:
+    desc: Build the project
+    deps:
+      - compile-flatbuffers
+    cmds:
+      - '{{.MVNW}} compile'
+
+  run:
+    desc: Run the Spring Boot application
+    cmds:
+      - '{{.MVNW}} spring-boot:run'

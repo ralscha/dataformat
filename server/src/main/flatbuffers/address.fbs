@@ -1,0 +1,21 @@
+namespace ch.rasc.dataformat.fb;
+
+table Address {
+  id:uint; 
+  last_name:string;
+  first_name:string;
+  street:string;
+  zip:string;
+  city:string;
+  country:string;
+  lat:float;
+  lng:float;
+  email:string;  
+  dob:int;
+}
+
+table Addresses {
+  address:[Address];
+}
+
+root_type Addresses;

@@ -1,0 +1,19 @@
+/* Global styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}

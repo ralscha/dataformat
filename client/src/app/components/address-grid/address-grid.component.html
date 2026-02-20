@@ -1,0 +1,57 @@
+<div class="grid-wrapper">
+  <div class="toolbar">
+    <button class="load-btn" (click)="load()" [disabled]="loading()">
+      {{ loading() ? 'Loading…' : 'Load' }}
+    </button>
+    @if (loading()) {
+      <span class="status">Loading…</span>
+    }
+    @if (error()) {
+      <span class="status error">{{ error() }}</span>
+    }
+    @if (!loading() && !error() && addresses().length) {
+      <span class="status">{{ addresses().length | number }} records</span>
+    }
+  </div>
+
+  @if (addresses().length) {
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Street</th>
+            <th>Zip</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Lat</th>
+            <th>Lng</th>
+            <th>Email</th>
+            <th>Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (a of addresses(); track a.id) {
+            <tr>
+              <td>{{ a.id }}</td>
+              <td>{{ a.lastName }}</td>
+              <td>{{ a.firstName }}</td>
+              <td>{{ a.street }}</td>
+              <td>{{ a.zip }}</td>
+              <td>{{ a.city }}</td>
+              <td>{{ a.country }}</td>
+              <td>{{ a.lat | number: '1.2-5' }}</td>
+              <td>{{ a.lng | number: '1.2-5' }}</td>
+              <td>{{ a.email }}</td>
+              <td>{{ a.dob | date: 'yyyy-MM-dd' }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  } @else if (!loading() && !error()) {
+    <div class="empty">Click <strong>Load</strong> to fetch data.</div>
+  }
+</div>
