@@ -19,7 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<start-class>ch.rasc.dataformat.Application</start-class>
 		<java.version>25</java.version>
-		<protobuf-java.version>4.33.2</protobuf-java.version>
+		<protobuf-java.version>4.34.0</protobuf-java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -75,7 +75,7 @@
 			<plugin>
 				<groupId>io.github.ascopes</groupId>
 				<artifactId>protobuf-maven-plugin</artifactId>
-				<version>5.0.0</version>
+				<version>5.0.2</version>
 				<configuration>
 					<protoc>${protobuf-java.version}</protoc>
 				</configuration>

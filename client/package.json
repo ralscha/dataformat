@@ -8,33 +8,19 @@
     "watch": "ng build --watch --configuration development",
     "format": "npx prettier --write ."
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true,
-    "trailingComma": "none",
-    "bracketSpacing": false,
-    "overrides": [
-      {
-        "files": "*.html",
-        "options": {
-          "parser": "angular"
-        }
-      }
-    ]
-  },
   "private": true,
-  "packageManager": "npm@11.10.1",
+  "packageManager": "npm@11.11.1",
   "dependencies": {
-    "@angular/common": "21.2.0",
-    "@angular/compiler": "21.2.0",
-    "@angular/core": "21.2.0",
-    "@angular/forms": "21.2.0",
-    "@angular/platform-browser": "21.2.0",
-    "@angular/router": "21.2.0",
+    "@angular/common": "21.2.4",
+    "@angular/compiler": "21.2.4",
+    "@angular/core": "21.2.4",
+    "@angular/forms": "21.2.4",
+    "@angular/platform-browser": "21.2.4",
+    "@angular/router": "21.2.4",
     "@msgpack/msgpack": "3.1.3",
-    "cbor-x": "1.6.0",
+    "cbor-x": "1.6.4",
     "echarts": "6.0.0",
-    "fast-xml-parser": "5.4.1",
+    "fast-xml-parser": "5.5.5",
     "flatbuffers": "25.9.23",
     "ngx-echarts": "21.0.0",
     "papaparse": "5.5.3",
@@ -44,9 +30,9 @@
     "tslib": "2.8.1"
   },
   "devDependencies": {
-    "@angular/build": "21.2.0",
-    "@angular/cli": "21.2.0",
-    "@angular/compiler-cli": "21.2.0",
+    "@angular/build": "21.2.2",
+    "@angular/cli": "21.2.2",
+    "@angular/compiler-cli": "21.2.4",
     "@types/papaparse": "5.5.2",
     "prettier": "3.8.1",
     "typescript": "5.9.3"
