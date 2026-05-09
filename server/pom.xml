@@ -16,6 +16,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<start-class>ch.rasc.dataformat.Application</start-class>
 		<java.version>25</java.version>
+		<flatbuffers-java.version>25.2.10</flatbuffers-java.version>
+		<flatc.version>${flatbuffers-java.version}</flatc.version>
+		<flatc.directory>${project.basedir}/.flatbuffers</flatc.directory>
+		<flatc.output.directory>${project.build.directory}/generated-sources/flatbuffers</flatc.output.directory>
 		<protobuf-java.version>4.34.1</protobuf-java.version>
 	</properties>
 	<dependencies>
@@ -56,7 +60,7 @@
 		<dependency>
 			<groupId>com.google.flatbuffers</groupId>
 			<artifactId>flatbuffers-java</artifactId>
-			<version>25.2.10</version>
+			<version>${flatbuffers-java.version}</version>
 		</dependency>
 	</dependencies>
 	<build>
@@ -85,6 +89,40 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>3.1.0</version>
+				<executions>
+					<execution>
+						<id>generate-flatbuffers</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<mkdir dir="${flatc.directory}" />
+								<mkdir dir="${flatc.output.directory}" />
+								<get src="${flatc.url}" dest="${flatc.directory}/flatc.zip"
+									skipexisting="true" />
+								<unzip src="${flatc.directory}/flatc.zip" dest="${flatc.directory}"
+									overwrite="false" />
+								<chmod file="${flatc.executable}" perm="755" osfamily="unix" />
+								<apply executable="${flatc.executable}" failonerror="true"
+									parallel="false">
+									<arg value="--java" />
+									<arg value="-o" />
+									<arg value="${flatc.output.directory}" />
+									<fileset dir="${project.basedir}/src/main/flatbuffers">
+										<include name="*.fbs" />
+									</fileset>
+								</apply>
+							</target>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
 				<executions>
@@ -104,4 +142,42 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>windows-flatc</id>
+			<activation>
+				<os>
+					<family>Windows</family>
+				</os>
+			</activation>
+			<properties>
+				<flatc.url>https://github.com/google/flatbuffers/releases/download/v${flatc.version}/Windows.flatc.binary.zip</flatc.url>
+				<flatc.executable>${flatc.directory}/flatc.exe</flatc.executable>
+			</properties>
+		</profile>
+		<profile>
+			<id>linux-flatc</id>
+			<activation>
+				<os>
+					<name>Linux</name>
+				</os>
+			</activation>
+			<properties>
+				<flatc.url>https://github.com/google/flatbuffers/releases/download/v${flatc.version}/Linux.flatc.binary.clang++-15.zip</flatc.url>
+				<flatc.executable>${flatc.directory}/flatc</flatc.executable>
+			</properties>
+		</profile>
+		<profile>
+			<id>macos-flatc</id>
+			<activation>
+				<os>
+					<family>Mac</family>
+				</os>
+			</activation>
+			<properties>
+				<flatc.url>https://github.com/google/flatbuffers/releases/download/v${flatc.version}/Mac.flatc.binary.zip</flatc.url>
+				<flatc.executable>${flatc.directory}/flatc</flatc.executable>
+			</properties>
+		</profile>
+	</profiles>
 </project>
