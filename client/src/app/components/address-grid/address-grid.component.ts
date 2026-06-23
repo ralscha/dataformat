@@ -1,4 +1,4 @@
-import {Component, OnInit, signal, input} from '@angular/core';
+import {Component, OnInit, signal, input, ChangeDetectionStrategy} from '@angular/core';
 import {DatePipe, DecimalPipe} from '@angular/common';
 import {Observable} from 'rxjs';
 import {Address} from '../../models/address';
@@ -7,6 +7,7 @@ import {Address} from '../../models/address';
   selector: 'app-address-grid',
   imports: [DatePipe, DecimalPipe],
   templateUrl: './address-grid.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './address-grid.component.css'
 })
 export class AddressGridComponent implements OnInit {

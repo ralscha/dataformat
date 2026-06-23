@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>4.0.6</version>
+    <version>4.1.0</version>
   </parent>
   <groupId>ch.rasc</groupId>
   <artifactId>dataformat</artifactId>
@@ -19,7 +19,7 @@
     <flatc.version>${flatbuffers-java.version}</flatc.version>
     <flatc.directory>${project.basedir}/.flatbuffers</flatc.directory>
     <flatc.output.directory>${project.build.directory}/generated-sources/flatbuffers</flatc.output.directory>
-    <protobuf-java.version>4.35.0</protobuf-java.version>
+    <protobuf-java.version>4.35.1</protobuf-java.version>
   </properties>
   <dependencies>
 	<dependency>
