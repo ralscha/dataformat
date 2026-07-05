@@ -1,4 +1,4 @@
-import {Component, OnInit, ChangeDetectionStrategy} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {DecimalPipe, PercentPipe} from '@angular/common';
 import {NgxEchartsDirective, provideEchartsCore} from 'ngx-echarts';
 import * as echarts from 'echarts/core';
@@ -22,7 +22,6 @@ type EChartsOption = ComposeOption<BarSeriesOption | GridComponentOption>;
   imports: [NgxEchartsDirective, DecimalPipe, PercentPipe],
   providers: [provideEchartsCore({echarts})],
   templateUrl: './result-panel.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './result-panel.component.css'
 })
 export class ResultPanelComponent implements OnInit {

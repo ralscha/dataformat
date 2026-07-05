@@ -1,7 +1,7 @@
 import {HttpClient} from '@angular/common/http';
-import {Injectable, inject} from '@angular/core';
+import {Service, inject} from '@angular/core';
 import {forkJoin, from, Observable, of} from 'rxjs';
-import {map, switchMap, tap} from 'rxjs/operators';
+import {map, tap} from 'rxjs/operators';
 
 import {decode as decodeCbor} from 'cbor-x';
 import {decode as decodeMsgpack} from '@msgpack/msgpack';
@@ -12,7 +12,7 @@ import * as protobuf from 'protobufjs';
 
 import {Address} from '../models/address';
 
-@Injectable({providedIn: 'root'})
+@Service()
 export class AddressService {
   private http = inject(HttpClient);
 

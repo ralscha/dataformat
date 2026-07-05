@@ -1,4 +1,4 @@
-import {Component, signal, inject, ChangeDetectionStrategy} from '@angular/core';
+import {Component, inject, signal} from '@angular/core';
 import {Observable} from 'rxjs';
 import {Address} from './models/address';
 import {AddressService} from './services/address.service';
@@ -16,7 +16,6 @@ interface Tab {
   standalone: true,
   imports: [AddressGridComponent, ResultPanelComponent],
   templateUrl: './app.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.css'
 })
 export class App {
