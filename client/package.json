@@ -5,11 +5,17 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "node tests/browser-smoke.mjs",
     "watch": "ng build --watch --configuration development",
     "format": "npx prettier --write ."
   },
   "private": true,
-  "packageManager": "pnpm@12.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=24.15.0"
+  },
+  "packageManager": "pnpm@12.3.2",
   "dependencies": {
     "@angular/common": "22.1.5",
     "@angular/compiler": "22.1.5",
@@ -26,10 +32,10 @@
     "papaparse": "5.7.0",
     "protobufjs": "8.8.0",
     "rxjs": "7.8.2",
-    "smile-js": "0.10.1",
     "tslib": "2.8.1"
   },
   "devDependencies": {
+    "playwright-core": "1.63.0",
     "@angular/build": "22.1.7",
     "@angular/cli": "22.1.7",
     "@angular/compiler-cli": "22.1.5",

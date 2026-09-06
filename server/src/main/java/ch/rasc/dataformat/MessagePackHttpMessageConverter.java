@@ -1,76 +1,73 @@
 package ch.rasc.dataformat;
 
 import java.io.IOException;
-import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
 
-import org.jspecify.annotations.Nullable;
-
-import org.msgpack.MessagePack;
-import org.msgpack.MessageTypeException;
+import org.msgpack.core.MessagePack;
+import org.msgpack.core.MessagePacker;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
-import org.springframework.http.converter.AbstractGenericHttpMessageConverter;
+import org.springframework.http.converter.AbstractHttpMessageConverter;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.http.converter.HttpMessageNotWritableException;
 
-public class MessagePackHttpMessageConverter
-		extends AbstractGenericHttpMessageConverter<Object> {
+/** Encodes maps and positional arrays without reflective templates. */
+public class MessagePackHttpMessageConverter extends AbstractHttpMessageConverter<List<?>> {
 
-	private final MessagePack messagePack;
-
-	public MessagePackHttpMessageConverter(MessagePack messagePack) {
+	public MessagePackHttpMessageConverter() {
 		super(new MediaType("application", "x-msgpack"));
-		this.messagePack = messagePack;
-	}
-
-	@Override
-	public boolean canRead(Class<?> clazz, MediaType mediaType) {
-		return canRead(clazz, null, mediaType);
-	}
-
-	@Override
-	public boolean canRead(Type type, @Nullable Class<?> contextClass,
-			MediaType mediaType) {
-		try {
-			return canRead(mediaType) && this.messagePack.lookup(type) != null;
-		}
-		catch (MessageTypeException ex) {
-			return false;
-		}
-	}
-
-	@Override
-	public boolean canWrite(Class<?> clazz, MediaType mediaType) {
-		try {
-			return canWrite(mediaType) && this.messagePack.lookup(clazz) != null;
-		}
-		catch (MessageTypeException ex) {
-			return false;
-		}
 	}
 
 	@Override
 	protected boolean supports(Class<?> clazz) {
-		// should not be called, since we override canRead/Write instead
-		throw new UnsupportedOperationException();
+		return List.class.isAssignableFrom(clazz);
 	}
 
 	@Override
-	protected Object readInternal(Class<?> clazz, HttpInputMessage inputMessage)
-			throws IOException, HttpMessageNotReadableException {
-		return this.messagePack.read(inputMessage.getBody(), clazz);
+	public boolean canRead(Class<?> clazz, MediaType mediaType) {
+		return false;
 	}
 
 	@Override
-	public Object read(Type type, Class<?> contextClass, HttpInputMessage inputMessage)
-			throws IOException, HttpMessageNotReadableException {
-		return this.messagePack.read(inputMessage.getBody(), type.getClass() /* ??? */);
+	protected List<?> readInternal(Class<? extends List<?>> clazz, HttpInputMessage inputMessage) {
+		throw new HttpMessageNotReadableException("MessagePack input is not supported", inputMessage);
 	}
 
 	@Override
-	protected void writeInternal(Object object, Type type,
-			HttpOutputMessage outputMessage) throws IOException {
-		this.messagePack.write(outputMessage.getBody(), object);
+	protected void writeInternal(List<?> addresses, HttpOutputMessage outputMessage) throws IOException {
+		MessagePacker packer = MessagePack.newDefaultPacker(outputMessage.getBody());
+		writeValue(packer, addresses);
+		packer.flush();
 	}
 
+	private static void writeValue(MessagePacker packer, Object value) throws IOException {
+		switch (value) {
+			case null -> packer.packNil();
+			case String text -> packer.packString(text);
+			case Integer number -> packer.packInt(number);
+			case Float number -> packer.packFloat(number);
+			case List<?> list -> {
+				packer.packArrayHeader(list.size());
+				for (Object element : list) {
+					writeValue(packer, element);
+				}
+			}
+			case Object[] array -> {
+				packer.packArrayHeader(array.length);
+				for (Object element : array) {
+					writeValue(packer, element);
+				}
+			}
+			case Map<?, ?> map -> {
+				packer.packMapHeader(map.size());
+				for (var entry : map.entrySet()) {
+					writeValue(packer, entry.getKey());
+					writeValue(packer, entry.getValue());
+				}
+			}
+			default -> throw new HttpMessageNotWritableException("Unsupported MessagePack value: " + value.getClass());
+		}
+	}
 }

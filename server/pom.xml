@@ -48,8 +48,8 @@
     </dependency>
     <dependency>
       <groupId>org.msgpack</groupId>
-      <artifactId>msgpack</artifactId>
-      <version>0.6.12</version>
+      <artifactId>msgpack-core</artifactId>
+      <version>0.9.12</version>
     </dependency>
     <dependency>
       <groupId>com.google.protobuf</groupId>
@@ -61,6 +61,11 @@
       <artifactId>flatbuffers-java</artifactId>
       <version>${flatbuffers-java.version}</version>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-test</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
   <build>
     <finalName>dataformat</finalName>
@@ -68,9 +73,6 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
-        <configuration>
-          <jvmArguments>--add-opens java.base/java.lang=ALL-UNNAMED</jvmArguments>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>io.github.ascopes</groupId>

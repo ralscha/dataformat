@@ -1,36 +1,63 @@
-<div class="result-wrapper">
-  <!-- Chart on the left -->
-  <div class="chart-pane">
-    <div echarts [options]="chartOptions" class="chart"></div>
-  </div>
-
-  <!-- Table on the right -->
-  <div class="table-pane">
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th>Format</th>
-            <th class="num">Uncompressed</th>
-            <th class="num">Vs JSON</th>
-            <th class="num">Compressed</th>
-            <th class="num">Vs JSON</th>
-            <th class="num">Space Savings</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for (row of rows; track row.format) {
-            <tr [class.highlighted]="highlightedFormat === row.format" (click)="onRowClick(row)">
-              <td>{{ row.format }}</td>
-              <td class="num">{{ row.uncompressed | number }}</td>
-              <td class="num">{{ row.uncompressedComparison / 100 | percent: '1.2-2' }}</td>
-              <td class="num">{{ row.compressed | number }}</td>
-              <td class="num">{{ row.compressedComparison / 100 | percent: '1.2-2' }}</td>
-              <td class="num">{{ row.spaceSavings / 100 | percent: '1.2-2' }}</td>
+<div class="result-toolbar">
+  <button (click)="measure()" [disabled]="loading()">
+    {{ loading() ? 'Measuring…' : 'Measure all formats' }}
+  </button>
+  <span aria-live="polite">{{ measurements().length }} / {{ formatCount }} formats measured</span>
+  <p>
+    Current response sizes in KiB (1,024 bytes). Gzip is calculated in this browser from each
+    uncompressed response body; it may differ from server compression and excludes HTTP headers.
+  </p>
+</div>
+@if (measurements().length) {
+  <div class="result-wrapper">
+    <div class="chart-pane">
+      <div echarts [options]="chartOptions()" class="chart"></div>
+    </div>
+    <div class="table-pane">
+      <div class="table-scroll">
+        <table>
+          <thead>
+            <tr>
+              <th>Format</th>
+              <th class="num">Uncompressed (KiB)</th>
+              <th class="num">Vs JSON</th>
+              <th class="num">Gzip (KiB)</th>
+              <th class="num">Vs JSON</th>
+              <th class="num">Space savings</th>
             </tr>
-          }
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            @for (row of rows(); track row.id) {
+              <tr>
+                <td>{{ row.label }}</td>
+                @if (row.error) {
+                  <td colspan="5" class="error">{{ row.error }}</td>
+                } @else {
+                  <td class="num">{{ row.uncompressed! / 1024 | number: '1.2-2' }}</td>
+                  <td class="num">
+                    {{
+                      row.uncompressedComparison === null
+                        ? '—'
+                        : (row.uncompressedComparison | percent: '1.2-2')
+                    }}
+                  </td>
+                  <td class="num">{{ row.compressed! / 1024 | number: '1.2-2' }}</td>
+                  <td class="num">
+                    {{
+                      row.compressedComparison === null
+                        ? '—'
+                        : (row.compressedComparison | percent: '1.2-2')
+                    }}
+                  </td>
+                  <td class="num">
+                    {{ row.spaceSavings === null ? '—' : (row.spaceSavings | percent: '1.2-2') }}
+                  </td>
+                }
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+}

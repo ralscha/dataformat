@@ -2,13 +2,11 @@ package ch.rasc.dataformat;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlRootElement;
-
-import org.msgpack.annotation.Message;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import tools.jackson.databind.annotation.JsonSerialize;
@@ -16,7 +14,6 @@ import tools.jackson.databind.annotation.JsonSerialize;
 import ch.rasc.dataformat.proto.AddressProtos;
 
 @XmlRootElement
-@Message
 @JsonPropertyOrder({ "id", "lastName", "firstName", "street", "zip", "city", "country",
 		"lat", "lng", "email", "dob" })
 public class Address {
@@ -65,7 +62,7 @@ public class Address {
 	}
 
 	public Map<String, Object> toMap() {
-		Map<String, Object> map = new HashMap<>();
+		Map<String, Object> map = new LinkedHashMap<>();
 		map.put("id", this.id);
 		map.put("lastName", this.lastName);
 		map.put("firstName", this.firstName);

@@ -1,5 +1,5 @@
 <div class="grid-wrapper">
-  <div class="toolbar">
+  <div class="toolbar" aria-live="polite">
     <button class="load-btn" (click)="load()" [disabled]="loading()">
       {{ loading() ? 'Loading…' : 'Load' }}
     </button>
@@ -10,8 +10,14 @@
       <span class="status error">{{ error() }}</span>
     }
     @if (!loading() && !error() && addresses().length) {
-      <span class="status">{{ addresses().length | number }} records</span>
+      <span class="status"
+        >{{ addresses().length | number }} records · {{ elapsed() | number: '1.0-1' }} ms</span
+      >
     }
+    <label class="search"
+      >Search
+      <input type="search" [value]="query()" (input)="search($any($event.target).value)" />
+    </label>
   </div>
 
   @if (addresses().length) {
@@ -33,7 +39,7 @@
           </tr>
         </thead>
         <tbody>
-          @for (a of addresses(); track a.id) {
+          @for (a of visibleAddresses(); track a.id) {
             <tr>
               <td>{{ a.id }}</td>
               <td>{{ a.lastName }}</td>
@@ -45,13 +51,37 @@
               <td>{{ a.lat | number: '1.2-5' }}</td>
               <td>{{ a.lng | number: '1.2-5' }}</td>
               <td>{{ a.email }}</td>
-              <td>{{ a.dob | date: 'yyyy-MM-dd' }}</td>
+              <td>{{ a.dob | date: 'yyyy-MM-dd' : 'UTC' }}</td>
             </tr>
           }
         </tbody>
       </table>
+      @if (!filtered().length) {
+        <div class="empty">No matching addresses.</div>
+      }
+    </div>
+    <div class="toolbar">
+      <button class="load-btn" (click)="page.set(page() - 1)" [disabled]="page() === 0">
+        Previous
+      </button>
+      <span class="status"
+        >{{ filtered().length | number }} matches · Page {{ page() + 1 }} of {{ pageCount() }}</span
+      >
+      <button
+        class="load-btn"
+        (click)="page.set(page() + 1)"
+        [disabled]="page() + 1 >= pageCount()"
+      >
+        Next
+      </button>
     </div>
   } @else if (!loading() && !error()) {
-    <div class="empty">Click <strong>Load</strong> to fetch data.</div>
+    <div class="empty">
+      @if (loaded()) {
+        No addresses returned.
+      } @else {
+        Click <strong>Load</strong> to fetch data.
+      }
+    </div>
   }
 </div>

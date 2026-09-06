@@ -1,16 +1,8 @@
 package ch.rasc.dataformat;
 
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import jakarta.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,38 +17,19 @@ public class AddressController {
 
 	private final List<Address> testData;
 
-	@Autowired
 	public AddressController(@Value("#{testData}") List<Address> testData) {
-		this.testData = Collections.unmodifiableList(testData);
+		this.testData = List.copyOf(testData);
 	}
 
-	@GetMapping(value = "/addresses", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Address> getAddressesJson() {
+	@GetMapping(value = "/addresses", produces = { MediaType.APPLICATION_JSON_VALUE,
+			"application/cbor", "application/x-jackson-smile", "text/csv" })
+	public List<Address> getAddresses() {
 		return this.testData;
 	}
 
-	@GetMapping(value = "/addressesArray", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<Object[]> getAddressesJsonArray() {
-		return this.testData.stream().map(Address::toArray).toList();
-	}
-
-	@GetMapping(value = "/addresses", produces = "application/cbor")
-	public List<Address> getAddressesCbor() {
-		return this.testData;
-	}
-
-	@GetMapping(value = "/addressesArray", produces = "application/cbor")
-	public List<Object[]> getAddressesCborArray() {
-		return this.testData.stream().map(Address::toArray).toList();
-	}
-
-	@GetMapping(value = "/addresses", produces = "application/x-jackson-smile")
-	public List<Address> getAddressesSmile() {
-		return this.testData;
-	}
-
-	@GetMapping(value = "/addressesArray", produces = "application/x-jackson-smile")
-	public List<Object[]> getAddressesSmileArray() {
+	@GetMapping(value = "/addressesArray", produces = { MediaType.APPLICATION_JSON_VALUE,
+			"application/cbor", "application/x-jackson-smile", "application/x-msgpack" })
+	public List<Object[]> getAddressesArray() {
 		return this.testData.stream().map(Address::toArray).toList();
 	}
 
@@ -65,123 +38,38 @@ public class AddressController {
 		return this.testData.stream().map(Address::toMap).toList();
 	}
 
-	@GetMapping(value = "/addressesArray", produces = "application/x-msgpack")
-	public List<Address> getAddressesMsgpackArray() {
-		return this.testData;
-	}
-
 	@GetMapping(value = "/addresses", produces = MediaType.APPLICATION_XML_VALUE)
 	public Addresses getAddressesXml() {
 		return new Addresses(this.testData);
 	}
 
-	@GetMapping(value = "/addresses", produces = "text/csv")
-	public List<Address> getAddressesCsv() {
-		return this.testData;
-	}
-
 	@GetMapping(value = "/addresses", produces = "application/x-protobuf")
 	public AddressProtos.Addresses getAddressesProto() {
-		List<AddressProtos.Address> addresses = this.testData.stream()
-				.map(Address::toProto).toList();
-		return AddressProtos.Addresses.newBuilder().addAllAddress(addresses).build();
+		return AddressProtos.Addresses.newBuilder()
+				.addAllAddress(this.testData.stream().map(Address::toProto).toList()).build();
 	}
 
 	@GetMapping(value = "/addresses", produces = "application/x-flatbuffers")
-	public void getAddressesFlatbuffer(HttpServletResponse response) throws IOException {
-		FlatBufferBuilder fbb = new FlatBufferBuilder(1_024 * 1_024);
-
-		Map<String, Integer> dictionary = new HashMap<>();
-		for (Address address : this.testData) {
-			addStringToDict(dictionary, fbb, address.getLastName());
-			addStringToDict(dictionary, fbb, address.getFirstName());
-			addStringToDict(dictionary, fbb, address.getStreet());
-			addStringToDict(dictionary, fbb, address.getZip());
-			addStringToDict(dictionary, fbb, address.getCity());
-			addStringToDict(dictionary, fbb, address.getCountry());
-			addStringToDict(dictionary, fbb, address.getEmail());
+	public byte[] getAddressesFlatbuffer() {
+		FlatBufferBuilder builder = new FlatBufferBuilder(1_024);
+		int[] offsets = new int[this.testData.size()];
+		for (int i = 0; i < offsets.length; i++) {
+			Address address = this.testData.get(i);
+			// Strings must be written before starting their table.
+			offsets[i] = ch.rasc.dataformat.fb.Address.createAddress(builder, address.getId(),
+					builder.createSharedString(address.getLastName()),
+					builder.createSharedString(address.getFirstName()),
+					builder.createSharedString(address.getStreet()),
+					builder.createSharedString(address.getZip()),
+					builder.createSharedString(address.getCity()),
+					builder.createSharedString(address.getCountry()),
+					address.getLat(), address.getLng(),
+					builder.createSharedString(address.getEmail()),
+					(int) address.getDob().toEpochDay());
 		}
-
-		List<Integer> addressOffsets = new ArrayList<>();
-		for (Address address : this.testData) {
-			ch.rasc.dataformat.fb.Address.startAddress(fbb);
-			ch.rasc.dataformat.fb.Address.addId(fbb, address.getId());
-
-			int offset = getDictOffset(dictionary, address.getLastName());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addLastName(fbb, offset);
-			}
-
-			offset = getDictOffset(dictionary, address.getFirstName());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addFirstName(fbb, offset);
-			}
-
-			offset = getDictOffset(dictionary, address.getStreet());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addStreet(fbb, offset);
-			}
-
-			offset = getDictOffset(dictionary, address.getZip());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addZip(fbb, offset);
-			}
-
-			offset = getDictOffset(dictionary, address.getCity());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addCity(fbb, offset);
-			}
-
-			offset = getDictOffset(dictionary, address.getCountry());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addCountry(fbb, offset);
-			}
-
-			ch.rasc.dataformat.fb.Address.addLat(fbb, address.getLat());
-			ch.rasc.dataformat.fb.Address.addLng(fbb, address.getLng());
-
-			offset = getDictOffset(dictionary, address.getEmail());
-			if (offset != -1) {
-				ch.rasc.dataformat.fb.Address.addEmail(fbb, offset);
-			}
-
-			if (address.getDob() != null) {
-				ch.rasc.dataformat.fb.Address.addDob(fbb,
-						(int) address.getDob().toEpochDay());
-			}
-
-			addressOffsets.add(ch.rasc.dataformat.fb.Address.endAddress(fbb));
-		}
-
-		int vector = ch.rasc.dataformat.fb.Addresses.createAddressVector(fbb,
-				addressOffsets.stream().mapToInt(Integer::intValue).toArray());
-		ch.rasc.dataformat.fb.Addresses.startAddresses(fbb);
-		ch.rasc.dataformat.fb.Addresses.addAddress(fbb, vector);
-		int root = ch.rasc.dataformat.fb.Addresses.endAddresses(fbb);
-
-		ch.rasc.dataformat.fb.Addresses.finishAddressesBuffer(fbb, root);
-
-		response.setContentType("application/x-flatbuffers");
-		byte[] bytes = fbb.sizedByteArray();
-		response.setContentLength(bytes.length);
-		response.getOutputStream().write(bytes);
-	}
-
-	private static int getDictOffset(Map<String, Integer> dictionary, String str) {
-		Integer offset = dictionary.get(str);
-		if (offset != null) {
-			return offset.intValue();
-		}
-		return -1;
-	}
-
-	private static void addStringToDict(Map<String, Integer> dictionary,
-			FlatBufferBuilder fbb, String str) {
-		if (str != null) {
-			if (!dictionary.containsKey(str)) {
-				int offset = fbb.createString(str);
-				dictionary.put(str, offset);
-			}
-		}
+		int vector = ch.rasc.dataformat.fb.Addresses.createAddressVector(builder, offsets);
+		int root = ch.rasc.dataformat.fb.Addresses.createAddresses(builder, vector);
+		ch.rasc.dataformat.fb.Addresses.finishAddressesBuffer(builder, root);
+		return builder.sizedByteArray();
 	}
 }

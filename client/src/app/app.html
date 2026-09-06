@@ -1,12 +1,17 @@
 <div class="app-shell">
   <!-- Tab bar -->
-  <nav class="tab-bar" role="tablist">
+  <nav class="tab-bar" role="tablist" aria-label="Data formats">
     @for (tab of tabs; track tab.label; let i = $index) {
       <button
         role="tab"
         class="tab-btn"
         [class.active]="activeIndex() === i"
+        [id]="'tab-' + i"
+        [attr.aria-selected]="activeIndex() === i"
+        [attr.aria-controls]="'panel-' + i"
+        [tabIndex]="activeIndex() === i ? 0 : -1"
         (click)="selectTab(i)"
+        (keydown)="onTabKey($event, i)"
       >
         {{ tab.label }}
       </button>
@@ -16,11 +21,17 @@
   <!-- Tab panels (kept in DOM but hidden via CSS so components are not destroyed) -->
   <div class="tab-content">
     @for (tab of tabs; track tab.label; let i = $index) {
-      <div class="tab-panel" [class.visible]="activeIndex() === i">
-        @if (tab.type === 'grid' && tab.loader) {
+      <div
+        class="tab-panel"
+        [class.visible]="activeIndex() === i"
+        role="tabpanel"
+        [id]="'panel-' + i"
+        [attr.aria-labelledby]="'tab-' + i"
+      >
+        @if (visited().has(i) && tab.type === 'grid' && tab.loader) {
           <app-address-grid [loader]="tab.loader" />
         }
-        @if (tab.type === 'result') {
+        @if (visited().has(i) && tab.type === 'result') {
           <app-result-panel />
         }
       </div>
