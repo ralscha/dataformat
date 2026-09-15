@@ -1,6 +1,0 @@
-allowBuilds:
-  '@parcel/watcher': false
-  cbor-extract: false
-  esbuild: true
-  lmdb: false
-  msgpackr-extract: false
